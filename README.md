@@ -62,3 +62,7 @@ Sponsorships -> memberships and points systems for purchases in partnered busine
 Expansion -> Porto but possible district expansion.
 QR codes to download the app in coffee shops and other partner
 Porto-related announcements and other adverts
+
+ [...]
+
+## UML
