@@ -13,8 +13,9 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     final Size screenSize = MediaQuery.of(context).size;
     return Scaffold(
+      backgroundColor: Colors.white,
       appBar: AppBar(
-        backgroundColor: Colors.black,
+        backgroundColor: Colors.white,
       ),
       body: Center(
         child: Column(
@@ -24,14 +25,14 @@ class _HomePageState extends State<HomePage> {
               alignment: Alignment.center,
               child: SizedBox(
                 width: screenSize.width * 0.25,
-                height: screenSize.height * 0.55,
+                height: screenSize.height * 0.60,
                 child: Padding(
                   padding: const EdgeInsets.only(top: 20.0),
                   child: Card(
                     color: Colors.black,
-                    elevation: 15, // Adiciona sombra ao Card
+                    elevation: 15,
                     shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(30), // Ajusta a curvatura das bordas
+                      borderRadius: BorderRadius.circular(30),
                     ),
                     child: Padding(
                       padding: const EdgeInsets.all(20.0),
@@ -46,7 +47,7 @@ class _HomePageState extends State<HomePage> {
                               fontSize: 20,
                             ),
                           ),
-                          const SizedBox(height: 10), // Espaçamento entre os parágrafos
+                          const SizedBox(height: 5), // Espaço entre as frases
                           const Text(
                             'Are you sure you want to continue as a guest?',
                             style: TextStyle(
@@ -84,11 +85,11 @@ class _HomePageState extends State<HomePage> {
             ),
             const Flexible(
               child: Align(
-                alignment: AlignmentDirectional(0, 1.5),
+                alignment: AlignmentDirectional.bottomCenter,
                 child: Text(
                   '2024 © All rights reserved.',
                   style: TextStyle(
-                      fontWeight: FontWeight.w300, fontSize: 15),
+                      fontWeight: FontWeight.w300, fontSize: 10),
                   textAlign: TextAlign.center,
                 ),
               ),
