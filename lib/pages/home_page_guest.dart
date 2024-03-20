@@ -47,7 +47,6 @@ class _HomePageState extends State<HomePage> {
                               fontSize: 20,
                             ),
                           ),
-                          const SizedBox(height: 5), // Espaço entre as frases
                           const Text(
                             'Are you sure you want to continue as a guest?',
                             style: TextStyle(
@@ -63,7 +62,11 @@ class _HomePageState extends State<HomePage> {
                                 onPressed: () {
                                   // pagina depois do yes
                                 },
-                                child: const Text('Yes'),
+                                child: const Text('Yes',
+                                    style: TextStyle(
+                                      color: Color.fromRGBO(140, 45, 25, 1.0),
+                                    )
+                                ),
                               ),
                               ElevatedButton(
                                 onPressed: () {
@@ -72,7 +75,11 @@ class _HomePageState extends State<HomePage> {
                                     MaterialPageRoute(builder: (context) => const LoginPage()),
                                   );
                                 },
-                                child: const Text('No'),
+                                child: const Text('No',
+                                  style: TextStyle(
+                                    color: Color.fromRGBO(140, 45, 25, 1.0),
+                                  )
+                                ),
                               ),
                             ],
                           ),
