@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:study_at/pages/home_page.dart';
+import 'package:study_at/pages/home_page_guest.dart';
 
 class LoginPage extends StatelessWidget {
   const LoginPage({super.key});
@@ -10,7 +10,7 @@ class LoginPage extends StatelessWidget {
         backgroundColor: Colors.white,
         body: Center(
             child: Padding(
-                padding: EdgeInsets.symmetric(horizontal: 1.0),
+                padding: const EdgeInsets.symmetric(horizontal: 1.0),
                 child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
@@ -32,17 +32,14 @@ class LoginPage extends StatelessWidget {
                         onTap: () => Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => HomePage(),
+                            builder: (context) => const HomePage(),
                           )
                         ),
-                        
-                        child: Container(
                           child: const Center(
                             child: Text('Continue as guest',
                             style: TextStyle(fontSize: 15))
                           )
                         ),
-                      ),
 
                       const Flexible(
                         child: Align(
@@ -58,22 +55,22 @@ class LoginPage extends StatelessWidget {
 
                       Flexible(
                         child: Align(
-                          alignment: AlignmentDirectional(0, 1),
+                          alignment: const AlignmentDirectional(0, 1),
                           child: ClipRRect(
                             borderRadius: BorderRadius.circular(8),
                             child: Image.asset(
                               'lib/images/porto.png',
                               height: 110,
                               fit: BoxFit.cover,
-                              alignment: Alignment(0, 0),
+                              alignment: const Alignment(0, 0),
                             ),
                           ),
                         ),
                       ),
-
-
-
-
-                    ]))));
+                    ]
+                )
+            )
+        )
+    );
   }
 }
