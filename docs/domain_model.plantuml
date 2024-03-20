@@ -1,0 +1,68 @@
+@startuml study@
+left to right direction
+
+class User {
+    username
+    profilePicture
+}
+
+class Review {
+    rating
+    comment
+}
+
+class Location {
+    name
+    image
+    address
+    score
+    schedule
+    email
+    phone
+}
+
+class Achievement {
+    name
+    time
+    date 
+    rarity
+    level
+}
+
+class Tag {
+    name 
+}
+
+class GPS {
+    latitude
+    longitude
+}
+
+class RegisteredStudent {
+    university
+    reviews
+    email
+    password
+}
+
+class UnregisteredStudent {}
+
+class Admin {
+    email
+    password
+}
+
+
+User "1" -- "*" Review
+Location "*" -- "*" Tag
+Review "*" -- "1" Location
+User "*" -- "*" Achievement
+Location "*" -- "*" Achievement
+User "*" -- "1" GPS
+Location "1" -- "1" GPS
+User <|-- RegisteredStudent
+User <|-- UnregisteredStudent
+User <|-- Admin
+
+
+@enduml
