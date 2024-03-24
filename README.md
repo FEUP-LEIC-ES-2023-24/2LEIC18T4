@@ -58,7 +58,6 @@ As such, we have arrived at a central theme:
 ### Domain Model
 
 ![domain_model.png](out/docs/UML/domain_model/study@.png)
-![domain_model.svg](out/docs/UML/domain_model/study@.svg)
 ## Architecture and Design
 
 ### Logical Architecture
