@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentStyleType="text/css" height="212px" preserveAspectRatio="none" style="width:267px;height:212px;background:#FFFFFF;" version="1.1" viewBox="0 0 267 212" width="267px" zoomAndPan="magnify"><defs/><g><text fill="#33FF02" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="230" x="5" y="19">Dot Executable: /opt/local/bin/dot</text><text fill="#33FF02" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="127" x="5" y="35.7999">File does not exist</text><text fill="#33FF02" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="255" x="5" y="52.5999">Cannot find Graphviz. You should try</text><text fill="#33FF02" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="4" x="5" y="69.3998"> </text><text fill="#33FF02" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="70" x="5" y="86.1997">@startuml</text><text fill="#33FF02" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="49" x="5" y="102.9996">testdot</text><text fill="#33FF02" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="65" x="5" y="119.7996">@enduml</text><text fill="#33FF02" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="4" x="5" y="136.5995"> </text><text fill="#33FF02" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="14" x="9" y="153.3994">or</text><text fill="#33FF02" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="4" x="5" y="170.1993"> </text><text fill="#33FF02" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="197" x="5" y="186.9993">java -jar plantuml.jar -testdot</text><text fill="#33FF02" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="4" x="5" y="203.7992"> </text><!--MD5=[592ab1f525dcb0be8776a92e4b9d64fb]
+@startuml study@
+left to right direction
+
+class User {
+    username
+    profilePicture
+}
+
+class Review {
+    rating
+    comment
+}
+
+class Location {
+    name
+    image
+    address
+    score
+    schedule
+    email
+    phone
+}
+
+class Achievement {
+    name
+    time
+    date 
+    rarity
+    level
+}
+
+class Tag {
+    name 
+}
+
+class GPS {
+    latitude
+    longitude
+}
+
+class RegisteredStudent {
+    university
+    reviews
+    email
+    password
+}
+
+class UnregisteredStudent {}
+
+class Admin {
+    email
+    password
+}
+
+
+User "1" - - "*" Review
+Location "*" - - "*" Tag
+Review "*" - - "1" Location
+User "*" - - "*" Achievement
+Location "*" - - "*" Achievement
+User "*" - - "1" GPS
+Location "1" - - "1" GPS
+User <|- - RegisteredStudent
+User <|- - UnregisteredStudent
+User <|- - Admin
+
+
+@enduml
+
+PlantUML version 1.2022.7(Mon Aug 22 18:01:30 WEST 2022)
+(GPL source distribution)
+Java Runtime: OpenJDK Runtime Environment
+JVM: OpenJDK 64-Bit Server VM
+Default Encoding: UTF-8
+Language: en
+Country: GB
+--></g></svg>
