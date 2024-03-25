@@ -57,10 +57,11 @@ As such, we have arrived at a central theme:
 
 ### Domain Model
 
-![domain_model.png](out/docs/UML/domain_model/study@.png)
+![domain_model.png](out/docs/UML/domain_model/study@.svg)
 ## Architecture and Design
 
 ### Logical Architecture
+![logical_architecture](out/docs/UML/logical_arquitecture/study@.svg)
 ### Physical Architecture
 ### Vertical Prototype
 
