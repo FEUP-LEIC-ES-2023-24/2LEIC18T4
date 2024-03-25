@@ -24,8 +24,8 @@ class _HomePageState extends State<HomePage> {
             Align(
               alignment: Alignment.center,
               child: SizedBox(
-                width: screenSize.width * 0.25,
-                height: screenSize.height * 0.60,
+                width: screenSize.width * 0.60,
+                height: screenSize.height * 0.50,
                 child: Padding(
                   padding: const EdgeInsets.only(top: 20.0),
                   child: Card(
