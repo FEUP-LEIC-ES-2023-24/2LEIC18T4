@@ -8,21 +8,22 @@ class BottomNavBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-        child: GNav(
-            color: Colors.black,
-            activeColor: Colors.black,
-            tabActiveBorder: Border.all(color: Colors.black),
-            tabBorderRadius: 50,
-            tabMargin: EdgeInsets.all(7.5),
-            haptic: true,
-            onTabChange: (value) => onTabChange!(value),
-            tabs: [
-              GButton(icon: Icons.home, text: 'Home'),
-              GButton(icon: Icons.stars, text: 'Starred'),
-              GButton(icon: Icons.emoji_events, text: 'Discover@'),
-              GButton(icon: Icons.account_circle, text: 'Account')
-            ],
-          ),
-        );
+      child: GNav(
+        color: Colors.black,
+        activeColor: Colors.black,
+        tabActiveBorder: Border.all(color: Colors.black),
+        tabBorderRadius: 50,
+        tabMargin: EdgeInsets.all(1),
+        haptic: true,
+        iconSize: 20,
+        onTabChange: (value) => onTabChange!(value),
+        tabs: [
+          GButton(icon: Icons.home, text: 'Home', gap: 3,),
+          GButton(icon: Icons.stars, text: 'Starred', gap: 3),
+          GButton(icon: Icons.emoji_events, text: 'Discover@', gap: 3),
+          GButton(icon: Icons.account_circle, text: 'Account', gap: 3)
+        ],
+      ),
+    );
   }
 }
