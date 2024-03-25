@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:study_at/pages/landing_page.dart';
 import 'package:study_at/pages/login_page.dart';
 import 'package:study_at/pages/map.dart';
 
@@ -64,7 +65,8 @@ class _HomePageState extends State<HomePage> {
                                   Navigator.push(
                                     context,
                                     MaterialPageRoute(
-                                        builder: (context) => MapPage()),
+                                        // TESTING - DEBUG
+                                        builder: (context) => LandingPage()),
                                   );
                                 },
                                 child: const Text('Yes',
