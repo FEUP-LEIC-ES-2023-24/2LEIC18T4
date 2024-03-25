@@ -14,8 +14,8 @@ class LoginPage extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             const Padding(
-              padding:  EdgeInsets.only(top: 150),
-              child:  Text(
+              padding: EdgeInsets.only(top: 150),
+              child: Text(
                 'Welcome to Study@',
                 style: TextStyle(
                   fontWeight: FontWeight.w800,

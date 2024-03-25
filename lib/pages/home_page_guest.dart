@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:study_at/pages/login_page.dart';
+import 'package:study_at/pages/map.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -60,26 +61,30 @@ class _HomePageState extends State<HomePage> {
                             children: [
                               ElevatedButton(
                                 onPressed: () {
-                                  // pagina depois do yes
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) => MapPage()),
+                                  );
                                 },
                                 child: const Text('Yes',
                                     style: TextStyle(
                                       color: Color.fromRGBO(140, 45, 25, 1.0),
-                                    )
-                                ),
+                                    )),
                               ),
                               ElevatedButton(
                                 onPressed: () {
                                   Navigator.push(
                                     context,
-                                    MaterialPageRoute(builder: (context) => const LoginPage()),
+                                    MaterialPageRoute(
+                                        builder: (context) =>
+                                            const LoginPage()),
                                   );
                                 },
                                 child: const Text('No',
-                                  style: TextStyle(
-                                    color: Color.fromRGBO(140, 45, 25, 1.0),
-                                  )
-                                ),
+                                    style: TextStyle(
+                                      color: Color.fromRGBO(140, 45, 25, 1.0),
+                                    )),
                               ),
                             ],
                           ),
@@ -95,8 +100,7 @@ class _HomePageState extends State<HomePage> {
                 alignment: AlignmentDirectional.bottomCenter,
                 child: Text(
                   '2024 © All rights reserved.',
-                  style: TextStyle(
-                      fontWeight: FontWeight.w300, fontSize: 10),
+                  style: TextStyle(fontWeight: FontWeight.w300, fontSize: 10),
                   textAlign: TextAlign.center,
                 ),
               ),
