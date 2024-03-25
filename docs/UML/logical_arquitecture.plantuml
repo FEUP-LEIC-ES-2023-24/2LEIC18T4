@@ -1,0 +1,62 @@
+@startuml study@
+left to right direction
+
+package "Logical Architecture" {
+
+    package "Log in" {
+        package "Log in UI" {}
+        package "Log in Logic" {}
+    }
+
+    package "External Services" {
+        package "Firebase" {}
+        package "Open Street Map Search" {}
+        package "Geocoding" {}
+        package "STCP" {}
+    }
+
+    package "Home" {
+        package "Home UI" {}
+        package "Home Logic" {}
+    }
+
+    package "Profile, Reviews and Achievements" {
+        package "Profile, Reviews and Achievements UI" {}
+        package "Profile, Reviews and Achievements Logic" {}
+        package "Profile, Reviews and Achievements Database" {}
+    }
+
+    package "Location Info" {
+        package "Location Info UI" {}
+        package "Location Info Logic" {}
+        package "Location Info Database" {}
+    }
+
+    package "Search" {
+        package "Search UI" {}
+        package "Search Logic" {}
+        package "Search Database" {}
+    }
+
+    "Log in UI" ..> "Log in Logic"
+    "Log in Logic" ..> "Firebase"
+    "Home UI" ..> "Home Logic"
+    "Home Logic" ..> "Open Street Map Search"
+    "Profile, Reviews and Achievements UI" ..> "Profile, Reviews and Achievements Logic"
+    "Profile, Reviews and Achievements Logic" ..> "Profile, Reviews and Achievements Database"
+    "Profile, Reviews and Achievements Database" ..> "Firebase"
+    "Location Info UI" ..> "Location Info Logic"
+    "Location Info Logic"..> "Location Info Database"
+    "Location Info Logic" ..> "Geocoding"
+    "Location Info Database" ..> "Firebase"
+    "Search UI" ..> "Search Logic"
+    "Search Logic" ..> "Search Database"
+    "Search Database" ..> "Open Street Map Search"
+    "Search Logic" ..> "STCP"
+    "Location Info Logic" ..> "STCP"
+
+}
+
+
+
+@enduml
