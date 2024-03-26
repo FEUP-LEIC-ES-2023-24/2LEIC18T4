@@ -21,8 +21,8 @@ This Project was Developed for ESOF 2023/2024 by:
 - Clara Paulino Barros Sousa  	                        (up202207582@up.pt)
 - João Vicente Pereira Mendes 	                        (up202208586@up.pt)
 - Miguel Moita Caseira 	                                (up202207678@up.pt)
-- Pedro Trindade Gonçalves Cadilhe Santos 	            (up202205900@up.pt)
-- Rodrigo Dias Ferreira Loureiro de Sousa 	            (up202205751@up.pt)
+- Pedro Trindade Gonçalves Cadilhe Santos 	        (up202205900@up.pt)
+- Rodrigo Dias Ferreira Loureiro de Sousa 	        (up202205751@up.pt)
 ```
 
 ## Business Modeling
