@@ -15,14 +15,15 @@ Documentation for the Study@ App from a high-level vision to low-level implement
   - [Project Management](#project-management)
     - [Sprint 0 Board](#sprint-0-board)
 
-
+```
 This Project was Developed for ESOF 2023/2024 by:
-- Afonso Pedro Maia de Castro 	            (up202208026@up.pt)
-- Clara Paulino Barros Sousa 	              (up202207582@up.pt)
-- João Vicente Pereira Mendes 	            (up202208586@up.pt)
-- Miguel Moita Caseira 	                    (up202207678@up.pt)
-- Pedro Trindade Gonçalves Cadilhe Santos 	(up202205900@up.pt)
-- Rodrigo Dias Ferreira Loureiro de Sousa 	(up202205751@up.pt)
+- Afonso Pedro Maia de Castro 	                        (up202208026@up.pt)
+- Clara Paulino Barros Sousa  	                        (up202207582@up.pt)
+- João Vicente Pereira Mendes 	                        (up202208586@up.pt)
+- Miguel Moita Caseira 	                                (up202207678@up.pt)
+- Pedro Trindade Gonçalves Cadilhe Santos 	            (up202205900@up.pt)
+- Rodrigo Dias Ferreira Loureiro de Sousa 	            (up202205751@up.pt)
+```
 
 ## Business Modeling
 
@@ -33,7 +34,7 @@ As such, we have arrived at a central theme:
 ## Product Vision
 **If you are a student come and find your ideal study spot with our app, where productivity meets sustainability in every click!**
 
- [...]
+
  
 
 ### Features and Assumptions
@@ -67,9 +68,9 @@ As such, we have arrived at a central theme:
 ## Architecture and Design
 
 ### Logical Architecture
-![logical_architecture](out/docs/UML/logical_arquitecture/study@.svg)
+![logical_architecture](out/docs/UML/logical_architecture/study@.svg)
 
-> Note: The PlantUML code for UML can be found [here](docs/UML/logical_arquitecture.plantuml)
+> Note: The PlantUML code for UML can be found [here](docs/UML/logical_architecture.plantuml)
  
 > Alternate [png](out/docs/UML/logical_architecture/study@.png)
 
@@ -85,5 +86,5 @@ The project has 6 columns: **User Stories**, **Product Backlog**, **Sprint Backl
 ![sprint0_board](docs/pictures/sprint-boards/Sprint0.png)
 
 
-For this Sprint, We organized all user stories that we have made in the **User Stories** Column and began sorting from there to the **Pproduct Backlog**. We then moved the ones that we thought were essential to start off with to the **Sprint Backlog** to work with them. In the Sprint Backlog we also added the points that we had to deliver until the end of this sprint, such as UMLs and Prototypes.
+For this Sprint, We organized all user stories that we have made in the **User Stories** Column and began sorting from there to the **Product Backlog**. We then moved the ones that we thought were essential to start off with to the **Sprint Backlog** to work with them. In the Sprint Backlog we also added the points that we had to deliver until the end of this sprint, such as UMLs and Prototypes.
 All User Stories can be found [here](https://github.com/FEUP-LEIC-ES-2023-24/2LEIC18T4/labels/user-story), highlighted with the tag `user-story`
