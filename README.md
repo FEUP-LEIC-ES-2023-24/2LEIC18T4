@@ -66,3 +66,7 @@ As such, we have arrived at a central theme:
 ### Vertical Prototype
 
 ## Project Management
+
+### Sprint 0 Board
+
+![sprint0_board](docs/pictures/sprint-boards/Sprint0.png)
