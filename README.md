@@ -61,7 +61,7 @@ As such, we have arrived at a central theme:
 
 ![domain_model.png](out/docs/UML/domain_model/study@.svg)
 > Note: The PlantUML code for UML can be found [here](docs/UML/domain_model.plantuml)
-> 
+ 
 > Alternate [png](out/docs/UML/domain_model/study@.png)
  
 ## Architecture and Design
@@ -70,6 +70,7 @@ As such, we have arrived at a central theme:
 ![logical_architecture](out/docs/UML/logical_arquitecture/study@.svg)
 
 > Note: The PlantUML code for UML can be found [here](docs/UML/logical_arquitecture.plantuml)
+ 
 > Alternate [png](out/docs/UML/logical_architecture/study@.png)
 
 ### Physical Architecture
@@ -85,4 +86,4 @@ The project has 6 columns: **User Stories**, **Product Backlog**, **Sprint Backl
 
 
 For this Sprint, We organized all user stories that we have made in the **User Stories** Column and began sorting from there to the **Pproduct Backlog**. We then moved the ones that we thought were essential to start off with to the **Sprint Backlog** to work with them. In the Sprint Backlog we also added the points that we had to deliver until the end of this sprint, such as UMLs and Prototypes.
-All User Stories can be found on the [issues](https://github.com/FEUP-LEIC-ES-2023-24/2LEIC18T4/issues?page=2&q=is%3Aissue+is%3Aopen), highlighted with the tag `user-story`
+All User Stories can be found [here](https://github.com/FEUP-LEIC-ES-2023-24/2LEIC18T4/labels/user-story), highlighted with the tag `user-story`
