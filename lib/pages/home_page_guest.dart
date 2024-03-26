@@ -101,7 +101,7 @@ class _HomePageState extends State<HomePage> {
               child: Align(
                 alignment: AlignmentDirectional.bottomCenter,
                 child: Text(
-                  '2024 © All rights reserved.',
+                  'Copyright © 2024 Study@. All Rights Reserved.',
                   style: TextStyle(fontWeight: FontWeight.w300, fontSize: 10),
                   textAlign: TextAlign.center,
                 ),
