@@ -18,7 +18,7 @@ class BottomNavBar extends StatelessWidget {
         iconSize: 20,
         onTabChange: (value) => onTabChange!(value),
         tabs: [
-          GButton(icon: Icons.home, text: 'Home', gap: 3,),
+          GButton(icon: Icons.home, text: 'Home', gap: 3),
           GButton(icon: Icons.stars, text: 'Starred', gap: 3),
           GButton(icon: Icons.emoji_events, text: 'Discover@', gap: 3),
           GButton(icon: Icons.account_circle, text: 'Account', gap: 3)
