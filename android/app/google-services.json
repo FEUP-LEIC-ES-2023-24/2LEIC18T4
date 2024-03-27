@@ -1,6 +1,7 @@
 {
   "project_info": {
     "project_number": "206182314858",
+    "firebase_url": "https://studyatapp-default-rtdb.europe-west1.firebasedatabase.app",
     "project_id": "studyatapp",
     "storage_bucket": "studyatapp.appspot.com"
   },

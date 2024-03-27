@@ -11,12 +11,18 @@ class MapPage extends StatefulWidget {
 }
 
 class _MapPageState extends State<MapPage> {
-  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-          ),
+        actions: [
+          IconButton(
+              onPressed: () {
+                Scaffold.of(context).openDrawer();
+              },
+              icon: Icon(Icons.list))
+        ],
+      ),
       body: FlutterMap(
           options: MapOptions(
             center: LatLng(41.1780, -8.5980), // Coordenadas feup por enquanto
