@@ -75,6 +75,7 @@ As such, we have arrived at a central theme:
 > Alternate [png](out/docs/UML/logical_architecture/study@.png)
 
 ### Physical Architecture
+![physical_architecture](docs/pictures/uml/physical.png)
 ### Vertical Prototype
 
 ## Project Management
