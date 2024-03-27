@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:study_at/components/bottom_nav_bar.dart';
-import 'package:study_at/debug_pages/database_add.dart';
-import 'package:study_at/debug_pages/database_remove.dart';
+import 'package:study_at/debug_pages/database_page.dart';
 import 'package:study_at/pages/account_page.dart';
 import 'package:study_at/pages/discover_page.dart';
 import 'package:study_at/pages/map.dart';
@@ -28,8 +27,7 @@ class _LandingPageState extends State<LandingPage> {
     const StarredPage(),
     const DiscoverPage(),
     const AccountPage(),
-    const DatabaseAdd(),
-    const DatabaseRemove(),
+    const DatabasePage(),
   ];
 
   @override
@@ -40,7 +38,7 @@ class _LandingPageState extends State<LandingPage> {
 
       // Debug menu - do not ship in final version
       drawer: Drawer(
-        backgroundColor: Colors.black,
+        backgroundColor: Colors.black87,
         child: ListView(
           padding: EdgeInsets.zero,
           children: [
@@ -53,24 +51,13 @@ class _LandingPageState extends State<LandingPage> {
                   style: TextStyle(fontSize: 32, fontWeight: FontWeight.w700),
                 )),
             ListTile(
-              title: const Text('Database - Add',
+              title: const Text('Database',
                   style: TextStyle(color: Colors.white)),
-              leading: Icon(Icons.add),
+              leading: Icon(Icons.collections_bookmark),
               iconColor: Colors.white,
               onTap: () {
                 setState(() {
                   _navBarIndex = 4;
-                });
-              },
-            ),
-            ListTile(
-              title: Text('Database - Remove',
-                  style: TextStyle(color: Colors.white)),
-              leading: Icon(Icons.remove),
-              iconColor: Colors.white,
-              onTap: () {
-                setState(() {
-                  _navBarIndex = 5;
                 });
               },
             ),

@@ -9,7 +9,12 @@ final TextEditingController imagelinkController = TextEditingController();
 const List<String> list = <String>['Café', 'Library', 'Hotel lobby'];
 String dropdownValue = list.first;
 
-void createBottom(BuildContext context) {
+void updateBottom(
+    BuildContext context, name, latitude, longitude, imageLink, type, id) {
+  nameController.text = name;
+  latitudeController.text = latitude;
+  longitudeController.text = longitude;
+  imagelinkController.text = imageLink;
   showModalBottomSheet(
       isScrollControlled: true,
       context: context,
@@ -21,7 +26,7 @@ void createBottom(BuildContext context) {
             mainAxisSize: MainAxisSize.min,
             children: [
               Center(
-                child: Text("Create a location",
+                child: Text("Update a location",
                     style:
                         TextStyle(fontSize: 30, fontWeight: FontWeight.w800)),
               ),
@@ -50,25 +55,19 @@ void createBottom(BuildContext context) {
               ),
               Align(alignment: Alignment.centerLeft, child: DropdownWidget()),
               const SizedBox(height: 20),
+
               ElevatedButton(
                 onPressed: () {
-                  final id = DateTime.now().microsecond.toString();
-                  databaseReference.child(id).set({
+                  databaseReference.child(id).update({
                     'name': nameController.text.toString(),
                     'latitude': latitudeController.text.toString(),
                     'longitude': longitudeController.text.toString(),
                     'imageLink': imagelinkController.text.toString(),
                     'type': dropdownValue, // Corresponding element,
-                    'id': id // unique id everytime - based on unix
                   });
-
-                  nameController.clear();
-                  latitudeController.clear();
-                  longitudeController.clear();
-                  imagelinkController.clear();
                   Navigator.pop(context);
                 },
-                child: Text('Add location'),
+                child: Text('Update location'),
                 style: ButtonStyle(
                     foregroundColor:
                         MaterialStateProperty.all<Color>(Colors.white),
