@@ -78,16 +78,14 @@ As such, we have arrived at a central theme:
 ![physical_architecture](docs/pictures/uml/physical.png)
 ### Vertical Prototype
 <img src="docs/screenshots/landing_page.png" width="360" height="740">
-![screenshot1](docs/screenshots/landing_page.png =360x740)
-![screenshot2](docs/screenshots/guest_popup.png)
-![screenshot3](docs/screenshots/home_screen_map.png)
-![screenshot4](docs/screenshots/other_navbar_pages.png)
-![screenshot5](docs/screenshots/debug_menu_drawer.png)
-![screenshot6](docs/screenshots/database_menu.png)
-![screenshot7](docs/screenshots/create_location.png)
-![screenshot8](docs/screenshots/item_details_popup.png)
-![screenshot9](docs/screenshots/edit_location.png)
-
+<img src="docs/screenshots/guest_popup.png" width="360" height="740">
+<img src="docs/screenshots/home_screen_map.png" width="360" height="740">
+<img src="docs/screenshots/other_navbar_pages.png" width="360" height="740">
+<img src="docs/screenshots/debug_menu_drawer.png" width="360" height="740">
+<img src="docs/screenshots/database_menu.png" width="360" height="740">
+<img src="docs/screenshots/create_location.png" width="360" height="740">
+<img src="docs/screenshots/item_details_popup.png" width="360" height="740">
+<img src="docs/screenshots/edit_location.png" width="360" height="740">
 
 ## Project Management
 In order to facilitate team communication and organization, [GitHub Projects](https://github.com/orgs/FEUP-LEIC-ES-2023-24/projects/74) was used to do the Project Management of this project.
