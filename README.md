@@ -77,6 +77,7 @@ As such, we have arrived at a central theme:
 ### Physical Architecture
 ![physical_architecture](docs/pictures/uml/physical.png)
 ### Vertical Prototype
+<img src="docs/screenshots/landing_page.png" width="360" height="740">
 ![screenshot1](docs/screenshots/landing_page.png =360x740)
 ![screenshot2](docs/screenshots/guest_popup.png)
 ![screenshot3](docs/screenshots/home_screen_map.png)
