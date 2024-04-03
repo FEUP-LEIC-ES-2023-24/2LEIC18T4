@@ -77,6 +77,16 @@ As such, we have arrived at a central theme:
 ### Physical Architecture
 ![physical_architecture](docs/pictures/uml/physical.png)
 ### Vertical Prototype
+![screenshot1](docs/screenshots/landing_page.png)
+![screenshot2](docs/screenshots/guest_popup.png)
+![screenshot3](docs/screenshots/home_screen_map.png)
+![screenshot4](docs/screenshots/other_navbar_pages.png)
+![screenshot5](docs/screenshots/debug_menu_drawer.png)
+![screenshot6](docs/screenshots/database_menu.png)
+![screenshot7](docs/screenshots/create_location.png)
+![screenshot8](docs/screenshots/item_details_popup.png)
+![screenshot9](docs/screenshots/edit_location.png)
+
 
 ## Project Management
 In order to facilitate team communication and organization, [GitHub Projects](https://github.com/orgs/FEUP-LEIC-ES-2023-24/projects/74) was used to do the Project Management of this project.
