@@ -25,7 +25,7 @@ jobs:
         uses: softprops/action-gh-release@v2
         with:
           tag: ${{steps.tag_version.outputs.new_tag}}
-          files: "falta meter o nome do apk"
+          files: studyat_v0.1-sprint0.apk
 
 
 
