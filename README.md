@@ -60,7 +60,7 @@ As such, we have arrived at a central theme:
 
 ### Domain Model
 
-![domain_model.png](out/docs/UML/domain_model/study@.svg)
+![domain_model.svg](out/docs/UML/domain_model/study@.svg)
 > Note: The PlantUML code for UML can be found [here](docs/UML/domain_model.plantuml)
  
 > Alternate [png](out/docs/UML/domain_model/study@.png)
