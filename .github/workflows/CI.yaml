@@ -1,0 +1,44 @@
+on: 
+  pull_request:
+
+  push:
+      branches: [main]
+
+jobs:
+  linter:
+    runs-on:  [ubuntu-latest]
+    steps:
+      - name: Clone Setup
+        uses: actions/checkout@v4
+
+      - name: Flutter Setup
+        uses: subosito/flutter-action@v2
+        with:
+          channel: stable
+          flutter-version: 3.13.7
+          cache: true
+      
+      - run: dart format . --set-exit-if-changed 
+
+  tests:
+    runs-on:  [ubuntu-latest]
+    steps:
+      - name: Clone Setup
+        uses: actions/checkout@v4
+
+      - name: Flutter Setup
+        uses: subosito/flutter-action@v2
+        with:
+          channel: stable
+          flutter-version: 3.13.7
+          cache: true
+      - run: flutter analyze
+      - run: flutter test 
+      
+
+
+
+
+
+        
+
