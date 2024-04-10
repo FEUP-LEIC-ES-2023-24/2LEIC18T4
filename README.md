@@ -64,6 +64,21 @@ As such, we have arrived at a central theme:
 > Note: The PlantUML code for UML can be found [here](docs/UML/domain_model.plantuml)
  
 > Alternate [png](out/docs/UML/domain_model/study@.png)
+
+
+In our app structure we have a User class, that contains in its atributes the main information related to all types of users: username and profile picture.
+
+This later serves as the parent class to the Admin, Unregistered Student, and the Registered Student Classes, where this last one contains the rest of the information of the non-admin users that have created a account (password, email, university and reviews).
+Related to the Registered Student, we have the Review class (with all the details of a review: rating and the comment), and related to the User, we have a GPS class with the latitude and longitude of the user's location.
+
+Connected to the Review, the GPS and to the Registered Student (for the user's favourite locations), we then have an Location class where all the caracteristics of the various locations of the app are stored (name, image, adress, score, schedule, email, phone).
+
+For last but not least, we have a Tag class (with a name atribute) connected to the Location, and an Achievement class with all its related info (name, time, date, rarity and level), linked to the user and also to the location.
+
+
+
+
+
  
 ## Architecture and Design
 

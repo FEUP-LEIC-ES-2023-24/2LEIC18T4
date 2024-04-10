@@ -53,7 +53,8 @@ class Admin {
 }
 
 
-User "1" -- "*" Review
+RegisteredStudent "1" -- "*" Review
+RegisteredStudent "*" -- "*" Location
 Location "*" -- "*" Tag
 Review "*" -- "1" Location
 User "*" -- "*" Achievement
