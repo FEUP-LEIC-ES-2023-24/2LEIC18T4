@@ -40,12 +40,10 @@ class _DatabasePageState extends State<DatabasePage> {
               ),
             ),
           ),
-
           Align(
             alignment: Alignment.topLeft,
             child: Padding(
-              padding:
-                  const EdgeInsets.only(left: 17.0, bottom: 1.0, top: 1.0),
+              padding: const EdgeInsets.only(left: 17.0, bottom: 1.0, top: 1.0),
               child: Text(
                 "You can add, update or remove elements.",
                 style: TextStyle(
@@ -55,7 +53,6 @@ class _DatabasePageState extends State<DatabasePage> {
               ),
             ),
           ),
-
           Expanded(
             child: FirebaseAnimatedList(
                 query: databaseReference,
@@ -71,7 +68,7 @@ class _DatabasePageState extends State<DatabasePage> {
                     leading: CircleAvatar(
                       backgroundImage: NetworkImage(
                           snapshot.child("imageLink").value.toString()),
-                          radius: 30,
+                      radius: 30,
                     ),
                     trailing: PopupMenuButton(
                       icon: Icon(iconData),
@@ -102,10 +99,8 @@ class _DatabasePageState extends State<DatabasePage> {
                           value: 3,
                           child: ListTile(
                             onTap: () {
-                              databaseReference.child(snapshot
-                                  .child('id')
-                                  .value
-                                  .toString())
+                              databaseReference
+                                  .child(snapshot.child('id').value.toString())
                                   .remove();
                             },
                             leading: const Icon(Icons.delete),

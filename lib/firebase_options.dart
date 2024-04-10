@@ -46,7 +46,8 @@ class DefaultFirebaseOptions {
   static const FirebaseOptions web = FirebaseOptions(
     apiKey: 'AIzaSyD9UNCdLS_0H9wfAEaHX0QUEftTcdmy-7g',
     appId: '1:206182314858:web:add8ef3267085f5875ab13',
-    databaseURL: 'https://studyatapp-default-rtdb.europe-west1.firebasedatabase.app',
+    databaseURL:
+        'https://studyatapp-default-rtdb.europe-west1.firebasedatabase.app',
     messagingSenderId: '206182314858',
     projectId: 'studyatapp',
     authDomain: 'studyatapp.firebaseapp.com',
@@ -57,7 +58,8 @@ class DefaultFirebaseOptions {
   static const FirebaseOptions android = FirebaseOptions(
     apiKey: 'AIzaSyBIdFDn75aSB6zm6LiRKxZ0k9ZCyr8j5ho',
     appId: '1:206182314858:android:a9e8effc89c2801675ab13',
-    databaseURL: 'https://studyatapp-default-rtdb.europe-west1.firebasedatabase.app',
+    databaseURL:
+        'https://studyatapp-default-rtdb.europe-west1.firebasedatabase.app',
     messagingSenderId: '206182314858',
     projectId: 'studyatapp',
     storageBucket: 'studyatapp.appspot.com',
@@ -66,7 +68,8 @@ class DefaultFirebaseOptions {
   static const FirebaseOptions ios = FirebaseOptions(
     apiKey: 'AIzaSyB5t_Z_WN1S-A34emf4PLw4XLUkN8wPh8k',
     appId: '1:206182314858:ios:ecebedd18c121a3a75ab13',
-    databaseURL: 'https://studyatapp-default-rtdb.europe-west1.firebasedatabase.app',
+    databaseURL:
+        'https://studyatapp-default-rtdb.europe-west1.firebasedatabase.app',
     messagingSenderId: '206182314858',
     projectId: 'studyatapp',
     storageBucket: 'studyatapp.appspot.com',
@@ -76,7 +79,8 @@ class DefaultFirebaseOptions {
   static const FirebaseOptions macos = FirebaseOptions(
     apiKey: 'AIzaSyB5t_Z_WN1S-A34emf4PLw4XLUkN8wPh8k',
     appId: '1:206182314858:ios:e30410f29a20ab9175ab13',
-    databaseURL: 'https://studyatapp-default-rtdb.europe-west1.firebasedatabase.app',
+    databaseURL:
+        'https://studyatapp-default-rtdb.europe-west1.firebasedatabase.app',
     messagingSenderId: '206182314858',
     projectId: 'studyatapp',
     storageBucket: 'studyatapp.appspot.com',
