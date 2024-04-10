@@ -79,31 +79,31 @@ As such, we have arrived at a central theme:
 
 ### UI Mockups
 #### Starting Page
-<img src="docs/UI_Mockups/Figma/Start Page/Start Page.png" width="360" height="740">
+<img src="docs/UI_Mockups/Figma/Start Page.png" width="360" height="740">
 
 #### Login Page
-<img src="docs/UI_Mockups/Figma/Login/Login.png" width="360" height="740">
+<img src="docs/UI_Mockups/Figma/Login.png" width="360" height="740">
 
 #### Home Page
-<img src="docs/UI_Mockups/Figma/Home_/Home.png" width="360" height="740">
+<img src="docs/UI_Mockups/Figma/Home.png" width="360" height="740">
 
 #### Location Page
-<img src="docs/UI_Mockups/Figma/Location/Location.png" width="360" height="740">
+<img src="docs/UI_Mockups/Figma/Location.png" width="360" height="740">
 
 #### Location Reviews Page
-<img src="docs/UI_Mockups/Figma/Location Reviews/Location Reviews.png" width="360" height="740">
+<img src="docs/UI_Mockups/Figma/Location Reviews.png" width="360" height="740">
 
 #### Search Filters Page
-<img src="docs/UI_Mockups/Figma/Search Filters/Search Filters.png" width="360" height="740">
+<img src="docs/UI_Mockups/Figma/Search Filters.png" width="360" height="740">
 
 #### Starred Page
-<img src="docs/UI_Mockups/Figma/Starred/Starred.png" width="360" height="740">
+<img src="docs/UI_Mockups/Figma/Starred.png" width="360" height="740">
 
 #### Achievements Page
-<img src="docs/UI_Mockups/Figma/Achievements/Achievements.png" width="360" height="740">
+<img src="docs/UI_Mockups/Figma/Achievements.png" width="360" height="740">
 
 #### Profile Page
-<img src="docs/UI_Mockups/Figma/Profile/Profile.png" width="360" height="740">
+<img src="docs/UI_Mockups/Figma/Profile.png" width="360" height="740">
 
 ### Vertical Prototype
 <img src="docs/screenshots/landing_page.png" width="360" height="740">
