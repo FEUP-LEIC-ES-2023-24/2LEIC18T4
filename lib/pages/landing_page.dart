@@ -51,8 +51,8 @@ class _LandingPageState extends State<LandingPage> {
                   style: TextStyle(fontSize: 32, fontWeight: FontWeight.w700),
                 )),
             ListTile(
-              title: const Text('Database',
-                  style: TextStyle(color: Colors.white)),
+              title:
+                  const Text('Database', style: TextStyle(color: Colors.white)),
               leading: Icon(Icons.collections_bookmark),
               iconColor: Colors.white,
               onTap: () {

@@ -38,8 +38,7 @@ class _MapPageState extends State<MapPage> {
             CurrentLocationLayer(
               alignPositionOnUpdate: AlignOnUpdate.always,
               style: LocationMarkerStyle(
-                marker: const DefaultLocationMarker(
-                ),
+                marker: const DefaultLocationMarker(),
                 markerSize: const Size(20, 20),
                 markerDirection: MarkerDirection.heading,
               ),

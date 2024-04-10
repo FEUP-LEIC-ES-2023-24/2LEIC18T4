@@ -55,7 +55,6 @@ void updateBottom(
               ),
               Align(alignment: Alignment.centerLeft, child: DropdownWidget()),
               const SizedBox(height: 20),
-
               ElevatedButton(
                 onPressed: () {
                   databaseReference.child(id).update({
