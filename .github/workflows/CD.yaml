@@ -1,0 +1,40 @@
+on: 
+  push:
+      branches: [main]
+
+jobs:
+  linter:
+    runs-on:  [ubuntu-latest]
+    defaults:
+    steps:
+      - name: Clone Setup
+        uses: actions/checkout@v4
+
+      - name: Flutter Setup
+        uses: subosito/flutter-action@v2
+        with:
+          channel: stable
+          flutter-version: 3.13.7
+          cache: true
+      
+      - run: flutter build apk
+      - name: Tag
+        uses: mathieudutour/github-tag-action@v6.2
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag: ${{steps.tag_version.outputs.new_tag}}
+          files: "falta meter o nome do apk"
+
+
+
+      
+
+
+
+
+
+        
+
