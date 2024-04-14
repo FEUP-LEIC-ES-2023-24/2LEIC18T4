@@ -52,7 +52,7 @@ class _MapPageState extends State<MapPage> {
                       // Then on the popup function these elements appear
                       // basically this will work the same as the editing popup card of the debug menu
                       // where i passed lots of things as function arg.
-                      onTap: () => createBottom(context),
+                      onTap: () => createMarkerPopup(context, value['name'].toString(), value['imageLink'].toString()),
                     ))));
           });
 
