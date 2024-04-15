@@ -2,7 +2,12 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 
-class AccountPage extends StatelessWidget {
+import 'package:auto_size_text/auto_size_text.dart';
+import 'package:flutter/gestures.dart';
+import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+
+/*class AccountPage extends StatelessWidget {
   const AccountPage({super.key});
 
   @override
@@ -11,7 +16,7 @@ class AccountPage extends StatelessWidget {
   }
 }
 
-/*
+
 class AccountPageModel extends FlutterFlowModel<AccountPage> {
   ///  State fields for stateful widgets in this page.
 
@@ -24,7 +29,7 @@ class AccountPageModel extends FlutterFlowModel<AccountPage> {
   void dispose() {
     unfocusNode.dispose();
   }
-}
+}*/
 
 class AccountPage extends StatefulWidget {
   const AccountPage({super.key});
@@ -34,7 +39,7 @@ class AccountPage extends StatefulWidget {
 }
 
 class _AccountPageState extends State<AccountPage> {
-  late AccountPageModel _model;
+  /*late AccountPageModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
@@ -49,7 +54,7 @@ class _AccountPageState extends State<AccountPage> {
     _model.dispose();
 
     super.dispose();
-  }
+  }*/
 
   @override
   Widget build(BuildContext context) {
@@ -96,7 +101,7 @@ class _AccountPageState extends State<AccountPage> {
                   width: 755,
                   height: 203,
                   decoration: BoxDecoration(
-                    color: Colors.black,
+                    color: Colors.white,
                   ),
                   child: Padding(
                     padding: EdgeInsetsDirectional.fromSTEB(15, 0, 15, 0),
@@ -182,7 +187,7 @@ class _AccountPageState extends State<AccountPage> {
                                     'Edit Profile',
                                     style: TextStyle(
                                           fontFamily: 'Readex Pro',
-                                          color: Color(0x8C2D19),
+                                          color: Color.fromRGBO(145, 45, 25, 1),
                                           fontSize: 18,
                                           letterSpacing: 0,
                                           fontWeight: FontWeight.w500,
@@ -238,7 +243,7 @@ class _AccountPageState extends State<AccountPage> {
                                     'See All',
                                     style: TextStyle(
                                           fontFamily: 'Readex Pro',
-                                          color: Color(0x8C2D19),
+                                          color: Color.fromRGBO(145, 45, 25, 1),
                                           fontSize: 18,
                                           letterSpacing: 0,
                                           fontWeight: FontWeight.w500,
@@ -410,7 +415,7 @@ class _AccountPageState extends State<AccountPage> {
                                     '16',
                                     style: TextStyle(
                                           fontFamily: 'Readex Pro',
-                                          color: Color(0x8C2D19),
+                                          color: Color.fromRGBO(145, 45, 25, 1),
                                           fontSize: 45,
                                           letterSpacing: 0,
                                           fontWeight: FontWeight.bold,
@@ -428,7 +433,7 @@ class _AccountPageState extends State<AccountPage> {
                                         text: 'Discover@',
                                         style: TextStyle(
                                               fontFamily: 'Readex Pro',
-                                              color: Color(0x8C2d19),
+                                              color: Color.fromRGBO(145, 45, 25, 1),
                                               fontSize: 20,
                                               letterSpacing: 0,
                                               fontWeight: FontWeight.bold,
@@ -465,4 +470,4 @@ class _AccountPageState extends State<AccountPage> {
     );
   }
 }
-*/
+
