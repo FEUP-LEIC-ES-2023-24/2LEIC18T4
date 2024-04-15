@@ -43,7 +43,7 @@ class _MapPageState extends State<MapPage> {
                 width: 40,
                 height: 40,
                 child: Tooltip(
-                    message: 'Marker tooltip',
+                    message: value['name'].toString(),
                     child: InkWell(
                       child: Image.asset("lib/images/marker.png"),
                       // Popup passes context and other elements as argument
