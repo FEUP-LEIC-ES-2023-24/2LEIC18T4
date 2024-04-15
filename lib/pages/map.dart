@@ -33,34 +33,36 @@ class _MapPageState extends State<MapPage> {
       if (snapshot.value != null) {
         Map<dynamic, dynamic> values = snapshot.value as Map<dynamic, dynamic>;
 
-        values.forEach((key, value) {
-          print(
-              'Adding marker at latitude ${value['latitude']} and longitude ${value['longitude']}');
-          markers.add(Marker(
-              point: LatLng(double.parse(value['latitude'].toString()),
-                  double.parse(value['longitude'].toString())),
-              width: 40,
-              height: 40,
-              child: Tooltip(
-                  message: value['name'].toString(),
-                  child: InkWell(
-                    child: Image.asset("lib/images/marker.png"),
-                    // Popup passes context and other elements as argument
-                    // That can be easily fetched with values[].toString
-                    // Then on the popup function these elements appear
-                    // basically this will work the same as the editing popup card of the debug menu
-                    // where i passed lots of things as function arg.
-                    onTap: () => createMarkerPopup(
-                        context,
-                        value['name'].toString(),
-                        value['imageLink'].toString()),
-                  ))));
-        });
+        if (values != null) {
+          values.forEach((key, value) {
+            print(
+                'Adding marker at latitude ${value['latitude']} and longitude ${value['longitude']}');
+            markers.add(Marker(
+                point: LatLng(double.parse(value['latitude'].toString()),
+                    double.parse(value['longitude'].toString())),
+                width: 40,
+                height: 40,
+                child: Tooltip(
+                    message: value['name'].toString(),
+                    child: InkWell(
+                      child: Image.asset("lib/images/marker.png"),
+                      // Popup passes context and other elements as argument
+                      // That can be easily fetched with values[].toString
+                      // Then on the popup function these elements appear
+                      // basically this will work the same as the editing popup card of the debug menu
+                      // where i passed lots of things as function arg.
+                      onTap: () => createMarkerPopup(
+                          context,
+                          value['name'].toString(),
+                          value['imageLink'].toString()),
+                    ))));
+          });
 
-        setState(() {
-          markers = markers;
-        });
-            }
+          setState(() {
+            markers = markers;
+          });
+        }
+      }
       return markers;
     });
   }
@@ -90,7 +92,7 @@ class _MapPageState extends State<MapPage> {
               subdomains: ['a', 'b', 'c'],
             ),
             CurrentLocationLayer(
-              alignPositionOnUpdate: AlignOnUpdate.once,
+              followOnLocationUpdate: FollowOnLocationUpdate.once,
               style: LocationMarkerStyle(
                 marker: const DefaultLocationMarker(),
                 markerSize: const Size(20, 20),

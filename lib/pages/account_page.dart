@@ -1,6 +1,17 @@
+
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 
+class AccountPage extends StatelessWidget {
+  const AccountPage({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return const Placeholder();
+  }
+}
+
+/*
 class AccountPageModel extends FlutterFlowModel<AccountPage> {
   ///  State fields for stateful widgets in this page.
 
@@ -454,3 +465,4 @@ class _AccountPageState extends State<AccountPage> {
     );
   }
 }
+*/

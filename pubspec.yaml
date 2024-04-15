@@ -47,13 +47,12 @@ dependencies:
   gestures: ^1.0.0
   material: ^1.0.0+2
   provider: ^6.1.2
-
-  flutter_map_location_marker: any
 dev_dependencies:
   flutter_test:
     sdk: flutter
   google_maps_flutter: ^2.0.8
   flutter_launcher_icons: ^0.13.1
+  flutter_map_location_marker: any
 
 flutter_launcher_icons:
   image_path: "lib/images/icon.png"
