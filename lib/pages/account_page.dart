@@ -1,7 +1,19 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 
+class AccountPageModel extends FlutterFlowModel<AccountPage> {
+  ///  State fields for stateful widgets in this page.
 
+  final unfocusNode = FocusNode();
+
+  @override
+  void initState(BuildContext context) {}
+
+  @override
+  void dispose() {
+    unfocusNode.dispose();
+  }
+}
 
 class AccountPage extends StatefulWidget {
   const AccountPage({super.key});
@@ -11,7 +23,7 @@ class AccountPage extends StatefulWidget {
 }
 
 class _AccountPageState extends State<AccountPage> {
-  /*late AccountPageModel _model;
+  late AccountPageModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
@@ -26,7 +38,7 @@ class _AccountPageState extends State<AccountPage> {
     _model.dispose();
 
     super.dispose();
-  }*/
+  }
 
   @override
   Widget build(BuildContext context) {
