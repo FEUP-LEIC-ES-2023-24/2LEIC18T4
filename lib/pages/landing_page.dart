@@ -4,6 +4,7 @@ import 'package:study_at/debug_pages/database_page.dart';
 import 'package:study_at/pages/account_page.dart';
 import 'package:study_at/pages/discover_page.dart';
 import 'package:study_at/pages/map.dart';
+import 'package:study_at/pages/search_page.dart';
 import 'package:study_at/pages/starred_page.dart';
 
 class LandingPage extends StatefulWidget {
@@ -28,6 +29,7 @@ class _LandingPageState extends State<LandingPage> {
     const DiscoverPage(),
     const AccountPage(),
     const DatabasePage(),
+    const SearchPage(),
   ];
 
   @override
@@ -61,6 +63,17 @@ class _LandingPageState extends State<LandingPage> {
                 });
               },
             ),
+            ListTile(
+              title: const Text('Search page',
+                  style: TextStyle(color: Colors.white)),
+              leading: Icon(Icons.search),
+              iconColor: Colors.white,
+              onTap: () {
+                setState(() {
+                  _navBarIndex = 5;
+                });
+              },
+            )
           ],
         ),
       ),

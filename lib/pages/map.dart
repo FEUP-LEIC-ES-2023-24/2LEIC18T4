@@ -6,6 +6,7 @@ import 'package:osm_nominatim/osm_nominatim.dart';
 import 'package:flutter_map_location_marker/flutter_map_location_marker.dart';
 import 'package:study_at/components/marker_popup.dart';
 import 'package:study_at/debug_pages/database_page.dart';
+import 'package:study_at/pages/search_page.dart';
 
 class MapPage extends StatefulWidget {
   const MapPage({Key? key}) : super(key: key);
@@ -76,7 +77,7 @@ class _MapPageState extends State<MapPage> {
               onPressed: () {
                 Scaffold.of(context).openDrawer();
               },
-              icon: Icon(Icons.list))
+              icon: Icon(Icons.list)),
         ],
       ),
       body: FlutterMap(
