@@ -1,13 +1,10 @@
 import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_map/flutter_map.dart';
-import 'package:flutter_map_marker_popup/flutter_map_marker_popup.dart';
 import 'package:latlong2/latlong.dart';
 import 'package:osm_nominatim/osm_nominatim.dart';
-import 'package:study_at/components/bottom_nav_bar.dart';
 import 'package:flutter_map_location_marker/flutter_map_location_marker.dart';
 import 'package:study_at/components/marker_popup.dart';
-import 'package:study_at/debug_pages/create_bottom.dart';
 import 'package:study_at/debug_pages/database_page.dart';
 
 class MapPage extends StatefulWidget {
