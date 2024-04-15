@@ -17,7 +17,7 @@ class DatabasePage extends StatefulWidget {
   State<DatabasePage> createState() => _DatabasePageState();
 }
 
-final databaseReference = FirebaseDatabase.instance.ref();
+final databaseReference = FirebaseDatabase.instance.ref("places");
 
 class _DatabasePageState extends State<DatabasePage> {
   @override
