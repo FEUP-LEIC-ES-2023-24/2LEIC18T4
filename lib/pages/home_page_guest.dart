@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:study_at/pages/landing_page.dart';
 import 'package:study_at/pages/login_page.dart';
-import 'package:study_at/pages/map.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
