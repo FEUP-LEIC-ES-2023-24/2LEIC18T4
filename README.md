@@ -148,7 +148,7 @@ The project has 6 columns: **User Stories**, **Product Backlog**, **Sprint Backl
 ![sprint0_board](docs/pictures/sprint-boards/Sprint0.png)
 
 ### Sprint 1 Board
-![sprint1_board](docs/pictures/sprint/boards/Sprint1.png)
+![sprint1_board](docs/pictures/sprint-boards/Sprint1.png)
 
 
 For this Sprint, We organized all user stories that we have made in the **User Stories** Column and began sorting from there to the **Product Backlog**. We then moved the ones that we thought were essential to start off with to the **Sprint Backlog** to work with them. In the Sprint Backlog we also added the points that we had to deliver until the end of this sprint, such as UMLs and Prototypes.
