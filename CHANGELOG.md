@@ -1,4 +1,4 @@
-# v0.1-sprint1 (2024-04-16)
+# v0.2-sprint1 (2024-04-16)
 ## Sprint 1 of Study@ - finished!
 This is the first official sprint iteration, some more improvements:
 
