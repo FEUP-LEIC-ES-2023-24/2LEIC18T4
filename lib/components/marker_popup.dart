@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:study_at/pages/landing_page.dart';
 import 'package:study_at/pages/place_page.dart';
 
-void createMarkerPopup(BuildContext context, name, imageLink) {
+void createMarkerPopup(BuildContext context, name, imageLink, markerTags) {
   showModalBottomSheet(
       isScrollControlled: true,
       context: context,
@@ -23,7 +23,7 @@ void createMarkerPopup(BuildContext context, name, imageLink) {
                 onTap: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => PlacePage(imagelink: imageLink,)),
+                    MaterialPageRoute(builder: (context) => PlacePage(imagelink: imageLink, name: name, markerTags: markerTags)),
                   );
                 },
                 child: Center(

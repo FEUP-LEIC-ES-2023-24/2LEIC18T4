@@ -21,6 +21,7 @@ class _MapPageState extends State<MapPage> {
   final MapController _mapController = MapController();
   final TextEditingController _searchController = TextEditingController();
   List<Marker> markers = [];
+  List<String> tags = [];
 
   @override
   void initState() {
@@ -38,6 +39,10 @@ class _MapPageState extends State<MapPage> {
           values.forEach((key, value) {
             print(
                 'Adding marker at latitude ${value['latitude']} and longitude ${value['longitude']}');
+            List<dynamic> markerTags = value['tags'];
+            markerTags.forEach((element) {
+              tags.add(element.toString());
+            });
             markers.add(Marker(
                 point: LatLng(double.parse(value['latitude'].toString()),
                     double.parse(value['longitude'].toString())),
@@ -55,8 +60,10 @@ class _MapPageState extends State<MapPage> {
                       onTap: () => createMarkerPopup(
                           context,
                           value['name'].toString(),
-                          value['imageLink'].toString()),
+                          value['imageLink'].toString(), markerTags),
                     ))));
+
+
           });
 
           setState(() {
@@ -83,18 +90,18 @@ class _MapPageState extends State<MapPage> {
       body: FlutterMap(
           mapController: _mapController,
           options: MapOptions(
-            initialCenter: LatLng(41.1780, -8.5980), // Coordenadas feup por enquanto
-            initialZoom: 15,
-            maxZoom: 20,
-            minZoom: 11,
-            keepAlive: true,
-            cameraConstraint: CameraConstraint.contain(bounds: 
-              LatLngBounds(
-                const LatLng(41.446768, -8.296299), // southwest
-                const LatLng(40.867004, -8.777777), // northwest
-              ),
-            )
-          ),
+              initialCenter:
+                  LatLng(41.1780, -8.5980), // Coordenadas feup por enquanto
+              initialZoom: 15,
+              maxZoom: 20,
+              minZoom: 11,
+              keepAlive: true,
+              cameraConstraint: CameraConstraint.contain(
+                bounds: LatLngBounds(
+                  const LatLng(41.446768, -8.296299), // southwest
+                  const LatLng(40.867004, -8.777777), // northwest
+                ),
+              )),
           children: [
             TileLayer(
               urlTemplate:
@@ -105,7 +112,7 @@ class _MapPageState extends State<MapPage> {
                 const LatLng(40.867004, -8.777777), // northwest
               ),
             ),
-            
+
             CurrentLocationLayer(
               followOnLocationUpdate: FollowOnLocationUpdate.once,
               style: LocationMarkerStyle(
