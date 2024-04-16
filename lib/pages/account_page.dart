@@ -65,36 +65,26 @@ class _AccountPageState extends State<AccountPage> {
       child: Scaffold(
         //key: scaffoldKey,
         backgroundColor: Colors.white,
-        appBar: PreferredSize(
-          preferredSize: Size.fromHeight(40),
-          child: AppBar(
-            backgroundColor: Colors.white,
-            automaticallyImplyLeading: false,
-            title: Align(
-              alignment: AlignmentDirectional(-1, 0),
-              child: Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(10, 0, 0, 20),
-                child: Text(
-                  'Profile',
-                  style: TextStyle(
-                        fontFamily: 'Outfit',
-                        letterSpacing: 0,
-                        fontWeight: FontWeight.normal,
-                      ),
-                ),
-              ),
-            ),
-            actions: [],
-            centerTitle: false,
-            elevation: 2,
-          ),
-        ),
         body: SafeArea(
           top: true,
           child: Column(
             mainAxisSize: MainAxisSize.max,
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
+              Align(
+                alignment: Alignment.topLeft,
+                child: Padding(
+                  padding:
+                      const EdgeInsets.only(left: 15.0, bottom: 1.0, top: 25.0),
+                  child: Text(
+                    "Account",
+                    style: TextStyle(
+                      fontSize: 30,
+                      fontWeight: FontWeight.w900,
+                    ),
+                  ),
+                ),
+              ),
               Expanded(
                 flex: 1,
                 child: Container(
@@ -143,8 +133,7 @@ class _AccountPageState extends State<AccountPage> {
                                       'John Human',
                                       maxLines: 1,
                                       style: TextStyle(
-                                            fontFamily: 'Readex Pro',
-                                            fontSize: 26,
+                                            fontSize: 30,
                                             letterSpacing: 0,
                                           ),
                                       minFontSize: 25,
@@ -159,7 +148,7 @@ class _AccountPageState extends State<AccountPage> {
                                       '@username01',
                                       maxLines: 1,
                                       style: TextStyle(
-                                            fontFamily: 'Readex Pro',
+                                            fontSize: 14,
                                             letterSpacing: 0,
                                           ),
                                     ),
@@ -174,7 +163,6 @@ class _AccountPageState extends State<AccountPage> {
                                       textAlign: TextAlign.start,
                                       maxLines: 4,
                                       style: TextStyle(
-                                            fontFamily: 'Readex Pro',
                                             fontSize: 18,
                                             letterSpacing: 0,
                                           ),
@@ -186,11 +174,10 @@ class _AccountPageState extends State<AccountPage> {
                                   child: Text(
                                     'Edit Profile',
                                     style: TextStyle(
-                                          fontFamily: 'Readex Pro',
                                           color: Color.fromRGBO(145, 45, 25, 1),
                                           fontSize: 18,
                                           letterSpacing: 0,
-                                          fontWeight: FontWeight.w500,
+                                          fontWeight: FontWeight.w900,
                                           decoration: TextDecoration.underline,
                                         ),
                                   ),
@@ -230,8 +217,9 @@ class _AccountPageState extends State<AccountPage> {
                                   child: Text(
                                     'History',
                                     style: TextStyle(
-                                          fontFamily: 'Outfit',
                                           letterSpacing: 0,
+                                          fontSize: 20,
+                                          fontWeight: FontWeight.w900,
                                         ),
                                   ),
                                 ),
@@ -242,11 +230,10 @@ class _AccountPageState extends State<AccountPage> {
                                   child: Text(
                                     'See All',
                                     style: TextStyle(
-                                          fontFamily: 'Readex Pro',
                                           color: Color.fromRGBO(145, 45, 25, 1),
-                                          fontSize: 18,
+                                          fontSize: 20,
                                           letterSpacing: 0,
-                                          fontWeight: FontWeight.w500,
+                                          fontWeight: FontWeight.w900,
                                           decoration: TextDecoration.underline,
                                         ),
                                   ),
@@ -302,7 +289,6 @@ class _AccountPageState extends State<AccountPage> {
                                             'It was great ! I loved the place! The enviroment was excellent for studying and the nature was really inspiring!',
                                             textAlign: TextAlign.center,
                                             style: TextStyle(
-                                                  fontFamily: 'Readex Pro',
                                                   color: Colors.white,
                                                   fontSize: 24,
                                                   letterSpacing: 0,
@@ -316,6 +302,10 @@ class _AccountPageState extends State<AccountPage> {
                                     ],
                                   ),
                                 ),
+                              ),
+                              SizedBox(
+                                width: double.infinity,
+                                height: 15,
                               ),
                               Expanded(
                                 child: Container(
@@ -357,7 +347,6 @@ class _AccountPageState extends State<AccountPage> {
                                             'I hated this place :(',
                                             textAlign: TextAlign.center,
                                             style: TextStyle(
-                                                  fontFamily: 'Readex Pro',
                                                   color: Colors.white,
                                                   fontSize: 24,
                                                   letterSpacing: 0,
@@ -414,7 +403,6 @@ class _AccountPageState extends State<AccountPage> {
                                   child: Text(
                                     '16',
                                     style: TextStyle(
-                                          fontFamily: 'Readex Pro',
                                           color: Color.fromRGBO(145, 45, 25, 1),
                                           fontSize: 45,
                                           letterSpacing: 0,
@@ -432,9 +420,8 @@ class _AccountPageState extends State<AccountPage> {
                                       TextSpan(
                                         text: 'Discover@',
                                         style: TextStyle(
-                                              fontFamily: 'Readex Pro',
                                               color: Color.fromRGBO(145, 45, 25, 1),
-                                              fontSize: 20,
+                                              fontSize: 25,
                                               letterSpacing: 0,
                                               fontWeight: FontWeight.bold,
                                             ),
@@ -443,12 +430,11 @@ class _AccountPageState extends State<AccountPage> {
                                         text: ' Medals Collected!',
                                         style: TextStyle(
                                           fontWeight: FontWeight.w600,
-                                          fontSize: 20,
+                                          fontSize: 25,
                                         ),
                                       )
                                     ],
                                     style: TextStyle(
-                                          fontFamily: 'Readex Pro',
                                           fontSize: 19,
                                           letterSpacing: 0,
                                         ),
