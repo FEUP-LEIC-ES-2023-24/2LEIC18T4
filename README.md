@@ -14,6 +14,7 @@ Documentation for the Study@ App from a high-level vision to low-level implement
     - [Vertical Prototype](#vertical-prototype)
   - [Project Management](#project-management)
     - [Sprint 0 Board](#sprint-0-board)
+    - [Sprint 1 Board](#sprint-1-board)
 
 ```
 This Project was Developed for ESOF 2023/2024 by:
