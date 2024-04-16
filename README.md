@@ -121,6 +121,7 @@ For last but not least, we have a Tag class (with a name atribute) connected to 
 <img src="docs/UI_Mockups/Figma/Profile.png" width="360" height="740">
 
 ### Vertical Prototype
+#### Sprint 0
 <img src="docs/screenshots/landing_page.png" width="360" height="740">
 <img src="docs/screenshots/guest_popup.png" width="360" height="740">
 <img src="docs/screenshots/home_screen_map.png" width="360" height="740">
@@ -131,6 +132,13 @@ For last but not least, we have a Tag class (with a name atribute) connected to 
 <img src="docs/screenshots/item_details_popup.png" width="360" height="740">
 <img src="docs/screenshots/edit_location.png" width="360" height="740">
 
+#### Sprint 1
+<img src="docs/screenshots/map1.jpg" width="360" height="740">
+<img src="docs/screenshots/map2.jpg" width="360" height="740">
+<img src="docs/screenshots/map3.jpg" width="360" height="740">
+<img src="docs/screenshots/place.jpg" width="360" height="740">
+<img src="docs/screenshots/profile.jpg" width="360" height="740">
+
 ## Project Management
 In order to facilitate team communication and organization, [GitHub Projects](https://github.com/orgs/FEUP-LEIC-ES-2023-24/projects/74) was used to do the Project Management of this project.
 
@@ -138,6 +146,9 @@ The project has 6 columns: **User Stories**, **Product Backlog**, **Sprint Backl
 ### Sprint 0 Board
 
 ![sprint0_board](docs/pictures/sprint-boards/Sprint0.png)
+
+### Sprint 1 Board
+![sprint1_board](docs/pictures/sprint/boards/Sprint1.png)
 
 
 For this Sprint, We organized all user stories that we have made in the **User Stories** Column and began sorting from there to the **Product Backlog**. We then moved the ones that we thought were essential to start off with to the **Sprint Backlog** to work with them. In the Sprint Backlog we also added the points that we had to deliver until the end of this sprint, such as UMLs and Prototypes.
