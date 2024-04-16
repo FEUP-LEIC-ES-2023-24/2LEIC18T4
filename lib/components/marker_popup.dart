@@ -23,7 +23,7 @@ void createMarkerPopup(BuildContext context, name, imageLink) {
                 onTap: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => PlacePage()),
+                    MaterialPageRoute(builder: (context) => PlacePage(imagelink: imageLink,)),
                   );
                 },
                 child: Center(
