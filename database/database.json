@@ -12,7 +12,10 @@
           "Outlets",
           "Natural Light",
           "Co-Working",
-          "Silence"
+          "Silence",
+          "Internet",
+          "Coffee",
+          "Food"
         ]
       },
       "368": {
@@ -23,41 +26,47 @@
         "name": "FCUP Library",
         "type": "Library",
         "tags": [
-          "Computers",
           "Outlets",
           "Natural Light",
           "Co-Working",
-          "Silence"
+          "Silence",
+          "Coffee",
+          "Food",
+          "Internet"
         ]
       },
       "491": {
         "id": "491",
         "imageLink": "https://biblioteca.med.up.pt/wp-content/uploads/2017/04/1-1024x397.jpg",
-        "latitude": "41.10445",
-        "longitude": "-8.35588",
+        "latitude": "41.179267248047395",
+        "longitude": "-8.600080002862496",
         "name": "FMUP Library",
         "type": "Library",
         "tags": [
           "Computers",
-          "Outlets",
-          "Natural Light",
           "Co-Working",
-          "Silence"
+          "Silence",
+          "Outlets",
+          "Food",
+          "Internet",
+          "Natural Light"
         ]
       },
       "696": {
         "id": "696",
         "imageLink": "https://omega.com.pt/wp-content/uploads/2016/11/%C2%A9Telmo-Miller-8181-copy.jpg",
-        "latitude": "41.10433",
-        "longitude": "-8.36233",
+        "latitude": "41.178835",
+        "longitude": "-8.606639",
         "name": "ISEP Library",
         "type": "Library",
         "tags": [
-          "Computers",
           "Outlets",
+          "Internet",
+          "Food",
           "Natural Light",
           "Co-Working",
-          "Silence"
+          "Silence",
+          "Coffee"
         ]
       },
       "756": {
@@ -68,11 +77,13 @@
         "name": "FLUP Library",
         "type": "Library",
         "tags": [
-          "Computers",
-          "Outlets",
+          "Internet",
           "Natural Light",
+          "Silence",
           "Co-Working",
-          "Silence"
+          "Coffee",
+          "Food",
+          "Outlets"
         ]
       },
       "127": {
@@ -83,11 +94,8 @@
         "name": "E-Learning Cafe Botânico",
         "type": "Cafe",
         "tags": [
-          "Computers",
-          "Outlets",
-          "Natural Light",
-          "Co-Working",
-          "Silence"
+          "Coffee",
+          "Internet"
         ]
       },
       "412": {
@@ -98,10 +106,6 @@
         "name": "Serralves Library",
         "type": "Library",
         "tags": [
-          "Computers",
-          "Outlets",
-          "Natural Light",
-          "Co-Working",
           "Silence"
         ]
       },
@@ -113,11 +117,12 @@
         "name": "Casa da Musica Cafe",
         "type": "Cafe",
         "tags": [
-          "Computers",
-          "Outlets",
-          "Natural Light",
+          "Coffee",
+          "Food",
+          "Outdoors",
           "Co-Working",
-          "Silence"
+          "Natural Light",
+          "Pet-Friendly"
         ]
       },
       "938": {
@@ -128,11 +133,12 @@
         "name": "Católica Library",
         "type": "Library",
         "tags": [
-          "Computers",
           "Outlets",
-          "Natural Light",
           "Co-Working",
-          "Silence"
+          "Silence",
+          "Coffee",
+          "Food",
+          "Internet"
         ]
       },
       "591": {
@@ -143,10 +149,6 @@
         "name": "Almeida Garret Library",
         "type": "Library",
         "tags": [
-          "Computers",
-          "Outlets",
-          "Natural Light",
-          "Co-Working",
           "Silence"
         ]
       },
@@ -158,10 +160,6 @@
         "name": "Public Porto Library",
         "type": "Library",
         "tags": [
-          "Computers",
-          "Outlets",
-          "Natural Light",
-          "Co-Working",
           "Silence"
         ]
       },
@@ -173,11 +171,11 @@
         "name": "E-Learning Cafe Asprela",
         "type": "Cafe",
         "tags": [
-          "Computers",
-          "Outlets",
-          "Natural Light",
+          "Internet",
           "Co-Working",
-          "Silence"
+          "Coffee",
+          "Outlets",
+          "Internet"
         ]
       },
       "812": {
@@ -188,11 +186,11 @@
         "name": "ICBAS/FFUP Terrace",
         "type": "Cafe",
         "tags": [
-          "Computers",
-          "Outlets",
-          "Natural Light",
+          "Food",
+          "Coffee",
           "Co-Working",
-          "Silence"
+          "Natural Light",
+          "Internet"
         ]
       },
       "273": {
@@ -203,11 +201,11 @@
         "name": "FAUP Garden",
         "type": "Garden",
         "tags": [
-          "Computers",
-          "Outlets",
+          "Outdoors",
+          "Pet-Friendly",
           "Natural Light",
           "Co-Working",
-          "Silence"
+          "Internet"
         ]
       },
       "823": {
@@ -218,11 +216,11 @@
         "name": "FBAUP Garden",
         "type": "Garden",
         "tags": [
-          "Computers",
-          "Outlets",
+          "Outdoors",
+          "Pet-Friendly",
           "Natural Light",
           "Co-Working",
-          "Silence"
+          "Internet"
         ]
       },
       "123": {
@@ -233,11 +231,11 @@
         "name": "FCUP Garden",
         "type": "Garden",
         "tags": [
-          "Computers",
-          "Outlets",
+          "Outdoors",
+          "Pet-Friendly",
           "Natural Light",
           "Co-Working",
-          "Silence"
+          "Internet"
         ]
       },
       "682": {
@@ -248,11 +246,11 @@
         "name": "FLUP Garden",
         "type": "Garden",
         "tags": [
-          "Computers",
-          "Outlets",
+          "Outdoors",
+          "Pet-Friendly",
           "Natural Light",
           "Co-Working",
-          "Silence"
+          "Internet"
         ]
       },
       "259": {
@@ -263,11 +261,10 @@
         "name": "Asprela Park",
         "type": "Garden",
         "tags": [
-          "Computers",
-          "Outlets",
+          "Outdoors",
+          "Pet-Friendly",
           "Natural Light",
-          "Co-Working",
-          "Silence"
+          "Co-Working"
         ]
       }
     }
