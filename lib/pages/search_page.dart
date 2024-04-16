@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:firebase_database/firebase_database.dart';
 
 class SearchPage extends StatefulWidget {
   const SearchPage({Key? key}) : super(key: key);
@@ -8,16 +9,31 @@ class SearchPage extends StatefulWidget {
 }
 
 class _SearchPageState extends State<SearchPage> {
+  late DatabaseReference _placesRef;
+  List<Map<dynamic, dynamic>> _placesList = [];
 
-  void updateList(String value){
-    // filter for the los
-  }
   @override
-  Widget build (BuildContext context){
+  void initState() {
+    super.initState();
+    _placesRef = FirebaseDatabase.instance.ref().child("places");
+    _placesRef.onValue.listen((event) {
+      setState(() {
+        _placesList =
+            List<Map<dynamic, dynamic>>.from(event.snapshot.value ?? []);
+      });
+    });
+  }
+
+  void updateList(String value) {
+    // Implement your filtering logic here
+  }
+
+  @override
+  Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xFFFFFFFF),
+      backgroundColor: Colors.white,
       appBar: AppBar(
-        backgroundColor: Color(0xFFFFFFFF),
+        backgroundColor: Colors.white,
         elevation: 0.0,
       ),
       body: Padding(
@@ -26,12 +42,13 @@ class _SearchPageState extends State<SearchPage> {
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text("Search for a place to study", 
-            style: TextStyle(
-              color: Colors.white, 
-              fontSize: 22.0, 
-              fontWeight: FontWeight.bold,
-              ) ,
+            Text(
+              "Search for a place to study",
+              style: TextStyle(
+                color: Colors.black,
+                fontSize: 22.0,
+                fontWeight: FontWeight.bold,
+              ),
             ),
             SizedBox(
               height: 20.0,
@@ -40,25 +57,36 @@ class _SearchPageState extends State<SearchPage> {
               style: TextStyle(color: Colors.black),
               decoration: InputDecoration(
                 filled: true,
-                fillColor: Color(0x00000000),
+                fillColor: Colors.grey[200],
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(8.0),
                   borderSide: BorderSide.none,
                 ),
-                hintText: "eg: Biblioteca da FEUP ",
+                hintText: "Search ... ",
                 prefixIcon: Icon(Icons.search),
-                prefixIconColor: Color (0x0000000000),
-                ),
               ),
-              SizedBox(
-                height: 20.0,
+              onChanged: (value) {
+                updateList(value);
+              },
+            ),
+            SizedBox(
+              height: 20.0,
+            ),
+            Expanded(
+              child: ListView.builder(
+                itemCount: _placesList.length,
+                itemBuilder: (context, index) {
+                  return ListTile(
+                    title: Text(_placesList[index]["name"] ?? ""),
+                    subtitle: Text(_placesList[index]["type"] ?? ""),
+                    // You can customize the ListTile as needed
+                  );
+                },
               ),
-              Expanded(child: ListView(),
-              ),
-            ],
+            ),
+          ],
         ),
       ),
     );
   }
 }
-
