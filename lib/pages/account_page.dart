@@ -75,7 +75,7 @@ class _AccountPageState extends State<AccountPage> {
                 alignment: Alignment.topLeft,
                 child: Padding(
                   padding:
-                      const EdgeInsets.only(left: 15.0, bottom: 1.0, top: 25.0),
+                      const EdgeInsets.only(left: 15.0, bottom: 1.0),
                   child: Text(
                     "Account",
                     style: TextStyle(
@@ -286,7 +286,7 @@ class _AccountPageState extends State<AccountPage> {
                                               EdgeInsetsDirectional.fromSTEB(
                                                   13, 13, 13, 13),
                                           child: AutoSizeText(
-                                            'It was great ! I loved the place! The enviroment was excellent for studying and the nature was really inspiring!',
+                                            'It was great! I loved the place! The enviroment was excellent for studying and the nature was really inspiring!',
                                             textAlign: TextAlign.center,
                                             style: TextStyle(
                                                   color: Colors.white,
@@ -421,16 +421,17 @@ class _AccountPageState extends State<AccountPage> {
                                         text: 'Discover@',
                                         style: TextStyle(
                                               color: Color.fromRGBO(145, 45, 25, 1),
-                                              fontSize: 21,
+                                              fontSize: 20,
                                               letterSpacing: 0,
                                               fontWeight: FontWeight.bold,
                                             ),
                                       ),
                                       TextSpan(
-                                        text: ' Medals Collected!',
+                                        text: ' medals collected!',
                                         style: TextStyle(
+                                          color: Colors.black,
                                           fontWeight: FontWeight.w600,
-                                          fontSize: 21,
+                                          fontSize: 20,
                                         ),
                                       )
                                     ],
