@@ -83,15 +83,29 @@ class _MapPageState extends State<MapPage> {
       body: FlutterMap(
           mapController: _mapController,
           options: MapOptions(
-            center: LatLng(41.1780, -8.5980), // Coordenadas feup por enquanto
-            zoom: 18,
+            initialCenter: LatLng(41.1780, -8.5980), // Coordenadas feup por enquanto
+            initialZoom: 15,
+            maxZoom: 20,
+            minZoom: 11,
+            keepAlive: true,
+            cameraConstraint: CameraConstraint.contain(bounds: 
+              LatLngBounds(
+                const LatLng(41.446768, -8.296299), // southwest
+                const LatLng(40.867004, -8.777777), // northwest
+              ),
+            )
           ),
           children: [
             TileLayer(
               urlTemplate:
-                  'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', // URL do provedor de tiles
+                  'http://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png', // URL do provedor de tiles
               subdomains: ['a', 'b', 'c'],
+              tileBounds: LatLngBounds(
+                const LatLng(41.446768, -8.296299), // southwest
+                const LatLng(40.867004, -8.777777), // northwest
+              ),
             ),
+            
             CurrentLocationLayer(
               followOnLocationUpdate: FollowOnLocationUpdate.once,
               style: LocationMarkerStyle(
@@ -100,8 +114,8 @@ class _MapPageState extends State<MapPage> {
                 markerDirection: MarkerDirection.heading,
               ),
             ),
-            MarkerLayer(markers: markers),
 
+            MarkerLayer(markers: markers),
             // barra de pesquisa feinha... depois refaz-se
             // usa api nominatim da OSM para pesquisar e centrar o mapa
             // na nova localização

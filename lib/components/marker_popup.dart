@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:study_at/pages/landing_page.dart';
+import 'package:study_at/pages/place_page.dart';
 
 void createMarkerPopup(BuildContext context, name, imageLink) {
   showModalBottomSheet(
@@ -17,18 +19,25 @@ void createMarkerPopup(BuildContext context, name, imageLink) {
                         TextStyle(fontSize: 30, fontWeight: FontWeight.w800)),
               ),
               const SizedBox(height: 20),
-              Center(
-                child: ClipRRect(
-                  borderRadius: BorderRadius.circular(10),
-                  child: Image.network(
-                    imageLink,
-                    width: 150,
-                    height: 150,
-                    fit: BoxFit.cover,
+              GestureDetector(
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => PlacePage()),
+                  );
+                },
+                child: Center(
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.circular(10),
+                    child: Image.network(
+                      imageLink,
+                      width: 150,
+                      height: 150,
+                      fit: BoxFit.cover,
+                    ),
                   ),
-                
                 ),
-              )
+              ),
             ],
           ),
         );
