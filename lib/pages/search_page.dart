@@ -15,6 +15,7 @@ class _SearchPageState extends State<SearchPage> {
   @override
   void initState() {
     super.initState();
+    /*
     _placesRef = FirebaseDatabase.instance.ref().child("places");
     _placesRef.onValue.listen((event) {
       setState(() {
@@ -22,6 +23,7 @@ class _SearchPageState extends State<SearchPage> {
             List<Map<dynamic, dynamic>>.from(event.snapshot.value ?? []);
       });
     });
+    */
   }
 
   void updateList(String value) {
@@ -72,6 +74,7 @@ class _SearchPageState extends State<SearchPage> {
             SizedBox(
               height: 20.0,
             ),
+            /*
             Expanded(
               child: ListView.builder(
                 itemCount: _placesList.length,
@@ -84,6 +87,7 @@ class _SearchPageState extends State<SearchPage> {
                 },
               ),
             ),
+            */
           ],
         ),
       ),
