@@ -10,6 +10,9 @@ This is the first official sprint iteration, some more improvements:
 - Limited the map to the Metropolitan Area of Porto
 - Upon clicking a pin, a drawer shows up with more info
 
+### Location screen
+- Created a page for each location, with detailed info on the place
+
 ### Profile screen:
 - Demo version for the profile
 - Name, username and Biography
