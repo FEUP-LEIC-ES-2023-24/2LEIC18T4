@@ -133,7 +133,7 @@ class _AccountPageState extends State<AccountPage> {
                                       'John Human',
                                       maxLines: 1,
                                       style: TextStyle(
-                                            fontSize: 30,
+                                            fontSize: 27,
                                             letterSpacing: 0,
                                           ),
                                       minFontSize: 25,
@@ -421,7 +421,7 @@ class _AccountPageState extends State<AccountPage> {
                                         text: 'Discover@',
                                         style: TextStyle(
                                               color: Color.fromRGBO(145, 45, 25, 1),
-                                              fontSize: 25,
+                                              fontSize: 21,
                                               letterSpacing: 0,
                                               fontWeight: FontWeight.bold,
                                             ),
@@ -430,7 +430,7 @@ class _AccountPageState extends State<AccountPage> {
                                         text: ' Medals Collected!',
                                         style: TextStyle(
                                           fontWeight: FontWeight.w600,
-                                          fontSize: 25,
+                                          fontSize: 21,
                                         ),
                                       )
                                     ],
