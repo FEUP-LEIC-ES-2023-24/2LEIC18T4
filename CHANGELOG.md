@@ -4,8 +4,20 @@ This is the first official sprint iteration, some more improvements:
 
 ## Vertical prototype:
 ### Main screen:
-- The top search bar, that allows the user to search locations on the Map, [**insert made with idk what**]
-- The location pins that point to the locations present on our database
+- Changed the map
+- Improved the top search bar, that allows the user to search locations on the Map, [**insert made with idk what**]
+- Created location pins that point to the locations present on our database
+- Limited the map to the Metropolitan Area of Porto
+- Upon clicking a pin, a drawer shows up with more info
+
+### Profile screen:
+- Demo version for the profile
+- Name, username and Biography
+- History of past Reviews
+- Medals 
+
+### Database>
+- JSON file and Firebase working
 
 ### UML
 - Added detailed descriptions to our Domain Model
