@@ -1,3 +1,16 @@
+# v0.1-sprint1 (2024-04-16)
+## Sprint 1 of Study@ - finished!
+This is the first official sprint iteration, some more improvements:
+
+## Vertical prototype:
+### Main screen:
+- The top search bar, that allows the user to search locations on the Map, [**insert made with idk what**]
+- The location pins that point to the locations present on our database
+
+### UML
+- Added detailed descriptions to our Domain Model
+
+---
 # v0.1-sprint0 (2024-03-27)
 
 ## Sprint 0 of Study@ - finished!
