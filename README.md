@@ -139,6 +139,7 @@ For last but not least, we have a Tag class (with a name atribute) connected to 
 <img src="docs/screenshots/map3.jpg" width="360" height="740">
 <img src="docs/screenshots/place.jpg" width="360" height="740">
 <img src="docs/screenshots/profile.jpg" width="360" height="740">
+<img src="docs/screenshots/debugsearch.jpeg" width="360" height="740">
 
 ## Project Management
 In order to facilitate team communication and organization, [GitHub Projects](https://github.com/orgs/FEUP-LEIC-ES-2023-24/projects/74) was used to do the Project Management of this project.
