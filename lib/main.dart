@@ -25,7 +25,7 @@ class StudyAt extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: const LoginPage(),
-      theme: ThemeData(fontFamily: 'Merriweather'),
+      theme: ThemeData(fontFamily: 'Merriweather', colorSchemeSeed: Colors.white),
     );
   }
 }

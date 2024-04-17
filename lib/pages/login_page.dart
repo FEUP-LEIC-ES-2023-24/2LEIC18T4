@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:study_at/pages/home_page_guest.dart';
+import 'package:study_at/pages/user_login.dart';
 
 class LoginPage extends StatelessWidget {
   const LoginPage({super.key});
@@ -25,6 +26,26 @@ class LoginPage extends StatelessWidget {
               ),
             ),
             const Spacer(),
+            TextButton(
+              child: Text('Login', style: TextStyle(color: Colors.white)),
+              style: TextButton.styleFrom(
+                backgroundColor: Colors.black,
+                textStyle: TextStyle(color: Colors.white)
+              ),
+              onPressed: () => Navigator.push(context,
+              MaterialPageRoute(builder: ((context) => const UserLogin()))),
+            ),
+            const SizedBox(height: 20),
+            TextButton(
+              child: Text('Register', style: TextStyle(color: Colors.white)),
+              style: TextButton.styleFrom(
+                backgroundColor: Colors.black,
+                textStyle: TextStyle(color: Colors.white)
+              ),
+              onPressed: () => Navigator.push(context,
+              MaterialPageRoute(builder: ((context) => const UserLogin()))),
+            ),
+            const SizedBox(height: 20),
             GestureDetector(
               onTap: () => Navigator.push(
                 context,
