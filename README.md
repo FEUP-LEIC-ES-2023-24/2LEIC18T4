@@ -156,3 +156,13 @@ All User Stories can be found [here](https://github.com/FEUP-LEIC-ES-2023-24/2LE
 ![sprint1_board](docs/pictures/sprint-boards/Sprint1.png)
 
 For this First Official Sprint, we looked into the backlog and what we hadn´t managed to achieve and worked on getting what we got wrong corrected first. The Domain Modelling has its description and all the screenshots are here on this README.md. The first thing the backlog gave us was the map to improve. Next we moved on to the search bar and icons, as well as improving the database with tags for each location. We also started working on the profile page. Screenshots of the work can be found above, on Vertical Prototype, Sprint 1.
+
+## Sprint Retrospective
+### Sprint 1
+This Sprint worked very well, we all worked on the project, doing our parts and helping each other on any problems that may have arised. The tasks were well defined and divided.
+For the Second Sprint we need to improve two things:
+ - Making a better Sprint Planning so we don't end the Sprint with items on the Sprint Backlog like this time;
+ - Distributing the work along the two weeks and not just the last days, which happened this time, due to other circumstances that do not interfere with Sprint 2
+
+One aspect that went wrong was the Search page in the Debug Menu. It went wrong because of our lack of Dart experience and the late start of this item.
+The thing that went the best was changing the map and limiting it to just the Porto Area, as it was something that gave us some work but in the end works great.
