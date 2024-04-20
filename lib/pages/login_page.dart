@@ -2,9 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:study_at/pages/auth_page.dart';
 import 'package:study_at/pages/home_page_guest.dart';
 import 'package:study_at/pages/user_login.dart';
+import 'package:study_at/pages/user_register.dart';
 
-class LoginPage extends StatelessWidget {
+class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
+
+  @override
+  State<LoginPage> createState() => _LoginPageState();
+}
+
+class _LoginPageState extends State<LoginPage> {
 
   @override
   Widget build(BuildContext context) {
@@ -44,7 +51,7 @@ class LoginPage extends StatelessWidget {
                 textStyle: TextStyle(color: Colors.white)
               ),
               onPressed: () => Navigator.push(context,
-              MaterialPageRoute(builder: ((context) => UserLogin()))),
+              MaterialPageRoute(builder: ((context) => UserRegister()))),
             ),
             const SizedBox(height: 20),
             GestureDetector(

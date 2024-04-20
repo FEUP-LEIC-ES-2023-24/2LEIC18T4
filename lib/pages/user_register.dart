@@ -4,20 +4,22 @@ import 'package:flutter/material.dart';
 import 'package:study_at/components/apptextfield.dart';
 import 'package:study_at/components/icon_square_tile.dart';
 import 'package:study_at/components/screens_button.dart';
+import 'package:study_at/pages/landing_page.dart';
 import 'package:typewritertext/typewritertext.dart';
 
-class UserLogin extends StatefulWidget {
-  UserLogin({super.key});
+class UserRegister extends StatefulWidget {
+  UserRegister({super.key});
 
   @override
-  State<UserLogin> createState() => _UserLoginState();
+  State<UserRegister> createState() => _UserRegisterState();
 }
 
-class _UserLoginState extends State<UserLogin> {
+class _UserRegisterState extends State<UserRegister> {
   final usernamecontroller = TextEditingController();
   final passwordController = TextEditingController();
+  final confirmPasswordController = TextEditingController();
 
-  void signUserIn() async {
+  void signUserUp() async {
     showDialog(
       context: context,
       builder: (context) {
@@ -27,16 +29,20 @@ class _UserLoginState extends State<UserLogin> {
       },
     );
     try {
-      await FirebaseAuth.instance.signInWithEmailAndPassword(
-          email: usernamecontroller.text, password: passwordController.text);
-      Navigator.pop(context);
+      if (passwordController.text == confirmPasswordController.text) {
+        await FirebaseAuth.instance.createUserWithEmailAndPassword(
+            email: usernamecontroller.text, password: passwordController.text);
+        await FirebaseAuth.instance.signInWithEmailAndPassword(
+            email: usernamecontroller.text, password: passwordController.text);
+        Navigator.of(context).pop();
+        Navigator.of(context).pushReplacement(
+            MaterialPageRoute(builder: (context) => LandingPage()));
+      }
     } on FirebaseAuthException catch (e) {
       Navigator.pop(context);
       if (e.code == 'user-not-found') {
-        // print("wongemail");
         wrongEmail(context);
       } else if (e.code == 'wrong-password') {
-        // print("wrongpass");
         wrongPassword(context);
       }
     }
@@ -70,7 +76,7 @@ class _UserLoginState extends State<UserLogin> {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  const SizedBox(height: 80),
+                  const SizedBox(height: 60),
                   Text(
                     "Study@",
                     style: TextStyle(fontWeight: FontWeight.w900, fontSize: 35),
@@ -102,20 +108,21 @@ class _UserLoginState extends State<UserLogin> {
                     obscureText: true,
                   ),
                   const SizedBox(
+                    height: 30,
+                  ),
+                  AppTextField(
+                    controller: confirmPasswordController,
+                    hintText: "Confirm password",
+                    obscureText: true,
+                  ),
+                  const SizedBox(
                     height: 20,
                   ),
-                  Text("Forgot your password?",
-                      style: TextStyle(
-                          fontWeight: FontWeight.w400,
-                          color: Colors.grey.shade500)),
-                  const SizedBox(
-                    height: 15,
-                  ),
                   ScreensButton(
-                    buttonText: 'Sign in',
+                    buttonText: 'Sign up',
                     textColor: Colors.white,
                     buttonColor: Colors.black,
-                    onTap: signUserIn,
+                    onTap: signUserUp,
                   ),
                   const SizedBox(
                     height: 15,
