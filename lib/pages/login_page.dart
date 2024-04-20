@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:study_at/pages/auth_page.dart';
 import 'package:study_at/pages/home_page_guest.dart';
 import 'package:study_at/pages/user_login.dart';
 
@@ -33,7 +34,7 @@ class LoginPage extends StatelessWidget {
                 textStyle: TextStyle(color: Colors.white)
               ),
               onPressed: () => Navigator.push(context,
-              MaterialPageRoute(builder: ((context) => const UserLogin()))),
+              MaterialPageRoute(builder: ((context) => AuthPage()))),
             ),
             const SizedBox(height: 20),
             TextButton(
@@ -43,7 +44,7 @@ class LoginPage extends StatelessWidget {
                 textStyle: TextStyle(color: Colors.white)
               ),
               onPressed: () => Navigator.push(context,
-              MaterialPageRoute(builder: ((context) => const UserLogin()))),
+              MaterialPageRoute(builder: ((context) => UserLogin()))),
             ),
             const SizedBox(height: 20),
             GestureDetector(

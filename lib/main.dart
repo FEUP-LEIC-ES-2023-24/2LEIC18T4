@@ -1,5 +1,6 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:study_at/pages/auth_page.dart';
 import 'package:study_at/pages/login_page.dart';
 
 Future<void> main() async {

@@ -1,5 +1,5 @@
-
 import 'package:auto_size_text/auto_size_text.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 import 'package:auto_size_text/auto_size_text.dart';
@@ -56,6 +56,10 @@ class _AccountPageState extends State<AccountPage> {
     super.dispose();
   }*/
 
+  void signUserOut() {
+    FirebaseAuth.instance.signOut();
+  }
+
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -74,8 +78,7 @@ class _AccountPageState extends State<AccountPage> {
               Align(
                 alignment: Alignment.topLeft,
                 child: Padding(
-                  padding:
-                      const EdgeInsets.only(left: 15.0, bottom: 1.0),
+                  padding: const EdgeInsets.only(left: 15.0, bottom: 1.0),
                   child: Text(
                     "Account",
                     style: TextStyle(
@@ -133,9 +136,9 @@ class _AccountPageState extends State<AccountPage> {
                                       'John Human',
                                       maxLines: 1,
                                       style: TextStyle(
-                                            fontSize: 27,
-                                            letterSpacing: 0,
-                                          ),
+                                        fontSize: 27,
+                                        letterSpacing: 0,
+                                      ),
                                       minFontSize: 25,
                                     ),
                                   ),
@@ -148,9 +151,9 @@ class _AccountPageState extends State<AccountPage> {
                                       '@username01',
                                       maxLines: 1,
                                       style: TextStyle(
-                                            fontSize: 14,
-                                            letterSpacing: 0,
-                                          ),
+                                        fontSize: 14,
+                                        letterSpacing: 0,
+                                      ),
                                     ),
                                   ),
                                 ),
@@ -163,9 +166,9 @@ class _AccountPageState extends State<AccountPage> {
                                       textAlign: TextAlign.start,
                                       maxLines: 4,
                                       style: TextStyle(
-                                            fontSize: 18,
-                                            letterSpacing: 0,
-                                          ),
+                                        fontSize: 18,
+                                        letterSpacing: 0,
+                                      ),
                                       minFontSize: 12,
                                     ),
                                   ),
@@ -174,12 +177,12 @@ class _AccountPageState extends State<AccountPage> {
                                   child: Text(
                                     'Edit Profile',
                                     style: TextStyle(
-                                          color: Color.fromRGBO(145, 45, 25, 1),
-                                          fontSize: 18,
-                                          letterSpacing: 0,
-                                          fontWeight: FontWeight.w900,
-                                          decoration: TextDecoration.underline,
-                                        ),
+                                      color: Color.fromRGBO(145, 45, 25, 1),
+                                      fontSize: 18,
+                                      letterSpacing: 0,
+                                      fontWeight: FontWeight.w900,
+                                      decoration: TextDecoration.underline,
+                                    ),
                                   ),
                                 ),
                               ],
@@ -217,10 +220,10 @@ class _AccountPageState extends State<AccountPage> {
                                   child: Text(
                                     'History',
                                     style: TextStyle(
-                                          letterSpacing: 0,
-                                          fontSize: 20,
-                                          fontWeight: FontWeight.w900,
-                                        ),
+                                      letterSpacing: 0,
+                                      fontSize: 20,
+                                      fontWeight: FontWeight.w900,
+                                    ),
                                   ),
                                 ),
                               ),
@@ -230,12 +233,12 @@ class _AccountPageState extends State<AccountPage> {
                                   child: Text(
                                     'See All',
                                     style: TextStyle(
-                                          color: Color.fromRGBO(145, 45, 25, 1),
-                                          fontSize: 20,
-                                          letterSpacing: 0,
-                                          fontWeight: FontWeight.w900,
-                                          decoration: TextDecoration.underline,
-                                        ),
+                                      color: Color.fromRGBO(145, 45, 25, 1),
+                                      fontSize: 20,
+                                      letterSpacing: 0,
+                                      fontWeight: FontWeight.w900,
+                                      decoration: TextDecoration.underline,
+                                    ),
                                   ),
                                 ),
                               ),
@@ -289,12 +292,12 @@ class _AccountPageState extends State<AccountPage> {
                                             'It was great! I loved the place! The enviroment was excellent for studying and the nature was really inspiring!',
                                             textAlign: TextAlign.center,
                                             style: TextStyle(
-                                                  color: Colors.white,
-                                                  fontSize: 24,
-                                                  letterSpacing: 0,
-                                                  fontWeight: FontWeight.w500,
-                                                  fontStyle: FontStyle.italic,
-                                                ),
+                                              color: Colors.white,
+                                              fontSize: 24,
+                                              letterSpacing: 0,
+                                              fontWeight: FontWeight.w500,
+                                              fontStyle: FontStyle.italic,
+                                            ),
                                             minFontSize: 12,
                                           ),
                                         ),
@@ -347,12 +350,12 @@ class _AccountPageState extends State<AccountPage> {
                                             'I hated this place :(',
                                             textAlign: TextAlign.center,
                                             style: TextStyle(
-                                                  color: Colors.white,
-                                                  fontSize: 24,
-                                                  letterSpacing: 0,
-                                                  fontWeight: FontWeight.w500,
-                                                  fontStyle: FontStyle.italic,
-                                                ),
+                                              color: Colors.white,
+                                              fontSize: 24,
+                                              letterSpacing: 0,
+                                              fontWeight: FontWeight.w500,
+                                              fontStyle: FontStyle.italic,
+                                            ),
                                             minFontSize: 12,
                                           ),
                                         ),
@@ -403,11 +406,11 @@ class _AccountPageState extends State<AccountPage> {
                                   child: Text(
                                     '16',
                                     style: TextStyle(
-                                          color: Color.fromRGBO(145, 45, 25, 1),
-                                          fontSize: 45,
-                                          letterSpacing: 0,
-                                          fontWeight: FontWeight.bold,
-                                        ),
+                                      color: Color.fromRGBO(145, 45, 25, 1),
+                                      fontSize: 45,
+                                      letterSpacing: 0,
+                                      fontWeight: FontWeight.bold,
+                                    ),
                                   ),
                                 ),
                               ),
@@ -420,11 +423,11 @@ class _AccountPageState extends State<AccountPage> {
                                       TextSpan(
                                         text: 'Discover@',
                                         style: TextStyle(
-                                              color: Color.fromRGBO(145, 45, 25, 1),
-                                              fontSize: 20,
-                                              letterSpacing: 0,
-                                              fontWeight: FontWeight.bold,
-                                            ),
+                                          color: Color.fromRGBO(145, 45, 25, 1),
+                                          fontSize: 20,
+                                          letterSpacing: 0,
+                                          fontWeight: FontWeight.bold,
+                                        ),
                                       ),
                                       TextSpan(
                                         text: ' medals collected!',
@@ -436,9 +439,9 @@ class _AccountPageState extends State<AccountPage> {
                                       )
                                     ],
                                     style: TextStyle(
-                                          fontSize: 19,
-                                          letterSpacing: 0,
-                                        ),
+                                      fontSize: 19,
+                                      letterSpacing: 0,
+                                    ),
                                   ),
                                 ),
                               ),
@@ -450,11 +453,15 @@ class _AccountPageState extends State<AccountPage> {
                   ),
                 ),
               ),
+              GestureDetector(
+                onTap: signUserOut,
+                child: Text("Sign out")
+              ),
             ],
+
           ),
         ),
       ),
     );
   }
 }
-
