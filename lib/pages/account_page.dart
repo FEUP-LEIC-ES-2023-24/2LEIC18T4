@@ -6,6 +6,7 @@ import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:study_at/pages/edit_profile.dart';
 
 /*class AccountPage extends StatelessWidget {
   const AccountPage({super.key});
@@ -173,15 +174,18 @@ class _AccountPageState extends State<AccountPage> {
                                     ),
                                   ),
                                 ),
-                                Expanded(
-                                  child: Text(
-                                    'Edit Profile',
-                                    style: TextStyle(
-                                      color: Color.fromRGBO(145, 45, 25, 1),
-                                      fontSize: 18,
-                                      letterSpacing: 0,
-                                      fontWeight: FontWeight.w900,
-                                      decoration: TextDecoration.underline,
+                                GestureDetector(
+                                  onTap: () => Navigator.push(context, MaterialPageRoute(builder: (context) => EditProfile())),
+                                  child: Expanded(
+                                    child: Text(
+                                      'Edit Profile',
+                                      style: TextStyle(
+                                        color: Color.fromRGBO(145, 45, 25, 1),
+                                        fontSize: 18,
+                                        letterSpacing: 0,
+                                        fontWeight: FontWeight.w900,
+                                        decoration: TextDecoration.underline,
+                                      ),
                                     ),
                                   ),
                                 ),

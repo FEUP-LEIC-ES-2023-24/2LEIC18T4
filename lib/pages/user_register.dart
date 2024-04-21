@@ -1,5 +1,6 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 import 'package:study_at/components/apptextfield.dart';
 import 'package:study_at/components/icon_square_tile.dart';
@@ -30,8 +31,28 @@ class _UserRegisterState extends State<UserRegister> {
     );
     try {
       if (passwordController.text == confirmPasswordController.text) {
-        await FirebaseAuth.instance.createUserWithEmailAndPassword(
-            email: usernamecontroller.text, password: passwordController.text);
+        UserCredential userCredential = await FirebaseAuth.instance
+            .createUserWithEmailAndPassword(
+                email: usernamecontroller.text,
+                password: passwordController.text);
+
+        final DatabaseReference userRef = FirebaseDatabase.instance.ref("users");
+        // Sanitized email...
+        final String userEmail = userCredential.user!.email!.replaceAll('.', '_').replaceAll('@', '_').replaceAll('#', '_');
+        final DatabaseReference userNodeRef = userRef.child(userEmail);
+
+        userNodeRef.set({
+          'name': usernamecontroller.text.split('@')[0],
+          'username': usernamecontroller.text.split('@')[0],
+          'bio': 'A new Study@ user!',
+          'faculty': ['Other', 'Colors.black']
+        }).then((_) {
+          print('User node created successfully');
+        }).catchError((error) {
+          print('Failed to create user node: $error');
+        });
+
+
         await FirebaseAuth.instance.signInWithEmailAndPassword(
             email: usernamecontroller.text, password: passwordController.text);
         Navigator.of(context).pop();
