@@ -3,6 +3,13 @@ import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 import 'package:study_at/components/edit_profile_text_box.dart';
 
+class Faculty {
+  final String name;
+  final int color;
+
+  Faculty({required this.name, required this.color});
+}
+
 class EditProfile extends StatefulWidget {
   const EditProfile({super.key});
 
@@ -13,6 +20,32 @@ class EditProfile extends StatefulWidget {
 class _EditProfileState extends State<EditProfile> {
   final currentUser = FirebaseAuth.instance.currentUser!;
   final userCollection = FirebaseDatabase.instance.ref('users');
+  String selectedFacultyName = "Other";
+  int selectedFacultyColor = Colors.black.value;
+  late List<Faculty> facultyList = [];
+
+  @override
+  void initState() {
+    super.initState();
+    facultyList = [
+      // não tem todas, falta faculdades com 2 cores
+      Faculty(name: "FAUP", color: Colors.grey.value),
+      Faculty(name: "FFUP", color: Color.fromRGBO(110, 32, 160, 100).value),
+      Faculty(name: "FDUP", color: Color.fromRGBO(244, 42, 65, 100).value),
+      Faculty(name: "FBAUP", color: Color.fromRGBO(178, 179, 181, 100).value),
+      Faculty(name: "FADEUP", color: Color.fromRGBO(198, 219, 0, 100).value),
+      Faculty(name: "FPCEUP", color: Color.fromRGBO(255, 92, 0, 100).value),
+      Faculty(name: "FCUP", color: Color.fromRGBO(147, 191, 235, 100).value),
+      Faculty(name: "FEUP", color: Color.fromRGBO(159, 45, 32, 100).value),
+      Faculty(name: "FMUP", color: Color.fromRGBO(255, 214, 0, 100).value),
+      Faculty(name: "FLUP", color: Color.fromRGBO(0, 25, 168, 100).value),
+      // FCNAUP, FEP, FMDUP, ICBAS
+    ];
+
+    if (!facultyList.any((faculty) => faculty.name == "Other")) {
+      facultyList.add(Faculty(name: "Other", color: Colors.black.value));
+    }
+  }
 
   Future<void> editField(String field) async {
     String newValue = "";
@@ -53,6 +86,20 @@ class _EditProfileState extends State<EditProfile> {
               .replaceAll('#', '_'))
           .update({field: newValue});
     }
+  }
+
+  Future<void> updateFaculty(String facultyName) async {
+    Faculty selectedFac =
+        facultyList.firstWhere((faculty) => faculty.name == facultyName);
+
+    await userCollection
+        .child(currentUser.email!
+            .replaceAll('.', '_')
+            .replaceAll('@', '_')
+            .replaceAll('#', '_'))
+        .update({
+      'faculty': {'name': selectedFac.name, 'color': selectedFac.color}
+    });
   }
 
   @override
@@ -115,7 +162,32 @@ class _EditProfileState extends State<EditProfile> {
                     text: userData['bio'],
                     sectionName: 'bio',
                     onPressed: () => editField('bio'),
-                  )
+                  ),
+                  const SizedBox(
+                    height: 30,
+                  ),
+                  Text("Faculty",
+                      textAlign: TextAlign.center,
+                      style:
+                          TextStyle(fontWeight: FontWeight.w700, fontSize: 20)),
+                  DropdownButtonFormField<String>(
+                      value: userData['faculty']['name'],
+                      items: facultyList.map((faculty) {
+                        return DropdownMenuItem(
+                            value: faculty.name, child: Text(faculty.name));
+                      }).toList(),
+                      onChanged: (String? value) {
+                        if (value != null) {
+                          Faculty selectedFaculty = facultyList
+                              .firstWhere((faculty) => faculty.name == value);
+                          setState(() {
+                            selectedFacultyName = selectedFaculty.name;
+                            selectedFacultyColor = selectedFaculty.color;
+                          });
+
+                          updateFaculty(selectedFaculty.name);
+                        }
+                      }),
                 ],
               );
             } else if (snapshot.hasError) {

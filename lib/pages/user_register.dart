@@ -45,7 +45,7 @@ class _UserRegisterState extends State<UserRegister> {
           'name': usernamecontroller.text.split('@')[0],
           'username': usernamecontroller.text.split('@')[0],
           'bio': 'A new Study@ user!',
-          'faculty': ['Other', 'Colors.black']
+          'faculty': {'name': 'Other', 'color': Colors.black.value},
         }).then((_) {
           print('User node created successfully');
         }).catchError((error) {
