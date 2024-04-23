@@ -141,11 +141,15 @@ class _UserLoginState extends State<UserLogin> {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      IconSquareTile(imagepath: 'lib/images/google.png'),
+                      IconSquareTile(
+                          onTap:(){},
+                          imagepath: 'lib/images/google.png'),
                       const SizedBox(
                         width: 40,
                       ),
-                      IconSquareTile(imagepath: 'lib/images/github.png'),
+                      IconSquareTile(
+                          onTap:(){},
+                          imagepath: 'lib/images/github.png'),
                     ],
                   ),
                 ],

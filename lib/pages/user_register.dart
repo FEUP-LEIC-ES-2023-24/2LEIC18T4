@@ -1,15 +1,15 @@
-import 'package:auto_size_text/auto_size_text.dart';
+import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_database/firebase_database.dart';
-import 'package:flutter/material.dart';
+import 'package:google_sign_in/google_sign_in.dart';
+import 'package:study_at/auth_service.dart';
 import 'package:study_at/components/apptextfield.dart';
 import 'package:study_at/components/icon_square_tile.dart';
 import 'package:study_at/components/screens_button.dart';
 import 'package:study_at/pages/landing_page.dart';
-import 'package:typewritertext/typewritertext.dart';
 
 class UserRegister extends StatefulWidget {
-  UserRegister({super.key});
+  UserRegister({Key? key});
 
   @override
   State<UserRegister> createState() => _UserRegisterState();
@@ -33,28 +33,25 @@ class _UserRegisterState extends State<UserRegister> {
       if (passwordController.text == confirmPasswordController.text) {
         UserCredential userCredential = await FirebaseAuth.instance
             .createUserWithEmailAndPassword(
-                email: usernamecontroller.text,
-                password: passwordController.text);
+            email: usernamecontroller.text,
+            password: passwordController.text);
 
+        // Crie um nó de usuário no banco de dados Firebase Realtime Database
         final DatabaseReference userRef = FirebaseDatabase.instance.ref("users");
-        // Sanitized email...
         final String userEmail = userCredential.user!.email!.replaceAll('.', '_').replaceAll('@', '_').replaceAll('#', '_');
         final DatabaseReference userNodeRef = userRef.child(userEmail);
 
         userNodeRef.set({
           'name': usernamecontroller.text.split('@')[0],
           'username': usernamecontroller.text.split('@')[0],
-          'bio': 'A new Study@ user!',
-          'faculty': {'name': 'Other', 'color': Colors.black.value},
+          'bio': 'Um novo usuário do Study@!',
+          'faculty': {'name': 'Outro', 'color': Colors.black.value},
         }).then((_) {
-          print('User node created successfully');
+          print('Nó do usuário criado com sucesso');
         }).catchError((error) {
-          print('Failed to create user node: $error');
+          print('Falha ao criar nó do usuário: $error');
         });
 
-
-        await FirebaseAuth.instance.signInWithEmailAndPassword(
-            email: usernamecontroller.text, password: passwordController.text);
         Navigator.of(context).pop();
         Navigator.of(context).pushReplacement(
             MaterialPageRoute(builder: (context) => LandingPage()));
@@ -74,7 +71,7 @@ class _UserRegisterState extends State<UserRegister> {
         context: context,
         builder: (context) {
           return const AlertDialog(
-              title: Text("Incorrect or not registered email."));
+              title: Text("Email incorreto ou não registrado."));
         });
   }
 
@@ -83,103 +80,99 @@ class _UserRegisterState extends State<UserRegister> {
         context: context,
         builder: (context) {
           return const AlertDialog(
-              title: Text("Incorrect password. Try again or reset it."));
+              title: Text("Senha incorreta. Tente novamente ou redefina-a."));
         });
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: Colors.white,
-        body: SafeArea(
-          child: SingleChildScrollView(
-            child: Center(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  const SizedBox(height: 60),
-                  Text(
-                    "Study@",
-                    style: TextStyle(fontWeight: FontWeight.w900, fontSize: 35),
-                  ),
-                  /*
-                  // Overflows....
-                  Container(
-                    alignment: Alignment.center,
-                    padding: EdgeInsets.only(bottom: 20.0),
-                    width: MediaQuery.of(context).size.width,
-                    child: TypeWriterText(
-                      text: Text('Asprela', style: TextStyle(fontSize: 20),),
-                      duration: Duration(milliseconds: 100),
-                    )
-                  ),
-                  */
-                  const SizedBox(height: 50),
-                  AppTextField(
-                    controller: usernamecontroller,
-                    hintText: "Email",
-                    obscureText: false,
-                  ),
-                  const SizedBox(
-                    height: 30,
-                  ),
-                  AppTextField(
-                    controller: passwordController,
-                    hintText: "Password",
-                    obscureText: true,
-                  ),
-                  const SizedBox(
-                    height: 30,
-                  ),
-                  AppTextField(
-                    controller: confirmPasswordController,
-                    hintText: "Confirm password",
-                    obscureText: true,
-                  ),
-                  const SizedBox(
-                    height: 20,
-                  ),
-                  ScreensButton(
-                    buttonText: 'Sign up',
-                    textColor: Colors.white,
-                    buttonColor: Colors.black,
-                    onTap: signUserUp,
-                  ),
-                  const SizedBox(
-                    height: 15,
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 25.0),
-                    child: Row(
-                      children: [
-                        Expanded(
-                            child: Divider(
-                                thickness: 0.5, color: Colors.grey.shade400)),
-                        Padding(
-                          padding: const EdgeInsets.symmetric(horizontal: 10.0),
-                          child: Text("Or continue with"),
-                        ),
-                        Expanded(
-                            child: Divider(
-                                thickness: 0.5, color: Colors.grey.shade400)),
-                      ],
-                    ),
-                  ),
-                  const SizedBox(height: 50),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
+      backgroundColor: Colors.white,
+      body: SafeArea(
+        child: SingleChildScrollView(
+          child: Center(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                const SizedBox(height: 60),
+                Text(
+                  "Study@",
+                  style: TextStyle(fontWeight: FontWeight.w900, fontSize: 35),
+                ),
+                const SizedBox(height: 50),
+                AppTextField(
+                  controller: usernamecontroller,
+                  hintText: "Email",
+                  obscureText: false,
+                ),
+                const SizedBox(
+                  height: 30,
+                ),
+                AppTextField(
+                  controller: passwordController,
+                  hintText: "Senha",
+                  obscureText: true,
+                ),
+                const SizedBox(
+                  height: 30,
+                ),
+                AppTextField(
+                  controller: confirmPasswordController,
+                  hintText: "Confirme a senha",
+                  obscureText: true,
+                ),
+                const SizedBox(
+                  height: 20,
+                ),
+                ScreensButton(
+                  buttonText: 'Inscrever-se',
+                  textColor: Colors.white,
+                  buttonColor: Colors.black,
+                  onTap: signUserUp,
+                ),
+                const SizedBox(
+                  height: 15,
+                ),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 25.0),
+                  child: Row(
                     children: [
-                      IconSquareTile(imagepath: 'lib/images/google.png'),
-                      const SizedBox(
-                        width: 40,
+                      Expanded(
+                          child: Divider(
+                              thickness: 0.5, color: Colors.grey.shade400)),
+                      Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 10.0),
+                        child: Text("Ou continue com"),
                       ),
-                      IconSquareTile(imagepath: 'lib/images/github.png'),
+                      Expanded(
+                          child: Divider(
+                              thickness: 0.5, color: Colors.grey.shade400)),
                     ],
                   ),
-                ],
-              ),
+                ),
+                const SizedBox(height: 50),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    IconSquareTile(
+                        onTap: () async {
+                          await AuthService().signInGoogle();
+                        },
+                        imagepath: 'lib/images/google.png'),
+                    const SizedBox(
+                      width: 40,
+                    ),
+                    IconSquareTile(
+                        onTap: () {
+                        },
+                        imagepath: 'lib/images/github.png'),
+                  ],
+                ),
+              ],
             ),
           ),
-        ));
+        ),
+      ),
+    );
   }
 }
