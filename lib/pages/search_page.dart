@@ -9,26 +9,36 @@ class SearchPage extends StatefulWidget {
 }
 
 class _SearchPageState extends State<SearchPage> {
-  late DatabaseReference _placesRef;
+  final placesRef = FirebaseDatabase.instance.ref('places');
+  late Query _query;
   List<Map<dynamic, dynamic>> _placesList = [];
 
-  @override
+@override
   void initState() {
     super.initState();
-    /*
-    _placesRef = FirebaseDatabase.instance.ref().child("places");
-    _placesRef.onValue.listen((event) {
+    _query = placesRef.orderByChild('name');
+    _query.onValue.listen((event) {
       setState(() {
-        _placesList =
-            List<Map<dynamic, dynamic>>.from(event.snapshot.value ?? []);
+        _placesList = List<Map<dynamic, dynamic>>.from(
+            event.snapshot.value as List<dynamic>);
       });
     });
-    */
   }
 
-  void updateList(String value) {
-    // Implement your filtering logic here
+void updateList(String value) {
+    setState(() {
+      if (value.isEmpty) {
+        _query = placesRef.orderByChild('name');
+      } else {
+        _query = placesRef
+            .orderByChild('name')
+            .startAt(value)
+            .endAt(value + '\uf8ff')
+            .limitToFirst(10);
+      }
+    });
   }
+
 
   @override
   Widget build(BuildContext context) {
@@ -74,20 +84,18 @@ class _SearchPageState extends State<SearchPage> {
             SizedBox(
               height: 20.0,
             ),
-            /*
             Expanded(
               child: ListView.builder(
                 itemCount: _placesList.length,
                 itemBuilder: (context, index) {
                   return ListTile(
-                    title: Text(_placesList[index]["name"] ?? ""),
-                    subtitle: Text(_placesList[index]["type"] ?? ""),
+                    title: Text(_placesList[index]['name'] ?? ""),
+                    subtitle: Text(_placesList[index]['type'] ?? ""),
                     // You can customize the ListTile as needed
                   );
                 },
               ),
             ),
-            */
           ],
         ),
       ),
