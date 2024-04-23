@@ -75,18 +75,7 @@ class _UserLoginState extends State<UserLogin> {
                     "Study@",
                     style: TextStyle(fontWeight: FontWeight.w900, fontSize: 35),
                   ),
-                  /*
-                  // Overflows....
-                  Container(
-                    alignment: Alignment.center,
-                    padding: EdgeInsets.only(bottom: 20.0),
-                    width: MediaQuery.of(context).size.width,
-                    child: TypeWriterText(
-                      text: Text('Asprela', style: TextStyle(fontSize: 20),),
-                      duration: Duration(milliseconds: 100),
-                    )
-                  ),
-                  */
+                 
                   const SizedBox(height: 50),
                   AppTextField(
                     controller: usernamecontroller,
