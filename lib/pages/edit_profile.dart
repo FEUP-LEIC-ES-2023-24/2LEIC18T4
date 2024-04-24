@@ -1,7 +1,12 @@
+import 'dart:typed_data';
+
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
+import 'package:image_picker/image_picker.dart';
+import 'package:latlong2/latlong.dart';
 import 'package:study_at/components/edit_profile_text_box.dart';
+import 'package:study_at/components/image_picker_utils.dart';
 
 class Faculty {
   final String name;
@@ -23,6 +28,8 @@ class _EditProfileState extends State<EditProfile> {
   String selectedFacultyName = "Other";
   int selectedFacultyColor = Colors.black.value;
   late List<Faculty> facultyList = [];
+
+  Uint8List? image;
 
   @override
   void initState() {
@@ -102,6 +109,13 @@ class _EditProfileState extends State<EditProfile> {
     });
   }
 
+  void selectImage() async {
+    Uint8List img = await pickImage(ImageSource.gallery);
+    setState(() {
+      image = img;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -128,7 +142,43 @@ class _EditProfileState extends State<EditProfile> {
                       textAlign: TextAlign.center,
                       style:
                           TextStyle(fontWeight: FontWeight.bold, fontSize: 40)),
-                  Icon(Icons.person, size: 120),
+                  // Icon(Icons.person, size: 120),
+
+                  Stack(alignment: Alignment.center, children: [
+
+                    image != null ?
+                      CircleAvatar(
+                        radius: 60,
+                        backgroundImage: MemoryImage(image!),
+                      )
+                    :
+                    CircleAvatar(
+                      radius: 60,
+                      backgroundImage: NetworkImage('https://picsum.photos/seed/283/600'),
+                    ),
+
+
+                    Positioned(
+                      bottom: -10,
+                      right: 140,
+                      child: GestureDetector(
+                        onTap: selectImage,
+                        child: Container(
+                          padding: EdgeInsets.all(8),
+                          decoration: BoxDecoration(
+                            shape: BoxShape.circle,
+                            color: Colors.white,
+                          ),
+                          child: Icon(Icons.add_a_photo),
+                        ),
+                      ),
+                    ),
+                  ]),
+
+                  const SizedBox(
+                    height: 10,
+                  ),
+
                   Text(currentUser.email!,
                       textAlign: TextAlign.center,
                       style:
