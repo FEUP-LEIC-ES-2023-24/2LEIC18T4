@@ -144,7 +144,7 @@ class _AccountPageState extends State<AccountPage> {
                                         shape: BoxShape.circle,
                                       ),
                                       child: Image.network(
-                                        'https://picsum.photos/seed/283/600',
+                                        userData['profileImage'],
                                         fit: BoxFit.cover,
                                       ),
                                     ),

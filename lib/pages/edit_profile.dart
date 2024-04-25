@@ -7,6 +7,7 @@ import 'package:image_picker/image_picker.dart';
 import 'package:latlong2/latlong.dart';
 import 'package:study_at/components/edit_profile_text_box.dart';
 import 'package:study_at/components/image_picker_utils.dart';
+import 'package:study_at/components/store_imgdata.dart';
 
 class Faculty {
   final String name;
@@ -116,6 +117,10 @@ class _EditProfileState extends State<EditProfile> {
     });
   }
 
+  void saveImage() async {
+    await StoreData().storeImageToUser(image!);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -145,22 +150,35 @@ class _EditProfileState extends State<EditProfile> {
                   // Icon(Icons.person, size: 120),
 
                   Stack(alignment: Alignment.center, children: [
-
-                    image != null ?
-                      CircleAvatar(
-                        radius: 60,
-                        backgroundImage: MemoryImage(image!),
-                      )
-                    :
-                    CircleAvatar(
-                      radius: 60,
-                      backgroundImage: NetworkImage('https://picsum.photos/seed/283/600'),
-                    ),
-
-
+                    image != null
+                        ? CircleAvatar(
+                            radius: 60,
+                            backgroundImage: MemoryImage(image!),
+                          )
+                        : CircleAvatar(
+                            radius: 60,
+                            backgroundImage: NetworkImage(
+                                userData['profileImage']),
+                          ),
                     Positioned(
                       bottom: -10,
                       right: 140,
+                      child: GestureDetector(
+                        onTap: saveImage,
+                        child: Container(
+                          padding: EdgeInsets.all(8),
+                          decoration: BoxDecoration(
+                            shape: BoxShape.circle,
+                            color: Colors.white,
+                          ),
+                          child: Icon(Icons.save),
+                        ),
+                      ),
+                    ),
+
+                    Positioned(
+                      bottom: -10,
+                      right: 215,
                       child: GestureDetector(
                         onTap: selectImage,
                         child: Container(

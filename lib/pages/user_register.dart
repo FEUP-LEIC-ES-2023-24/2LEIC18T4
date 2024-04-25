@@ -45,7 +45,8 @@ class _UserRegisterState extends State<UserRegister> {
           'name': usernamecontroller.text.split('@')[0],
           'username': usernamecontroller.text.split('@')[0],
           'bio': 'Um novo usuário do Study@!',
-          'faculty': {'name': 'Outro', 'color': Colors.black.value},
+          'faculty': {'name': 'Other', 'color': Colors.black.value},
+          'profileImage' : "https://picsum.photos/seed/283/600",
         }).then((_) {
           print('Nó do usuário criado com sucesso');
         }).catchError((error) {
