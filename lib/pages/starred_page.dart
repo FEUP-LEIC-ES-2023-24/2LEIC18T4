@@ -1,13 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
-
-import 'package:auto_size_text/auto_size_text.dart';
-import 'package:flutter/gestures.dart';
-
-import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_database/firebase_database.dart';
-
 import 'package:study_at/pages/place_page.dart';
 
 class StarredPage extends StatefulWidget {
@@ -19,63 +12,64 @@ class StarredPage extends StatefulWidget {
 
 class _StarredPageState extends State<StarredPage> {
   final currentUser = FirebaseAuth.instance.currentUser!;
-  final databaseReference =
-      FirebaseDatabase.instance.ref().child("places");
-
-  Color colorConvert(int argbVal) {
-    int red = (argbVal >> 16) & 0xFF;
-    int green = (argbVal >> 8) & 0xFF;
-    int blue = argbVal & 0xFF;
-
-    return Color.fromRGBO(red, green, blue, 1.0);
-  }
+  final databaseReference = FirebaseDatabase.instance.ref().child("places");
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      
       body: SafeArea(
-        top: true,
-        child:
-        StreamBuilder(
-          stream: databaseReference.onValue,
-          builder: (BuildContext context, AsyncSnapshot<dynamic> snapshot) {
-            if (snapshot.hasData && snapshot.data != null) {
-              Map<dynamic, dynamic> data = snapshot.data!.snapshot.value;
-              List<Widget> items = [];
-              int counter = 0;
-              List<Widget> rowChildren = [];
+        child: Padding(
+          padding: const EdgeInsets.all(15.0),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                "Starred",
+                style: TextStyle(
+                  fontSize: 30,
+                  fontWeight: FontWeight.w900,
+                ),
+              ),
+              SizedBox(height: 8),
+              Text(
+                "Star your favourite studying places!",
+                style: TextStyle(
+                  fontSize: 17,
+                  fontWeight: FontWeight.w900,
+                ),
+              ),
+              SizedBox(height: 20),
+              Expanded(
+                child: StreamBuilder(
+                  stream: databaseReference.onValue,
+                  builder: (BuildContext context, AsyncSnapshot<dynamic> snapshot) {
+                    if (snapshot.hasData && snapshot.data != null) {
+                      Map<dynamic, dynamic> data = snapshot.data!.snapshot.value;
+                      List<Widget> items = [];
 
-              data.forEach((key, value) {
-                if (value['imageLink'].toString().contains('')) { //CHANGE THIS FOR THE REAL DB, ONLY SHOWS THE ONES WE WANT
-                  rowChildren.add(
-                    GestureDetector(
-                      onTap: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => PlacePage(
-                              imagelink: value['imageLink'],
-                              name: value['name'],
-                              markerTags: value['tags'],
-                            ),
-                          ),
-                        );
-                      },
-                      child: Expanded(
-                        child: Container( //CHANGE THESE TO CHANGE BOX SIZE
-                          width: 150,
-                          height: 150,
-                          margin: EdgeInsets.symmetric(
-                              horizontal: 8.0, vertical: 8.0),
-                          child: Column(
-                            children: [
-                              Container(
+                      data.forEach((key, value) {
+                        if (value['imageLink'].toString().contains('')) { // CHANGE THIS FOR THE REAL DB, ONLY SHOWS THE ONES WE WANT
+                          items.add(
+                            GestureDetector(
+                              onTap: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => PlacePage(
+                                      imagelink: value['imageLink'],
+                                      name: value['name'],
+                                      markerTags: value['tags'],
+                                    ),
+                                  ),
+                                );
+                              },
+                              child: Container(
                                 width: 150,
                                 height: 150,
+                                margin: EdgeInsets.symmetric(horizontal: 8.0, vertical: 8.0),
                                 decoration: BoxDecoration(
-                                  color: Colors.redAccent,
+                                  color: Colors.orangeAccent,
                                   image: DecorationImage(
                                     fit: BoxFit.cover,
                                     image: NetworkImage(
@@ -86,15 +80,12 @@ class _StarredPageState extends State<StarredPage> {
                                     BoxShadow(
                                       blurRadius: 4,
                                       color: Color(0x33000000),
-                                      offset: Offset(
-                                        0,
-                                        2,
-                                      ),
+                                      offset: Offset(0, 2),
                                     )
                                   ],
                                   borderRadius: BorderRadius.circular(25),
                                   border: Border.all(
-                                    color: Colors.redAccent,
+                                    color: Colors.orangeAccent,
                                     width: 2,
                                   ),
                                 ),
@@ -115,45 +106,32 @@ class _StarredPageState extends State<StarredPage> {
                                     Align(
                                       alignment: AlignmentDirectional(0, 1),
                                       child: Icon(
-                                        Icons.stars_outlined,
-                                        color: Colors.black,
-                                        size: 24,
+                                        Icons.stars,
+                                        color: Colors.orangeAccent,
+                                        size: 32,
                                       ),
                                     ),
                                   ],
                                 ),
                               ),
-                            ],
-                          ),
-                        ),
-                      ),
-                    ),
-                  );
-                  counter++;
+                            ),
+                          );
+                        }
+                      });
 
-                  if (counter == 3) { //CHANGE THIS VALUE TO GET MORE SQUARES PER ROW
-                    items.add(Row(children: rowChildren));
-                    rowChildren = [];
-                    counter = 0;
-                  }
-                }
-              });
-
-              if (rowChildren.isNotEmpty) {
-                items.add(Row(children: rowChildren));
-              }
-
-              if (items.isNotEmpty) {
-                return ListView.builder(
-                  itemCount: items.length,
-                  itemBuilder: (context, index) => items[index],
-                );
-              }
-            }
-            return Center(
-              child: CircularProgressIndicator(),
-            );
-          },
+                      return GridView.count(
+                        crossAxisCount: 3, // Number of items per row
+                        children: items,
+                      );
+                    }
+                    return Center(
+                      child: CircularProgressIndicator(),
+                    );
+                  },
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );
