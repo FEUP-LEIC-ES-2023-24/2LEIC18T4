@@ -96,6 +96,14 @@ class _EditProfileState extends State<EditProfile> {
     }
   }
 
+  Color colorConvert(int argbVal) {
+    int red = (argbVal >> 16) & 0xFF;
+    int green = (argbVal >> 8) & 0xFF;
+    int blue = argbVal & 0xFF;
+
+    return Color.fromRGBO(red, green, blue, 1.0);
+  }
+
   Future<void> updateFaculty(String facultyName) async {
     Faculty selectedFac =
         facultyList.firstWhere((faculty) => faculty.name == facultyName);
@@ -238,24 +246,33 @@ class _EditProfileState extends State<EditProfile> {
                       textAlign: TextAlign.center,
                       style:
                           TextStyle(fontWeight: FontWeight.w700, fontSize: 20)),
-                  DropdownButtonFormField<String>(
-                      value: userData['faculty']['name'],
-                      items: facultyList.map((faculty) {
-                        return DropdownMenuItem(
-                            value: faculty.name, child: Text(faculty.name));
-                      }).toList(),
-                      onChanged: (String? value) {
-                        if (value != null) {
-                          Faculty selectedFaculty = facultyList
-                              .firstWhere((faculty) => faculty.name == value);
-                          setState(() {
-                            selectedFacultyName = selectedFaculty.name;
-                            selectedFacultyColor = selectedFaculty.color;
-                          });
-
-                          updateFaculty(selectedFaculty.name);
-                        }
-                      }),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 30.0),
+                    child: DropdownButtonFormField<String>(
+                        value: userData['faculty']['name'],
+                        items: facultyList.map((faculty) {
+                          return DropdownMenuItem(
+                              value: faculty.name, child: Row(
+                                children: [
+                                  Icon(Icons.school, color: colorConvert(faculty.color)),
+                                  SizedBox(width: 10),
+                                  Text(faculty.name)
+                                ],
+                              ));
+                        }).toList(),
+                        onChanged: (String? value) {
+                          if (value != null) {
+                            Faculty selectedFaculty = facultyList
+                                .firstWhere((faculty) => faculty.name == value);
+                            setState(() {
+                              selectedFacultyName = selectedFaculty.name;
+                              selectedFacultyColor = selectedFaculty.color;
+                            });
+                    
+                            updateFaculty(selectedFaculty.name);
+                          }
+                        }),
+                  ),
                 ],
               );
             } else if (snapshot.hasError) {
