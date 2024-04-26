@@ -1,3 +1,4 @@
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 
@@ -152,14 +153,18 @@ class _PlacePageState extends State<PlacePage> {
                             mainAxisSize: MainAxisSize.max,
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
-                              Align(
-                                alignment: AlignmentDirectional(0, 0),
-                                child: Text(
-                                  widget.name.toString(),
-                                  style: TextStyle(
-                                    fontFamily: 'Readex Pro',
-                                    fontSize: 33,
-                                    letterSpacing: 0,
+                              Flexible(
+                                child: Align(
+                                  alignment: AlignmentDirectional(-1, 0),
+                                  child: AutoSizeText(
+                                    widget.name.toString(),
+                                    maxLines: 1,
+                                    style: TextStyle(
+                                      fontFamily: 'Readex Pro',
+                                      fontSize: 33,
+                                      letterSpacing: 0,
+                                    ),
+                                    minFontSize: 20,
                                   ),
                                 ),
                               ),
@@ -212,7 +217,6 @@ class _PlacePageState extends State<PlacePage> {
                                     child: Text(
                                       '4.95',
                                       style: TextStyle(
-                                        fontFamily: 'Readex Pro',
                                         fontSize: 21,
                                         letterSpacing: 0,
                                       ),
@@ -230,7 +234,6 @@ class _PlacePageState extends State<PlacePage> {
                                       TextSpan(
                                         text: 'Nº',
                                         style: TextStyle(
-                                          fontFamily: 'Readex Pro',
                                           color: Colors.black,
                                           fontSize: 17,
                                           letterSpacing: 0,
@@ -249,13 +252,13 @@ class _PlacePageState extends State<PlacePage> {
                                       TextSpan(
                                         text: ' in your area',
                                         style: TextStyle(
+                                          color: Colors.black,
                                           fontWeight: FontWeight.bold,
                                           fontSize: 17,
                                         ),
                                       )
                                     ],
                                     style: TextStyle(
-                                      fontFamily: 'Readex Pro',
                                       letterSpacing: 0,
                                     ),
                                   ),
@@ -280,7 +283,7 @@ class _PlacePageState extends State<PlacePage> {
                       alignment: AlignmentDirectional(-1, 0),
                       child: Padding(
                         padding: EdgeInsetsDirectional.fromSTEB(15, 0, 15, 0),
-                        child: GridView(
+                        child: GridView.builder(
                           padding: EdgeInsets.zero,
                           gridDelegate:
                               SliverGridDelegateWithFixedCrossAxisCount(
@@ -291,8 +294,9 @@ class _PlacePageState extends State<PlacePage> {
                           ),
                           shrinkWrap: true,
                           scrollDirection: Axis.horizontal,
-                          children: [
-                            Container(
+                          itemCount: widget.markerTags.length,
+                          itemBuilder: (context, index) {
+                            return Container(
                               width: 100,
                               height: 93,
                               decoration: BoxDecoration(
@@ -302,92 +306,15 @@ class _PlacePageState extends State<PlacePage> {
                               child: Align(
                                 alignment: AlignmentDirectional(0, 0),
                                 child: Text(
-                                  'Power Outlets',
+                                  widget.markerTags[index].toString(),
                                   style: TextStyle(
-                                    fontFamily: 'Readex Pro',
                                     color: Colors.white,
                                     letterSpacing: 0,
                                   ),
                                 ),
                               ),
-                            ),
-                            Container(
-                              width: 100,
-                              height: 93,
-                              decoration: BoxDecoration(
-                                color: Colors.black,
-                                borderRadius: BorderRadius.circular(20),
-                              ),
-                              child: Align(
-                                alignment: AlignmentDirectional(0, 0),
-                                child: Text(
-                                  'Coworking',
-                                  style: TextStyle(
-                                    fontFamily: 'Readex Pro',
-                                    color: Colors.white,
-                                    letterSpacing: 0,
-                                  ),
-                                ),
-                              ),
-                            ),
-                            Container(
-                              width: 100,
-                              height: 93,
-                              decoration: BoxDecoration(
-                                color: Colors.black,
-                                borderRadius: BorderRadius.circular(20),
-                              ),
-                              child: Align(
-                                alignment: AlignmentDirectional(0, 0),
-                                child: Text(
-                                  'Sunlight',
-                                  style: TextStyle(
-                                    fontFamily: 'Readex Pro',
-                                    color: Colors.white,
-                                    letterSpacing: 0,
-                                  ),
-                                ),
-                              ),
-                            ),
-                            Container(
-                              width: 100,
-                              height: 93,
-                              decoration: BoxDecoration(
-                                color: Colors.black,
-                                borderRadius: BorderRadius.circular(20),
-                              ),
-                              child: Align(
-                                alignment: AlignmentDirectional(0, 0),
-                                child: Text(
-                                  'Free Wifi',
-                                  style: TextStyle(
-                                    fontFamily: 'Readex Pro',
-                                    color: Colors.white,
-                                    letterSpacing: 0,
-                                  ),
-                                ),
-                              ),
-                            ),
-                            Container(
-                              width: 100,
-                              height: 93,
-                              decoration: BoxDecoration(
-                                color: Colors.black,
-                                borderRadius: BorderRadius.circular(20),
-                              ),
-                              child: Align(
-                                alignment: AlignmentDirectional(0, 0),
-                                child: Text(
-                                  'Coffee',
-                                  style: TextStyle(
-                                    fontFamily: 'Readex Pro',
-                                    color: Colors.white,
-                                    letterSpacing: 0,
-                                  ),
-                                ),
-                              ),
-                            ),
-                          ],
+                            );
+                          },
                         ),
                       ),
                     ),
@@ -421,7 +348,6 @@ class _PlacePageState extends State<PlacePage> {
                                 child: Text(
                                   'Biblioteca da FEUP, R. Dr. Roberto Frias, 4200-465 Porto',
                                   style: TextStyle(
-                                    fontFamily: 'Readex Pro',
                                     fontSize: 18,
                                     letterSpacing: 0,
                                     fontWeight: FontWeight.bold,
@@ -462,7 +388,6 @@ class _PlacePageState extends State<PlacePage> {
                                         TextSpan(
                                           text: '8h30',
                                           style: TextStyle(
-                                            fontFamily: 'Readex Pro',
                                             color: Colors.black,
                                             fontSize: 20,
                                             letterSpacing: 0,
@@ -472,13 +397,14 @@ class _PlacePageState extends State<PlacePage> {
                                         TextSpan(
                                           text: '-',
                                           style: TextStyle(
+                                            color: Colors.black,
                                             fontSize: 20,
                                           ),
                                         ),
                                         TextSpan(
                                           text: '19h30',
                                           style: TextStyle(
-                                            fontFamily: 'Readex Pro',
+                                            color: Colors.black,
                                             fontSize: 20,
                                             letterSpacing: 0,
                                             fontWeight: FontWeight.bold,
@@ -486,7 +412,6 @@ class _PlacePageState extends State<PlacePage> {
                                         )
                                       ],
                                       style: TextStyle(
-                                        fontFamily: 'Readex Pro',
                                         letterSpacing: 0,
                                       ),
                                     ),
@@ -499,7 +424,6 @@ class _PlacePageState extends State<PlacePage> {
                                       TextSpan(
                                         text: 'Mon',
                                         style: TextStyle(
-                                          fontFamily: 'Readex Pro',
                                           color: Colors.black,
                                           fontSize: 20,
                                           letterSpacing: 0,
@@ -509,13 +433,14 @@ class _PlacePageState extends State<PlacePage> {
                                       TextSpan(
                                         text: '-',
                                         style: TextStyle(
+                                          color: Colors.black,
                                           fontSize: 20,
                                         ),
                                       ),
                                       TextSpan(
                                         text: 'Fri',
                                         style: TextStyle(
-                                          fontFamily: 'Readex Pro',
+                                          color: Colors.black,
                                           fontSize: 20,
                                           letterSpacing: 0,
                                           fontWeight: FontWeight.w500,
@@ -523,7 +448,6 @@ class _PlacePageState extends State<PlacePage> {
                                       )
                                     ],
                                     style: TextStyle(
-                                      fontFamily: 'Readex Pro',
                                       letterSpacing: 0,
                                     ),
                                   ),
@@ -536,7 +460,6 @@ class _PlacePageState extends State<PlacePage> {
                               child: Text(
                                 'Open',
                                 style: TextStyle(
-                                  fontFamily: 'Readex Pro',
                                   color: Color.fromRGBO(140, 45, 25, 1),
                                   fontSize: 20,
                                   letterSpacing: 0,
@@ -573,7 +496,6 @@ class _PlacePageState extends State<PlacePage> {
                                       TextSpan(
                                         text: 'Discover@ medal: ',
                                         style: TextStyle(
-                                          fontFamily: 'Readex Pro',
                                           color: Colors.black,
                                           fontSize: 20,
                                           letterSpacing: 0,
@@ -590,7 +512,6 @@ class _PlacePageState extends State<PlacePage> {
                                       )
                                     ],
                                     style: TextStyle(
-                                      fontFamily: 'Readex Pro',
                                       letterSpacing: 0,
                                     ),
                                   ),
