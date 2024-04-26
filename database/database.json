@@ -1,271 +1,359 @@
 {
-    "places": {
-      "174": {
-        "id": "174",
-        "imageLink": "http://h5p.org/sites/default/files/h5p/content/292659/images/image-5b6c21bd54857.jpg",
-        "latitude": "41.1775",
-        "longitude": "-8.5946",
-        "name": "FEUP Library",
-        "type": "Library",
-        "tags": [
-          "Computers",
-          "Outlets",
-          "Natural Light",
-          "Co-Working",
-          "Silence",
-          "Internet",
-          "Coffee",
-          "Food"
-        ]
+  "places": {
+    "123": {
+      "id": "123",
+      "imageLink": "https://noticias.up.pt/wp-content/uploads/2023/06/estudantes-jardins-ciencias.jpg",
+      "latitude": "41.151854",
+      "longitude": "-8.636924",
+      "name": "FCUP Garden",
+      "tags": [
+        "Outdoors",
+        "Pet-Friendly",
+        "Natural Light",
+        "Co-Working",
+        "Internet"
+      ],
+      "type": "Garden",
+      "region": "Campo Alegre"
+    },
+    "127": {
+      "id": "127",
+      "imageLink": "https://oliviahouses.com/wp-content/uploads/2023/06/jardim-botanico-porto-olivia.webp",
+      "latitude": "41.154287",
+      "longitude": "-8.643268",
+      "name": "E-Learning Cafe Botânico",
+      "tags": [
+        "Coffee",
+        "Internet"
+      ],
+      "type": "Cafe",
+      "region": "Campo Alegre"
+    },
+    "174": {
+      "id": "174",
+      "imageLink": "http://h5p.org/sites/default/files/h5p/content/292659/images/image-5b6c21bd54857.jpg",
+      "latitude": "41.1775",
+      "longitude": "-8.5946",
+      "name": "FEUP Library",
+      "tags": [
+        "Computers",
+        "Outlets",
+        "Natural Light",
+        "Co-Working",
+        "Silence",
+        "Internet",
+        "Coffee",
+        "Food"
+      ],
+      "type": "Library",
+      "region": "Asprela"
+    },
+    "259": {
+      "id": "259",
+      "imageLink": "https://noticias.up.pt/wp-content/uploads/2022/03/parque-central-da-asprela-pre.inauguracao_04.jpg",
+      "latitude": "41.177150",
+      "longitude": "-8.601437",
+      "name": "Asprela Park",
+      "tags": [
+        "Outdoors",
+        "Pet-Friendly",
+        "Natural Light",
+        "Co-Working"
+      ],
+      "type": "Garden",
+      "region": "Asprela"
+    },
+    "273": {
+      "id": "273",
+      "imageLink": "https://noticias.up.pt/wp-content/uploads/2023/06/jardins-faup_02.jpg",
+      "latitude": "41.150435",
+      "longitude": "-8.626896",
+      "name": "FAUP Garden",
+      "tags": [
+        "Outdoors",
+        "Pet-Friendly",
+        "Natural Light",
+        "Co-Working",
+        "Internet"
+      ],
+      "type": "Garden",
+      "region": "Campo Alegre"
+    },
+    "276": {
+      "id": "276",
+      "imageLink": "https://laptopfriendly.co/images/places/porto/e-learning-cafe-u-porto/e-learning-cafe-u-porto%20porto%20e-learning-cafe-u-porto-porto%20.jpg",
+      "latitude": "41.174053",
+      "longitude": "-8.604083",
+      "name": "E-Learning Cafe Asprela",
+      "tags": [
+        "Internet",
+        "Co-Working",
+        "Coffee",
+        "Outlets",
+        "Internet"
+      ],
+      "type": "Cafe",
+      "region": "Campo Alegre"
+    },
+    "368": {
+      "id": "368",
+      "imageLink": "https://sigarra.up.pt/up/pt/imagens/album/n329",
+      "latitude": "41.152832",
+      "longitude": "-8.637582",
+      "name": "FCUP Library",
+      "tags": [
+        "Outlets",
+        "Natural Light",
+        "Co-Working",
+        "Silence",
+        "Coffee",
+        "Food",
+        "Internet"
+      ],
+      "type": "Library",
+      "region": "Campo Alegre"
+    },
+    "412": {
+      "id": "412",
+      "imageLink": "https://lh3.googleusercontent.com/proxy/vZdtAqQBb3WCFntjm3TNW_dz8Vh_ko1isJyWqlNPjbUqKAzbEwA8d1kn5wncKMIDHspiZnUypgbIp0LRkoh1LEfRMIjgQ50REafUCnorprX7iq5Gv2Ocx4W3T-LLgx0-RA",
+      "latitude": "41.159148",
+      "longitude": "-8.659348",
+      "name": "Serralves Library",
+      "tags": [
+        "Silence"
+      ],
+      "type": "Library",
+      "region": "Boavista"
+    },
+    "491": {
+      "id": "491",
+      "imageLink": "https://biblioteca.med.up.pt/wp-content/uploads/2017/04/1-1024x397.jpg",
+      "latitude": "41.179267248047395",
+      "longitude": "-8.600080002862496",
+      "name": "FMUP Library",
+      "tags": [
+        "Computers",
+        "Co-Working",
+        "Silence",
+        "Outlets",
+        "Food",
+        "Internet",
+        "Natural Light"
+      ],
+      "type": "Library",
+      "region": "Asprela"
+    },
+    "591": {
+      "id": "591",
+      "imageLink": "https://www.porto.pt/_next/image?url=https%3A%2F%2Fmedia.porto.pt%2Foriginal_images%2Ffib_biblioteca_municipal_almeida_garrett_janeiro.JPG&w=1460&q=85",
+      "latitude": "41.148291",
+      "longitude": "-8.626992",
+      "name": "Almeida Garret Library",
+      "tags": [
+        "Silence"
+      ],
+      "type": "Library",
+      "region": "Palácio Cristal"
+    },
+    "682": {
+      "id": "682",
+      "imageLink": "https://mapio.net/images-p/37718994.jpg",
+      "latitude": "41.150263",
+      "longitude": "-8.633480",
+      "name": "FLUP Garden",
+      "tags": [
+        "Outdoors",
+        "Pet-Friendly",
+        "Natural Light",
+        "Co-Working",
+        "Internet"
+      ],
+      "type": "Garden",
+      "region": "Campo Alegre"
+    },
+    "696": {
+      "id": "696",
+      "imageLink": "https://omega.com.pt/wp-content/uploads/2016/11/%C2%A9Telmo-Miller-8181-copy.jpg",
+      "latitude": "41.178835",
+      "longitude": "-8.606639",
+      "name": "ISEP Library",
+      "tags": [
+        "Outlets",
+        "Internet",
+        "Food",
+        "Natural Light",
+        "Co-Working",
+        "Silence",
+        "Coffee"
+      ],
+      "type": "Library",
+      "region": "Asprela"
+    },
+    "721": {
+      "id": "721",
+      "imageLink": "https://convida.pt/images/POIs/CafeCasaMusica-Convida-2017-010.jpg",
+      "latitude": "41.158524",
+      "longitude": "-8.631066",
+      "name": "Casa da Musica Cafe",
+      "tags": [
+        "Coffee",
+        "Food",
+        "Outdoors",
+        "Co-Working",
+        "Natural Light",
+        "Pet-Friendly"
+      ],
+      "type": "Cafe",
+      "region": "Boavista"
+    },
+    "756": {
+      "id": "756",
+      "imageLink": "https://ler.letras.up.pt/uploads/ficheiros/18955.JPG",
+      "latitude": "41.150500",
+      "longitude": "-8.632937",
+      "name": "FLUP Library",
+      "tags": [
+        "Internet",
+        "Natural Light",
+        "Silence",
+        "Co-Working",
+        "Coffee",
+        "Food",
+        "Outlets"
+      ],
+      "type": "Library",
+      "region": "Campo Alegre"
+    },
+    "812": {
+      "id": "812",
+      "imageLink": "https://noticias.up.pt/wp-content/uploads/2023/06/esplanada-icbas-ffup.jpg",
+      "latitude": "41.147282",
+      "longitude": "-8.624199",
+      "name": "ICBAS/FFUP Terrace",
+      "tags": [
+        "Food",
+        "Coffee",
+        "Co-Working",
+        "Natural Light",
+        "Internet"
+      ],
+      "type": "Cafe",
+      "region": "Palácio Cristal"
+    },
+    "823": {
+      "id": "823",
+      "imageLink": "https://noticias.up.pt/wp-content/uploads/2023/06/estudantes-jardins-fbaup.jpg",
+      "latitude": "41.145699",
+      "longitude": "-8.601020",
+      "name": "FBAUP Garden",
+      "tags": [
+        "Outdoors",
+        "Pet-Friendly",
+        "Natural Light",
+        "Co-Working",
+        "Internet"
+      ],
+      "type": "Garden",
+      "region": "Batalha"
+    },
+    "835": {
+      "id": "835",
+      "imageLink": "https://upload.wikimedia.org/wikipedia/commons/4/4a/Biblioteca_Municipal_Porto-01.jpg",
+      "latitude": "41.146022",
+      "longitude": "-8.601859",
+      "name": "Porto Public Library",
+      "tags": [
+        "Silence"
+      ],
+      "type": "Library",
+      "region": "Batalha"
+    },
+    "938": {
+      "id": "938",
+      "imageLink": "https://www.ucp.pt/sites/default/files/styles/prose_large/public/2018-08/Campus%20Foz%20com%20Verde%20e%20UCP.jpg?itok=r4tT8xuH",
+      "latitude": "41.153733",
+      "longitude": "-8.672239",
+      "name": "Católica Library",
+      "tags": [
+        "Outlets",
+        "Co-Working",
+        "Silence",
+        "Coffee",
+        "Food",
+        "Internet"
+      ],
+      "type": "Library",
+      "region": "Foz"
+    }
+  },
+  "users": {
+    "afonso_gmail_com": {
+      "bio": "Should I Stay or Should I Go",
+      "faculty": {
+        "color": 2627677472,
+        "name": "FEUP"
       },
-      "368": {
-        "id": "368",
-        "imageLink": "https://sigarra.up.pt/up/pt/imagens/album/n329",
-        "latitude": "41.152832",
-        "longitude": "-8.637582",
-        "name": "FCUP Library",
-        "type": "Library",
-        "tags": [
-          "Outlets",
-          "Natural Light",
-          "Co-Working",
-          "Silence",
-          "Coffee",
-          "Food",
-          "Internet"
-        ]
+      "name": "Afonso Castro",
+      "profileImage": "https://picsum.photos/seed/283/600",
+      "username": "El-Castro"
+    },
+    "clara_gmail_com": {
+      "bio": "Sou a Clara",
+      "faculty": {
+        "color": 2627677472,
+        "name": "FEUP"
       },
-      "491": {
-        "id": "491",
-        "imageLink": "https://biblioteca.med.up.pt/wp-content/uploads/2017/04/1-1024x397.jpg",
-        "latitude": "41.179267248047395",
-        "longitude": "-8.600080002862496",
-        "name": "FMUP Library",
-        "type": "Library",
-        "tags": [
-          "Computers",
-          "Co-Working",
-          "Silence",
-          "Outlets",
-          "Food",
-          "Internet",
-          "Natural Light"
-        ]
+      "name": "Clara Sousa",
+      "profileImage": "https://firebasestorage.googleapis.com/v0/b/studyatapp.appspot.com/o/profileImages%2Fclara_gmail_com?alt=media&token=0dcf4949-ad63-437e-b82f-c05b89bea01f",
+      "username": "clara123"
+    },
+    "pedro_gmail_com": {
+      "bio": "descrição mesmo louca e radical",
+      "faculty": {
+        "color": 2630277888,
+        "name": "FADEUP"
       },
-      "696": {
-        "id": "696",
-        "imageLink": "https://omega.com.pt/wp-content/uploads/2016/11/%C2%A9Telmo-Miller-8181-copy.jpg",
-        "latitude": "41.178835",
-        "longitude": "-8.606639",
-        "name": "ISEP Library",
-        "type": "Library",
-        "tags": [
-          "Outlets",
-          "Internet",
-          "Food",
-          "Natural Light",
-          "Co-Working",
-          "Silence",
-          "Coffee"
-        ]
+      "name": "Pedro",
+      "profileImage": "https://picsum.photos/seed/283/600",
+      "username": "ronaldothegoat"
+    },
+    "rodrigodiasdesousa_gmail_com": {
+      "bio": "Um novo usuário do Study@!",
+      "faculty": {
+        "color": 2633980928,
+        "name": "FPCEUP"
       },
-      "756": {
-        "id": "756",
-        "imageLink": "https://ler.letras.up.pt/uploads/ficheiros/18955.JPG",
-        "latitude": "41.150500",
-        "longitude": "-8.632937",
-        "name": "FLUP Library",
-        "type": "Library",
-        "tags": [
-          "Internet",
-          "Natural Light",
-          "Silence",
-          "Co-Working",
-          "Coffee",
-          "Food",
-          "Outlets"
-        ]
+      "name": "rodrigodiasdesousa",
+      "profileImage": "https://picsum.photos/seed/283/600",
+      "stars": [
+        "127",
+        "174",
+        "696"
+      ],
+      "username": "rodrigodiasdesousa"
+    },
+    "teste_gmail_com": {
+      "bio": "Biografia do user de teste.",
+      "faculty": {
+        "color": 2634012160,
+        "name": "FMUP"
       },
-      "127": {
-        "id": "127",
-        "imageLink": "https://oliviahouses.com/wp-content/uploads/2023/06/jardim-botanico-porto-olivia.webp",
-        "latitude": "41.154287",
-        "longitude": "-8.643268",
-        "name": "E-Learning Cafe Botânico",
-        "type": "Cafe",
-        "tags": [
-          "Coffee",
-          "Internet"
-        ]
+      "name": "teste",
+      "profileImage": "https://picsum.photos/seed/283/600",
+      "stars": [
+        "174"
+      ],
+      "username": "teste"
+    },
+    "vicenteteste_gmail_com": {
+      "bio": "Um novo usuário do Study@!",
+      "faculty": {
+        "color": 2627677472,
+        "name": "FEUP"
       },
-      "412": {
-        "id": "412",
-        "imageLink": "https://lh3.googleusercontent.com/proxy/vZdtAqQBb3WCFntjm3TNW_dz8Vh_ko1isJyWqlNPjbUqKAzbEwA8d1kn5wncKMIDHspiZnUypgbIp0LRkoh1LEfRMIjgQ50REafUCnorprX7iq5Gv2Ocx4W3T-LLgx0-RA",
-        "latitude": "41.159148",
-        "longitude": "-8.659348",
-        "name": "Serralves Library",
-        "type": "Library",
-        "tags": [
-          "Silence"
-        ]
-      },
-      "721": {
-        "id": "721",
-        "imageLink": "https://convida.pt/images/POIs/CafeCasaMusica-Convida-2017-010.jpg",
-        "latitude": "41.158524",
-        "longitude": "-8.631066",
-        "name": "Casa da Musica Cafe",
-        "type": "Cafe",
-        "tags": [
-          "Coffee",
-          "Food",
-          "Outdoors",
-          "Co-Working",
-          "Natural Light",
-          "Pet-Friendly"
-        ]
-      },
-      "938": {
-        "id": "938",
-        "imageLink": "https://www.ucp.pt/sites/default/files/styles/prose_large/public/2018-08/Campus%20Foz%20com%20Verde%20e%20UCP.jpg?itok=r4tT8xuH",
-        "latitude": "41.153733",
-        "longitude": "-8.672239",
-        "name": "Católica Library",
-        "type": "Library",
-        "tags": [
-          "Outlets",
-          "Co-Working",
-          "Silence",
-          "Coffee",
-          "Food",
-          "Internet"
-        ]
-      },
-      "591": {
-        "id": "591",
-        "imageLink": "https://www.porto.pt/_next/image?url=https%3A%2F%2Fmedia.porto.pt%2Foriginal_images%2Ffib_biblioteca_municipal_almeida_garrett_janeiro.JPG&w=1460&q=85",
-        "latitude": "41.148291",
-        "longitude": "-8.626992",
-        "name": "Almeida Garret Library",
-        "type": "Library",
-        "tags": [
-          "Silence"
-        ]
-      },
-      "835": {
-        "id": "835",
-        "imageLink": "https://upload.wikimedia.org/wikipedia/commons/4/4a/Biblioteca_Municipal_Porto-01.jpg",
-        "latitude": "41.146022",
-        "longitude": "-8.601859",
-        "name": "Public Porto Library",
-        "type": "Library",
-        "tags": [
-          "Silence"
-        ]
-      },
-      "276": {
-        "id": "276",
-        "imageLink": "https://laptopfriendly.co/images/places/porto/e-learning-cafe-u-porto/e-learning-cafe-u-porto%20porto%20e-learning-cafe-u-porto-porto%20.jpg",
-        "latitude": "41.174053",
-        "longitude": "-8.604083",
-        "name": "E-Learning Cafe Asprela",
-        "type": "Cafe",
-        "tags": [
-          "Internet",
-          "Co-Working",
-          "Coffee",
-          "Outlets",
-          "Internet"
-        ]
-      },
-      "812": {
-        "id": "812",
-        "imageLink": "https://noticias.up.pt/wp-content/uploads/2023/06/esplanada-icbas-ffup.jpg",
-        "latitude": "41.147282",
-        "longitude": "-8.624199",
-        "name": "ICBAS/FFUP Terrace",
-        "type": "Cafe",
-        "tags": [
-          "Food",
-          "Coffee",
-          "Co-Working",
-          "Natural Light",
-          "Internet"
-        ]
-      },
-      "273": {
-        "id": "273",
-        "imageLink": "https://noticias.up.pt/wp-content/uploads/2023/06/jardins-faup_02.jpg",
-        "latitude": "41.150435",
-        "longitude": "-8.626896",
-        "name": "FAUP Garden",
-        "type": "Garden",
-        "tags": [
-          "Outdoors",
-          "Pet-Friendly",
-          "Natural Light",
-          "Co-Working",
-          "Internet"
-        ]
-      },
-      "823": {
-        "id": "823",
-        "imageLink": "https://noticias.up.pt/wp-content/uploads/2023/06/estudantes-jardins-fbaup.jpg",
-        "latitude": "41.145699",
-        "longitude": "-8.601020",
-        "name": "FBAUP Garden",
-        "type": "Garden",
-        "tags": [
-          "Outdoors",
-          "Pet-Friendly",
-          "Natural Light",
-          "Co-Working",
-          "Internet"
-        ]
-      },
-      "123": {
-        "id": "123",
-        "imageLink": "https://noticias.up.pt/wp-content/uploads/2023/06/estudantes-jardins-ciencias.jpg",
-        "latitude": "41.151854",
-        "longitude": "-8.636924",
-        "name": "FCUP Garden",
-        "type": "Garden",
-        "tags": [
-          "Outdoors",
-          "Pet-Friendly",
-          "Natural Light",
-          "Co-Working",
-          "Internet"
-        ]
-      },
-      "682": {
-        "id": "682",
-        "imageLink": "https://mapio.net/images-p/37718994.jpg",
-        "latitude": "41.150263",
-        "longitude": "-8.633480",
-        "name": "FLUP Garden",
-        "type": "Garden",
-        "tags": [
-          "Outdoors",
-          "Pet-Friendly",
-          "Natural Light",
-          "Co-Working",
-          "Internet"
-        ]
-      },
-      "259": {
-        "id": "259",
-        "imageLink": "https://noticias.up.pt/wp-content/uploads/2022/03/parque-central-da-asprela-pre.inauguracao_04.jpg",
-        "latitude": "41.177150",
-        "longitude": "-8.601437",
-        "name": "Asprela Park",
-        "type": "Garden",
-        "tags": [
-          "Outdoors",
-          "Pet-Friendly",
-          "Natural Light",
-          "Co-Working"
-        ]
-      }
+      "name": "vicenteteste",
+      "profileImage": "https://firebasestorage.googleapis.com/v0/b/studyatapp.appspot.com/o/profileImages%2Fvicenteteste_gmail_com?alt=media&token=a1400b81-1a03-4c72-a6e1-5049f1c036f0",
+      "username": "vicenteteste"
     }
   }
+}

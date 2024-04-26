@@ -160,7 +160,6 @@ class _PlacePageState extends State<PlacePage> {
                                     widget.name.toString(),
                                     maxLines: 1,
                                     style: TextStyle(
-                                      fontFamily: 'Readex Pro',
                                       fontSize: 33,
                                       letterSpacing: 0,
                                     ),
