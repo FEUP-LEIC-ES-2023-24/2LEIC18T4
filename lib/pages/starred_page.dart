@@ -14,24 +14,25 @@ class _StarredPageState extends State<StarredPage> {
   final currentUser = FirebaseAuth.instance.currentUser!;
   final databaseReference = FirebaseDatabase.instance.ref().child("places");
   List<String> starredPlacesIds = [];
+  Color userColor = Colors.black;
 
   @override
   void initState() {
     super.initState();
     // Retrieve the list of starred places IDs for the current user
     retrieveStarredPlacesIds();
+    retrieveUserColor();
   }
 
   void retrieveStarredPlacesIds() {
-    DatabaseReference userRef = FirebaseDatabase.instance.ref().child("users/${currentUser.email!
-          .replaceAll('.', '_')
-          .replaceAll('@', '_')
-          .replaceAll('#', '_')}");
-    
+    DatabaseReference userRef = FirebaseDatabase.instance.ref().child(
+        "users/${currentUser.email!.replaceAll('.', '_').replaceAll('@', '_').replaceAll('#', '_')}");
+
     userRef.onValue.listen((event) {
       DataSnapshot snapshot = event.snapshot;
       List<String> ids = [];
-      Map<dynamic, dynamic>? userData = snapshot.value as Map<dynamic, dynamic>?;
+      Map<dynamic, dynamic>? userData =
+          snapshot.value as Map<dynamic, dynamic>?;
 
       if (userData != null) {
         List<dynamic> stars = userData['stars'];
@@ -46,6 +47,33 @@ class _StarredPageState extends State<StarredPage> {
     });
   }
 
+  Color colorConvert(int argbVal) {
+    int red = (argbVal >> 16) & 0xFF;
+    int green = (argbVal >> 8) & 0xFF;
+    int blue = argbVal & 0xFF;
+
+    return Color.fromRGBO(red, green, blue, 1.0);
+  }
+
+  void retrieveUserColor() {
+    DatabaseReference userRef = FirebaseDatabase.instance.ref().child(
+        "users/${currentUser.email!.replaceAll('.', '_').replaceAll('@', '_').replaceAll('#', '_')}");
+
+    userRef.onValue.listen((event) {
+      DataSnapshot snapshot = event.snapshot;
+      int i = 0;
+      Map<dynamic, dynamic>? userData =
+          snapshot.value as Map<dynamic, dynamic>?;
+
+      if (userData != null) {
+        i = userData['faculty']['color'];
+      }
+
+      setState(() {
+        userColor = colorConvert(i);
+      });
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -80,9 +108,11 @@ class _StarredPageState extends State<StarredPage> {
                   : Expanded(
                       child: StreamBuilder(
                         stream: databaseReference.onValue,
-                        builder: (BuildContext context, AsyncSnapshot<dynamic> snapshot) {
+                        builder: (BuildContext context,
+                            AsyncSnapshot<dynamic> snapshot) {
                           if (snapshot.hasData && snapshot.data != null) {
-                            Map<dynamic, dynamic> data = snapshot.data!.snapshot.value;
+                            Map<dynamic, dynamic> data =
+                                snapshot.data!.snapshot.value;
                             List<Widget> items = [];
 
                             data.forEach((key, value) {
@@ -105,9 +135,10 @@ class _StarredPageState extends State<StarredPage> {
                                     child: Container(
                                       width: 150,
                                       height: 150,
-                                      margin: EdgeInsets.symmetric(horizontal: 8.0, vertical: 8.0),
+                                      margin: EdgeInsets.symmetric(
+                                          horizontal: 8.0, vertical: 8.0),
                                       decoration: BoxDecoration(
-                                        color: Colors.orangeAccent,
+                                        color: userColor,
                                         image: DecorationImage(
                                           fit: BoxFit.cover,
                                           image: NetworkImage(
@@ -123,14 +154,15 @@ class _StarredPageState extends State<StarredPage> {
                                         ],
                                         borderRadius: BorderRadius.circular(25),
                                         border: Border.all(
-                                          color: Colors.orangeAccent,
+                                          color: userColor,
                                           width: 2,
                                         ),
                                       ),
                                       child: Stack(
                                         children: [
                                           Align(
-                                            alignment: AlignmentDirectional(0, 0.5),
+                                            alignment:
+                                                AlignmentDirectional(0, 0.5),
                                             child: Text(
                                               value['name'],
                                               style: TextStyle(
@@ -142,10 +174,11 @@ class _StarredPageState extends State<StarredPage> {
                                             ),
                                           ),
                                           Align(
-                                            alignment: AlignmentDirectional(0, 1),
+                                            alignment:
+                                                AlignmentDirectional(0, 1),
                                             child: Icon(
                                               Icons.stars,
-                                              color: Colors.orangeAccent,
+                                              color: userColor,
                                               size: 32,
                                             ),
                                           ),
