@@ -78,7 +78,7 @@ class _StarredPageState extends State<StarredPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: Colors.white60,
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.all(15.0),
@@ -166,9 +166,22 @@ class _StarredPageState extends State<StarredPage> {
                                             child: Text(
                                               value['name'],
                                               style: TextStyle(
+                                                color: Colors.black,
+                                                letterSpacing: 0,
+                                                fontWeight: FontWeight.w900,
+                                                fontStyle: FontStyle.normal,
+                                              ),
+                                            ),
+                                          ),
+                                          Align(
+                                            alignment:
+                                                AlignmentDirectional(0, 0.5),
+                                            child: Text(
+                                              value['name'],
+                                              style: TextStyle(
                                                 color: Colors.white,
                                                 letterSpacing: 0,
-                                                fontWeight: FontWeight.w500,
+                                                fontWeight: FontWeight.w400,
                                                 fontStyle: FontStyle.normal,
                                               ),
                                             ),
@@ -191,7 +204,7 @@ class _StarredPageState extends State<StarredPage> {
                             });
 
                             return GridView.count(
-                              crossAxisCount: 3, // Number of items per row
+                              crossAxisCount: 2, // Number of items per row
                               children: items,
                             );
                           }
