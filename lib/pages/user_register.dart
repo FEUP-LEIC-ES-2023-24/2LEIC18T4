@@ -47,6 +47,7 @@ class _UserRegisterState extends State<UserRegister> {
           'bio': 'Um novo usuário do Study@!',
           'faculty': {'name': 'Other', 'color': Colors.black.value},
           'profileImage' : "https://picsum.photos/seed/283/600",
+          'stars': ['174'],
         }).then((_) {
           print('Nó do usuário criado com sucesso');
         }).catchError((error) {
