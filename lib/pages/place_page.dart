@@ -1,5 +1,6 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:firebase_database/firebase_database.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 import 'package:flutter/gestures.dart';
@@ -22,9 +23,81 @@ class PlacePage extends StatefulWidget {
   State<PlacePage> createState() => _PlacePageState();
 }
 
-final databaseReference = FirebaseDatabase.instance.ref("places");
-
 class _PlacePageState extends State<PlacePage> {
+  final currentUser = FirebaseAuth.instance.currentUser!;
+  final databaseReference = FirebaseDatabase.instance.ref("places");
+  String placeId = '';
+  bool isStarred = false;
+
+  void toggleStar() {
+    final DatabaseReference placesRef = FirebaseDatabase.instance.ref("places");
+
+    placesRef.onValue.listen((event) {
+      DataSnapshot snapshot = event.snapshot;
+      Map<dynamic, dynamic>? data = snapshot.value as Map<dynamic, dynamic>?;
+
+      if (data != null) {
+        data.forEach((key, value) {
+          if (value['name'] == widget.name ||
+              value['imageLink'] == widget.imagelink) {
+            placeId = value['id'].toString();
+          }
+        });
+
+        if (placeId.isNotEmpty) {
+          setState(() {
+            isStarred = !isStarred;
+          });
+
+  //FUCK ISTO NÃO DÁ ASSIM COM ESTA DATABASE MAS COM A QUE DÁ DEPOIS A PAGINA DOS STARRED NÃO FUNCIONA AAAAAAA
+          final DatabaseReference userRef = FirebaseDatabase.instance
+              .ref("users")
+              .child(currentUser.email!
+                  .replaceAll('.', '_')
+                  .replaceAll('@', '_')
+                  .replaceAll('#', '_'));
+
+          if (isStarred) {
+            userRef.child("stars").push().set(placeId);
+          } else {
+            //userRef.child("stars").child(placeId).remove(); N DÁAAAA
+          }
+        } else {
+          print("Place not found");
+        }
+      }
+    });
+  }
+
+  void checkIfStarred() {
+    final DatabaseReference userRef = FirebaseDatabase.instance
+        .ref("users")
+        .child(currentUser.email!
+            .replaceAll('.', '_')
+            .replaceAll('@', '_')
+            .replaceAll('#', '_'))
+        .child("stars");
+
+    userRef.onValue.listen((event) {
+      DataSnapshot snapshot = event.snapshot;
+      Map<dynamic, dynamic>? starsData =
+          snapshot.value as Map<dynamic, dynamic>?;
+
+      if (starsData != null) {
+        starsData.forEach((key, value) {
+          if (value == placeId) {
+            setState(() {
+              isStarred = true;
+            });
+            return;
+          }
+        });
+      }
+      setState(() {
+        isStarred = false;
+      });
+    });
+  }
   /*@override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -103,10 +176,9 @@ class _PlacePageState extends State<PlacePage> {
 
   @override
   Widget build(BuildContext context) {
+    checkIfStarred();
     return GestureDetector(
-      /*onTap: () => _model.unfocusNode.canRequestFocus
-          ? FocusScope.of(context).requestFocus(_model.unfocusNode)
-          : FocusScope.of(context).unfocus(),*/
+      onTap: toggleStar,
       child: Scaffold(
         //key: scaffoldKey,
         backgroundColor: Colors.white,
@@ -174,10 +246,15 @@ class _PlacePageState extends State<PlacePage> {
                                 children: [
                                   Align(
                                     alignment: AlignmentDirectional(0, 0),
-                                    child: Icon(
-                                      Icons.star_border,
-                                      color: Colors.black,
-                                      size: 37,
+                                    child: IconButton(
+                                      icon: Icon(
+                                        isStarred
+                                            ? Icons.star
+                                            : Icons.star_border,
+                                        color: Colors.black,
+                                        size: 37,
+                                      ),
+                                      onPressed: toggleStar,
                                     ),
                                   ),
                                   Align(
