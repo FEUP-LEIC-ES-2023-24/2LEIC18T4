@@ -28,6 +28,7 @@ class _PlacePageState extends State<PlacePage> {
   final databaseReference = FirebaseDatabase.instance.ref("places");
   late String placeId = '';
   bool isStarred = false;
+  Color userColor = Colors.black;
 
 
 void retrievePlaceId() {
@@ -48,6 +49,32 @@ void retrievePlaceId() {
     });
   });
 }
+Color colorConvert(int argbVal) {
+    int red = (argbVal >> 16) & 0xFF;
+    int green = (argbVal >> 8) & 0xFF;
+    int blue = argbVal & 0xFF;
+
+    return Color.fromRGBO(red, green, blue, 1.0);
+  }
+void retrieveUserColor() {
+    DatabaseReference userRef = FirebaseDatabase.instance.ref().child(
+        "users/${currentUser.email!.replaceAll('.', '_').replaceAll('@', '_').replaceAll('#', '_')}");
+
+    userRef.onValue.listen((event) {
+      DataSnapshot snapshot = event.snapshot;
+      int i = 0;
+      Map<dynamic, dynamic>? userData =
+          snapshot.value as Map<dynamic, dynamic>?;
+
+      if (userData != null) {
+        i = userData['faculty']['color'];
+      }
+
+      setState(() {
+        userColor = colorConvert(i);
+      });
+    });
+  }
   void addStar() {
   final DatabaseReference userRef = FirebaseDatabase.instance
       .ref("user-place")
@@ -155,6 +182,8 @@ void retrievePlaceId() {
     super.initState();
     // Call the function to check if the place is starred
     retrievePlaceId();
+    retrieveUserColor();
+
   }
 
   @override
@@ -229,8 +258,8 @@ void retrievePlaceId() {
                                     alignment: AlignmentDirectional(0, 0),
                                     child: IconButton(
                                       icon: Icon(
-                                        Icons.star,
-                                        color: Colors.black,
+                                        Icons.favorite,
+                                        color: userColor,
                                         size: 37,
                                       ),
                                       onPressed: addStar,
@@ -240,8 +269,8 @@ void retrievePlaceId() {
                                     alignment: AlignmentDirectional(0, 0),
                                     child: IconButton(
                                       icon: Icon(
-                                        Icons.star_border,
-                                        color: Colors.black,
+                                        Icons.heart_broken,
+                                        color: userColor,
                                         size: 37,
                                       ),
                                       onPressed: removeStar,
@@ -254,7 +283,7 @@ void retrievePlaceId() {
                                           5, 0, 0, 0),
                                       child: Icon(
                                         Icons.share,
-                                        color: Colors.black,
+                                        color: userColor,
                                         size: 35,
                                       ),
                                     ),
@@ -274,7 +303,7 @@ void retrievePlaceId() {
                                     alignment: AlignmentDirectional(0, 0),
                                     child: Icon(
                                       Icons.favorite,
-                                      color: Colors.black,
+                                      color: userColor,
                                       size: 21,
                                     ),
                                   ),
@@ -309,8 +338,7 @@ void retrievePlaceId() {
                                       TextSpan(
                                         text: '2',
                                         style: TextStyle(
-                                          color:
-                                              Color.fromRGBO(140, 45, 25, 1.0),
+                                          color: userColor,
                                           fontWeight: FontWeight.bold,
                                           fontSize: 17,
                                         ),
@@ -366,7 +394,7 @@ void retrievePlaceId() {
                               width: 100,
                               height: 93,
                               decoration: BoxDecoration(
-                                color: Colors.black,
+                                color: userColor,
                                 borderRadius: BorderRadius.circular(20),
                               ),
                               child: Align(
@@ -404,7 +432,7 @@ void retrievePlaceId() {
                           children: [
                             Icon(
                               Icons.location_on,
-                              color: Colors.black,
+                              color: userColor,
                               size: 33,
                             ),
                             Flexible(
@@ -440,7 +468,7 @@ void retrievePlaceId() {
                               children: [
                                 Icon(
                                   Icons.lock_clock,
-                                  color: Colors.black,
+                                  color: userColor,
                                   size: 33,
                                 ),
                                 Padding(
@@ -526,7 +554,7 @@ void retrievePlaceId() {
                               child: Text(
                                 'Open',
                                 style: TextStyle(
-                                  color: Color.fromRGBO(140, 45, 25, 1),
+                                  color: userColor,
                                   fontSize: 20,
                                   letterSpacing: 0,
                                   fontWeight: FontWeight.w800,
@@ -548,7 +576,7 @@ void retrievePlaceId() {
                           children: [
                             Icon(
                               Icons.emoji_events_rounded,
-                              color: Colors.black,
+                              color: userColor,
                               size: 33,
                             ),
                             Flexible(
