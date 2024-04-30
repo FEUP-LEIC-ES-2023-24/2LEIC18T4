@@ -26,78 +26,55 @@ class PlacePage extends StatefulWidget {
 class _PlacePageState extends State<PlacePage> {
   final currentUser = FirebaseAuth.instance.currentUser!;
   final databaseReference = FirebaseDatabase.instance.ref("places");
-  String placeId = '';
+  late String placeId = '';
   bool isStarred = false;
 
-  void toggleStar() {
-    final DatabaseReference placesRef = FirebaseDatabase.instance.ref("places");
 
-    placesRef.onValue.listen((event) {
-      DataSnapshot snapshot = event.snapshot;
-      Map<dynamic, dynamic>? data = snapshot.value as Map<dynamic, dynamic>?;
+void retrievePlaceId() {
+  String name = widget.name.toString();
+  String imageLink = widget.imagelink.toString();
 
-      if (data != null) {
-        data.forEach((key, value) {
-          if (value['name'] == widget.name ||
-              value['imageLink'] == widget.imagelink) {
-            placeId = value['id'].toString();
-          }
+  databaseReference.onValue.listen((dynamic event) {
+    DataSnapshot snapshot = event.snapshot;
+    Map<dynamic, dynamic> placesData = snapshot.value as Map<dynamic, dynamic>;
+    
+    placesData.forEach((key, value) {
+      if (value['name'] == name && value['imageLink'] == imageLink) {
+        setState(() {
+          placeId = key;
         });
-
-        if (placeId.isNotEmpty) {
-          setState(() {
-            isStarred = !isStarred;
-          });
-
-  //FUCK ISTO NÃO DÁ ASSIM COM ESTA DATABASE MAS COM A QUE DÁ DEPOIS A PAGINA DOS STARRED NÃO FUNCIONA AAAAAAA
-          final DatabaseReference userRef = FirebaseDatabase.instance
-              .ref("users")
-              .child(currentUser.email!
-                  .replaceAll('.', '_')
-                  .replaceAll('@', '_')
-                  .replaceAll('#', '_'));
-
-          if (isStarred) {
-            userRef.child("stars").push().set(placeId);
-          } else {
-            //userRef.child("stars").child(placeId).remove(); N DÁAAAA
-          }
-        } else {
-          print("Place not found");
-        }
+        return; // Stop iterating once the place is found
       }
     });
-  }
+  });
+}
+  void addStar() {
+  final DatabaseReference userRef = FirebaseDatabase.instance
+      .ref("user-place")
+      .child(currentUser.email!
+          .replaceAll('.', '_')
+          .replaceAll('@', '_')
+          .replaceAll('#', '_'))
+      .child(placeId)
+      .child("favorite");
 
-  void checkIfStarred() {
-    final DatabaseReference userRef = FirebaseDatabase.instance
-        .ref("users")
-        .child(currentUser.email!
-            .replaceAll('.', '_')
-            .replaceAll('@', '_')
-            .replaceAll('#', '_'))
-        .child("stars");
+  userRef.set(true);
+}
 
-    userRef.onValue.listen((event) {
-      DataSnapshot snapshot = event.snapshot;
-      Map<dynamic, dynamic>? starsData =
-          snapshot.value as Map<dynamic, dynamic>?;
 
-      if (starsData != null) {
-        starsData.forEach((key, value) {
-          if (value == placeId) {
-            setState(() {
-              isStarred = true;
-            });
-            return;
-          }
-        });
-      }
-      setState(() {
-        isStarred = false;
-      });
-    });
-  }
+  void removeStar() {
+  final DatabaseReference userRef = FirebaseDatabase.instance
+      .ref("user-place")
+      .child(currentUser.email!
+          .replaceAll('.', '_')
+          .replaceAll('@', '_')
+          .replaceAll('#', '_'))
+      .child(placeId)
+      .child("favorite");
+
+  userRef.set(false);
+}
+
   /*@override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -173,12 +150,16 @@ class _PlacePageState extends State<PlacePage> {
           ],
         ));
   }*/
+  @override
+  void initState() {
+    super.initState();
+    // Call the function to check if the place is starred
+    retrievePlaceId();
+  }
 
   @override
   Widget build(BuildContext context) {
-    checkIfStarred();
     return GestureDetector(
-      onTap: toggleStar,
       child: Scaffold(
         //key: scaffoldKey,
         backgroundColor: Colors.white,
@@ -248,13 +229,22 @@ class _PlacePageState extends State<PlacePage> {
                                     alignment: AlignmentDirectional(0, 0),
                                     child: IconButton(
                                       icon: Icon(
-                                        isStarred
-                                            ? Icons.star
-                                            : Icons.star_border,
+                                        Icons.star,
                                         color: Colors.black,
                                         size: 37,
                                       ),
-                                      onPressed: toggleStar,
+                                      onPressed: addStar,
+                                    ),
+                                  ),
+                                  Align(
+                                    alignment: AlignmentDirectional(0, 0),
+                                    child: IconButton(
+                                      icon: Icon(
+                                        Icons.star_border,
+                                        color: Colors.black,
+                                        size: 37,
+                                      ),
+                                      onPressed: removeStar,
                                     ),
                                   ),
                                   Align(

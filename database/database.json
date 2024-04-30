@@ -6,6 +6,7 @@
       "latitude": "41.151854",
       "longitude": "-8.636924",
       "name": "FCUP Garden",
+      "region": "Campo Alegre",
       "tags": [
         "Outdoors",
         "Pet-Friendly",
@@ -13,8 +14,7 @@
         "Co-Working",
         "Internet"
       ],
-      "type": "Garden",
-      "region": "Campo Alegre"
+      "type": "Garden"
     },
     "127": {
       "id": "127",
@@ -22,12 +22,12 @@
       "latitude": "41.154287",
       "longitude": "-8.643268",
       "name": "E-Learning Cafe Botânico",
+      "region": "Campo Alegre",
       "tags": [
         "Coffee",
         "Internet"
       ],
-      "type": "Cafe",
-      "region": "Campo Alegre"
+      "type": "Cafe"
     },
     "174": {
       "id": "174",
@@ -35,6 +35,7 @@
       "latitude": "41.1775",
       "longitude": "-8.5946",
       "name": "FEUP Library",
+      "region": "Asprela",
       "tags": [
         "Computers",
         "Outlets",
@@ -45,8 +46,7 @@
         "Coffee",
         "Food"
       ],
-      "type": "Library",
-      "region": "Asprela"
+      "type": "Library"
     },
     "259": {
       "id": "259",
@@ -54,14 +54,14 @@
       "latitude": "41.177150",
       "longitude": "-8.601437",
       "name": "Asprela Park",
+      "region": "Asprela",
       "tags": [
         "Outdoors",
         "Pet-Friendly",
         "Natural Light",
         "Co-Working"
       ],
-      "type": "Garden",
-      "region": "Asprela"
+      "type": "Garden"
     },
     "273": {
       "id": "273",
@@ -69,6 +69,7 @@
       "latitude": "41.150435",
       "longitude": "-8.626896",
       "name": "FAUP Garden",
+      "region": "Campo Alegre",
       "tags": [
         "Outdoors",
         "Pet-Friendly",
@@ -76,8 +77,7 @@
         "Co-Working",
         "Internet"
       ],
-      "type": "Garden",
-      "region": "Campo Alegre"
+      "type": "Garden"
     },
     "276": {
       "id": "276",
@@ -85,6 +85,7 @@
       "latitude": "41.174053",
       "longitude": "-8.604083",
       "name": "E-Learning Cafe Asprela",
+      "region": "Campo Alegre",
       "tags": [
         "Internet",
         "Co-Working",
@@ -92,8 +93,7 @@
         "Outlets",
         "Internet"
       ],
-      "type": "Cafe",
-      "region": "Campo Alegre"
+      "type": "Cafe"
     },
     "368": {
       "id": "368",
@@ -101,6 +101,7 @@
       "latitude": "41.152832",
       "longitude": "-8.637582",
       "name": "FCUP Library",
+      "region": "Campo Alegre",
       "tags": [
         "Outlets",
         "Natural Light",
@@ -110,8 +111,7 @@
         "Food",
         "Internet"
       ],
-      "type": "Library",
-      "region": "Campo Alegre"
+      "type": "Library"
     },
     "412": {
       "id": "412",
@@ -119,11 +119,11 @@
       "latitude": "41.159148",
       "longitude": "-8.659348",
       "name": "Serralves Library",
+      "region": "Boavista",
       "tags": [
         "Silence"
       ],
-      "type": "Library",
-      "region": "Boavista"
+      "type": "Library"
     },
     "491": {
       "id": "491",
@@ -131,6 +131,7 @@
       "latitude": "41.179267248047395",
       "longitude": "-8.600080002862496",
       "name": "FMUP Library",
+      "region": "Asprela",
       "tags": [
         "Computers",
         "Co-Working",
@@ -140,8 +141,7 @@
         "Internet",
         "Natural Light"
       ],
-      "type": "Library",
-      "region": "Asprela"
+      "type": "Library"
     },
     "591": {
       "id": "591",
@@ -149,11 +149,11 @@
       "latitude": "41.148291",
       "longitude": "-8.626992",
       "name": "Almeida Garret Library",
+      "region": "Palácio Cristal",
       "tags": [
         "Silence"
       ],
-      "type": "Library",
-      "region": "Palácio Cristal"
+      "type": "Library"
     },
     "682": {
       "id": "682",
@@ -161,6 +161,7 @@
       "latitude": "41.150263",
       "longitude": "-8.633480",
       "name": "FLUP Garden",
+      "region": "Campo Alegre",
       "tags": [
         "Outdoors",
         "Pet-Friendly",
@@ -168,8 +169,7 @@
         "Co-Working",
         "Internet"
       ],
-      "type": "Garden",
-      "region": "Campo Alegre"
+      "type": "Garden"
     },
     "696": {
       "id": "696",
@@ -177,6 +177,7 @@
       "latitude": "41.178835",
       "longitude": "-8.606639",
       "name": "ISEP Library",
+      "region": "Asprela",
       "tags": [
         "Outlets",
         "Internet",
@@ -186,8 +187,7 @@
         "Silence",
         "Coffee"
       ],
-      "type": "Library",
-      "region": "Asprela"
+      "type": "Library"
     },
     "721": {
       "id": "721",
@@ -195,6 +195,7 @@
       "latitude": "41.158524",
       "longitude": "-8.631066",
       "name": "Casa da Musica Cafe",
+      "region": "Boavista",
       "tags": [
         "Coffee",
         "Food",
@@ -203,8 +204,7 @@
         "Natural Light",
         "Pet-Friendly"
       ],
-      "type": "Cafe",
-      "region": "Boavista"
+      "type": "Cafe"
     },
     "756": {
       "id": "756",
@@ -212,6 +212,7 @@
       "latitude": "41.150500",
       "longitude": "-8.632937",
       "name": "FLUP Library",
+      "region": "Campo Alegre",
       "tags": [
         "Internet",
         "Natural Light",
@@ -221,8 +222,7 @@
         "Food",
         "Outlets"
       ],
-      "type": "Library",
-      "region": "Campo Alegre"
+      "type": "Library"
     },
     "812": {
       "id": "812",
@@ -230,6 +230,7 @@
       "latitude": "41.147282",
       "longitude": "-8.624199",
       "name": "ICBAS/FFUP Terrace",
+      "region": "Palácio Cristal",
       "tags": [
         "Food",
         "Coffee",
@@ -237,8 +238,7 @@
         "Natural Light",
         "Internet"
       ],
-      "type": "Cafe",
-      "region": "Palácio Cristal"
+      "type": "Cafe"
     },
     "823": {
       "id": "823",
@@ -246,6 +246,7 @@
       "latitude": "41.145699",
       "longitude": "-8.601020",
       "name": "FBAUP Garden",
+      "region": "Batalha",
       "tags": [
         "Outdoors",
         "Pet-Friendly",
@@ -253,8 +254,7 @@
         "Co-Working",
         "Internet"
       ],
-      "type": "Garden",
-      "region": "Batalha"
+      "type": "Garden"
     },
     "835": {
       "id": "835",
@@ -262,11 +262,11 @@
       "latitude": "41.146022",
       "longitude": "-8.601859",
       "name": "Porto Public Library",
+      "region": "Batalha",
       "tags": [
         "Silence"
       ],
-      "type": "Library",
-      "region": "Batalha"
+      "type": "Library"
     },
     "938": {
       "id": "938",
@@ -274,6 +274,7 @@
       "latitude": "41.153733",
       "longitude": "-8.672239",
       "name": "Católica Library",
+      "region": "Foz",
       "tags": [
         "Outlets",
         "Co-Working",
@@ -282,8 +283,7 @@
         "Food",
         "Internet"
       ],
-      "type": "Library",
-      "region": "Foz"
+      "type": "Library"
     }
   },
   "users": {
@@ -317,6 +317,16 @@
       "profileImage": "https://picsum.photos/seed/283/600",
       "username": "ronaldothegoat"
     },
+    "rodri_gmail_com": {
+      "bio": "Um novo usuário do Study@!",
+      "faculty": {
+        "color": 4278190080,
+        "name": "Other"
+      },
+      "name": "rodri",
+      "profileImage": "https://picsum.photos/seed/283/600",
+      "username": "rodri"
+    },
     "rodrigodiasdesousa_gmail_com": {
       "bio": "Um novo usuário do Study@!",
       "faculty": {
@@ -325,11 +335,6 @@
       },
       "name": "rodrigodiasdesousa",
       "profileImage": "https://picsum.photos/seed/283/600",
-      "stars": [
-        "127",
-        "174",
-        "696"
-      ],
       "username": "rodrigodiasdesousa"
     },
     "teste_gmail_com": {
@@ -340,9 +345,6 @@
       },
       "name": "teste",
       "profileImage": "https://picsum.photos/seed/283/600",
-      "stars": [
-        "174"
-      ],
       "username": "teste"
     },
     "vicenteteste_gmail_com": {
@@ -355,5 +357,556 @@
       "profileImage": "https://firebasestorage.googleapis.com/v0/b/studyatapp.appspot.com/o/profileImages%2Fvicenteteste_gmail_com?alt=media&token=a1400b81-1a03-4c72-a6e1-5049f1c036f0",
       "username": "vicenteteste"
     }
+  },
+  "user-place" : {
+    "afonso_gmail_com": {
+      "123": {
+        "comment": "Great place to study",
+        "rating": 5,
+        "favorite": true
+      },
+      "127": {
+        "comment": "Great place to study",
+        "rating": 5,
+        "favorite": false
+      },
+      "174": {
+        "comment": "Great place to study",
+        "rating": 5,
+        "favorite": true
+      },
+      "259": {
+        "comment": "Great place to study",
+        "rating": 5,
+        "favorite": false
+      },
+      "273": {
+        "comment": "Great place to study",
+        "rating": 5,
+        "favorite": true
+      },
+      "276": {
+        "comment": "Great place to study",
+        "rating": 5,
+        "favorite": false
+      },
+      "368": {
+        "comment": "Great place to study",
+        "rating": 5,
+        "favorite": true
+      },
+      "412": {
+        "comment": "Great place to study",
+        "rating": 5,
+        "favorite": false
+      },
+      "491": {
+        "comment": "Great place to study",
+        "rating": 5,
+        "favorite": true
+      },
+      "591": {
+        "comment": "Great place to study",
+        "rating": 5,
+        "favorite": false
+      },
+      "682": {
+        "comment": "Great place to study",
+        "rating": 5,
+        "favorite": true
+      },
+      "696": {
+        "comment": "Great place to study",
+        "rating": 5,
+        "favorite": false
+      },
+      "721": {
+        "comment": "Great place to study",
+        "rating": 5,
+        "favorite": true
+      },
+      "756": {
+        "comment": "Great place to study",
+        "rating": 5,
+        "favorite": false
+      },
+      "812": {
+        "comment": "Great place to study",
+        "rating": 5,
+        "favorite": true
+      },
+      "823": {
+        "comment": "Great place to study",
+        "rating": 5,
+        "favorite": false
+      },
+      "835": {
+        "comment": "Great place to study",
+        "rating": 5,
+        "favorite": true
+      },
+      "938": {
+        "comment": "Great place to study",
+        "rating": 5,
+        "favorite": false
+      }
+    },
+    "clara_gmail_com": {
+      "123": {
+        "comment": "Great place to study",
+        "rating": 5,
+        "favorite": true
+      },
+      "127": {
+        "comment": "Great place to study",
+        "rating": 5,
+        "favorite": false
+      },
+      "174": {
+        "comment": "Great place to study",
+        "rating": 5,
+        "favorite": true
+      },
+      "259": {
+        "comment": "Great place to study",
+        "rating": 5,
+        "favorite": false
+      },
+      "273": {
+        "comment": "Great place to study",
+        "rating": 5,
+        "favorite": true
+      },
+      "276": {
+        "comment": "Great place to study",
+        "rating": 5,
+        "favorite": false
+      },
+      "368": {
+        "comment": "Great place to study",
+        "rating": 5,
+        "favorite": true
+      },
+      "412": {
+        "comment": "Great place to study",
+        "rating": 5,
+        "favorite": false
+      },
+      "491": {
+        "comment": "Great place to study",
+        "rating": 5,
+        "favorite": true
+      },
+      "591": {
+        "comment": "Great place to study",
+        "rating": 5,
+        "favorite": false
+      },
+      "682": {
+        "comment": "Great place to study",
+        "rating": 5,
+        "favorite": true
+      },
+      "696": {
+        "comment": "Great place to study",
+        "rating": 5,
+        "favorite": false
+      },
+      "721": {
+        "comment": "Great place to study",
+        "rating": 5,
+        "favorite": true
+      },
+      "756": {
+        "comment": "Great place to study",
+        "rating": 5,
+        "favorite": false
+      },
+      "812": {
+        "comment": "Great place to study",
+        "rating": 5,
+        "favorite": true
+      },
+      "823": {
+        "comment": "Great place to study",
+        "rating": 5,
+        "favorite": false
+      },
+      "835": {
+        "comment": "Great place to study",
+        "rating": 5,
+        "favorite": true
+      },
+      "938": {
+        "comment": "Great place to study",
+        "rating": 5,
+        "favorite": false
+      }
+    },
+    "pedro_gmail_com": {
+      "123": {
+        "comment": "Great place to study",
+        "rating": 5,
+        "favorite": true
+      },
+      "127": {
+        "comment": "Great place to study",
+        "rating": 5,
+        "favorite": false
+      },
+      "174": {
+        "comment": "Great place to study",
+        "rating": 5,
+        "favorite": true
+      },
+      "259": {
+        "comment": "Great place to study",
+        "rating": 5,
+        "favorite": false
+      },
+      "273": {
+        "comment": "Great place to study",
+        "rating": 5,
+        "favorite": true
+      },
+      "276": {
+        "comment": "Great place to study",
+        "rating": 5,
+        "favorite": false
+      },
+      "368": {
+        "comment": "Great place to study",
+        "rating": 5,
+        "favorite": true
+      },
+      "412": {
+        "comment": "Great place to study",
+        "rating": 5,
+        "favorite": false
+      },
+      "491": {
+        "comment": "Great place to study",
+        "rating": 5,
+        "favorite": true
+      },
+      "591": {
+        "comment": "Great place to study",
+        "rating": 5,
+        "favorite": false
+      },
+      "682": {
+        "comment": "Great place to study",
+        "rating": 5,
+        "favorite": true
+      },
+      "696": {
+        "comment": "Great place to study",
+        "rating": 5,
+        "favorite": false
+      },
+      "721": {
+        "comment": "Great place to study",
+        "rating": 5,
+        "favorite": true
+      },
+      "756": {
+        "comment": "Great place to study",
+        "rating": 5,
+        "favorite": false
+      },
+      "812": {
+        "comment": "Great place to study",
+        "rating": 5,
+        "favorite": true
+      },
+      "823": {
+        "comment": "Great place to study",
+        "rating": 5,
+        "favorite": false
+      },
+      "835": {
+        "comment": "Great place to study",
+        "rating": 5,
+        "favorite": true
+      },
+      "938": {
+        "comment": "Great place to study",
+        "rating": 5,
+        "favorite": false
+      }
+  },
+  "rodri_gmail_com": {
+      "123": {
+        "comment": "Great place to study",
+        "rating": 5,
+        "favorite": true
+      },
+      "127": {
+        "comment": "Great place to study",
+        "rating": 5,
+        "favorite": false
+      },
+      "174": {
+        "comment": "Great place to study",
+        "rating": 5,
+        "favorite": true
+      },
+      "259": {
+        "comment": "Great place to study",
+        "rating": 5,
+        "favorite": false
+      },
+      "273": {
+        "comment": "Great place to study",
+        "rating": 5,
+        "favorite": true
+      },
+      "276": {
+        "comment": "Great place to study",
+        "rating": 5,
+        "favorite": false
+      },
+      "368": {
+        "comment": "Great place to study",
+        "rating": 5,
+        "favorite": true
+      },
+      "412": {
+        "comment": "Great place to study",
+        "rating": 5,
+        "favorite": false
+      },
+      "491": {
+        "comment": "Great place to study",
+        "rating": 5,
+        "favorite": true
+      },
+      "591": {
+        "comment": "Great place to study",
+        "rating": 5,
+        "favorite": false
+      },
+      "682": {
+        "comment": "Great place to study",
+        "rating": 5,
+        "favorite": true
+      },
+      "696": {
+        "comment": "Great place to study",
+        "rating": 5,
+        "favorite": false
+      },
+      "721": {
+        "comment": "Great place to study",
+        "rating": 5,
+        "favorite": true
+      },
+      "756": {
+        "comment": "Great place to study",
+        "rating": 5,
+        "favorite": false
+      },
+      "812": {
+        "comment": "Great place to study",
+        "rating": 5,
+        "favorite": true
+      },
+      "823": {
+        "comment": "Great place to study",
+        "rating": 5,
+        "favorite": false
+      },
+      "835": {
+        "comment": "Great place to study",
+        "rating": 5,
+        "favorite": true
+      },
+      "938": {
+        "comment": "Great place to study",
+        "rating": 5,
+        "favorite": false
+      }
+    },
+    "rodrigodiasdesousa_gmail_com": {
+      "123": {
+        "comment": "Great place to study",
+        "rating": 5,
+        "favorite": true
+      },
+      "127": {
+        "comment": "Great place to study",
+        "rating": 5,
+        "favorite": false
+      },
+      "174": {
+        "comment": "Great place to study",
+        "rating": 5,
+        "favorite": true
+      },
+      "259": {
+        "comment": "Great place to study",
+        "rating": 5,
+        "favorite": false
+      },
+      "273": {
+        "comment": "Great place to study",
+        "rating": 5,
+        "favorite": true
+      },
+      "276": {
+        "comment": "Great place to study",
+        "rating": 5,
+        "favorite": false
+      },
+      "368": {
+        "comment": "Great place to study",
+        "rating": 5,
+        "favorite": true
+      },
+      "412": {
+        "comment": "Great place to study",
+        "rating": 5,
+        "favorite": false
+      },
+      "491": {
+        "comment": "Great place to study",
+        "rating": 5,
+        "favorite": true
+      },
+      "591": {
+        "comment": "Great place to study",
+        "rating": 5,
+        "favorite": false
+      },
+      "682": {
+        "comment": "Great place to study",
+        "rating": 5,
+        "favorite": true
+      },
+      "696": {
+        "comment": "Great place to study",
+        "rating": 5,
+        "favorite": false
+      },
+      "721": {
+        "comment": "Great place to study",
+        "rating": 5,
+        "favorite": true
+      },
+      "756": {
+        "comment": "Great place to study",
+        "rating": 5,
+        "favorite": false
+      },
+      "812": {
+        "comment": "Great place to study",
+        "rating": 5,
+        "favorite": true
+      },
+      "823": {
+        "comment": "Great place to study",
+        "rating": 5,
+        "favorite": false
+      },
+      "835": {
+        "comment": "Great place to study",
+        "rating": 5,
+        "favorite": true
+      },
+      "938": {
+        "comment": "Great place to study",
+        "rating": 5,
+        "favorite": false
+      }
+    },
+    "vicenteteste_gmail_com": {
+      "123": {
+        "comment": "Great place to study",
+        "rating": 5,
+        "favorite": true
+      },
+      "127": {
+        "comment": "Great place to study",
+        "rating": 5,
+        "favorite": false
+      },
+      "174": {
+        "comment": "Great place to study",
+        "rating": 5,
+        "favorite": true
+      },
+      "259": {
+        "comment": "Great place to study",
+        "rating": 5,
+        "favorite": false
+      },
+      "273": {
+        "comment": "Great place to study",
+        "rating": 5,
+        "favorite": true
+      },
+      "276": {
+        "comment": "Great place to study",
+        "rating": 5,
+        "favorite": false
+      },
+      "368": {
+        "comment": "Great place to study",
+        "rating": 5,
+        "favorite": true
+      },
+      "412": {
+        "comment": "Great place to study",
+        "rating": 5,
+        "favorite": false
+      },
+      "491": {
+        "comment": "Great place to study",
+        "rating": 5,
+        "favorite": true
+      },
+      "591": {
+        "comment": "Great place to study",
+        "rating": 5,
+        "favorite": false
+      },
+      "682": {
+        "comment": "Great place to study",
+        "rating": 5,
+        "favorite": true
+      },
+      "696": {
+        "comment": "Great place to study",
+        "rating": 5,
+        "favorite": false
+      },
+      "721": {
+        "comment": "Great place to study",
+        "rating": 5,
+        "favorite": true
+      },
+      "756": {
+        "comment": "Great place to study",
+        "rating": 5,
+        "favorite": false
+      },
+      "812": {
+        "comment": "Great place to study",
+        "rating": 5,
+        "favorite": true
+      },
+      "823": {
+        "comment": "Great place to study",
+        "rating": 5,
+        "favorite": false
+      },
+      "835": {
+        "comment": "Great place to study",
+        "rating": 5,
+        "favorite": true
+      }
+    }
   }
 }
+
+

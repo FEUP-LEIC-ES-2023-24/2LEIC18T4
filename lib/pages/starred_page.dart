@@ -24,28 +24,29 @@ class _StarredPageState extends State<StarredPage> {
     retrieveUserColor();
   }
 
-  void retrieveStarredPlacesIds() {
-    DatabaseReference userRef = FirebaseDatabase.instance.ref().child(
-        "users/${currentUser.email!.replaceAll('.', '_').replaceAll('@', '_').replaceAll('#', '_')}");
+void retrieveStarredPlacesIds() {
+  DatabaseReference userRef = FirebaseDatabase.instance.ref().child(
+    "user-place/${currentUser.email!.replaceAll('.', '_').replaceAll('@', '_').replaceAll('#', '_')}"
+  );
 
-    userRef.onValue.listen((event) {
-      DataSnapshot snapshot = event.snapshot;
-      List<String> ids = [];
-      Map<dynamic, dynamic>? userData =
-          snapshot.value as Map<dynamic, dynamic>?;
+  userRef.onValue.listen((event) {
+    DataSnapshot snapshot = event.snapshot;
+    List<String> ids = [];
+    Map<dynamic, dynamic>? userPlaceData = snapshot.value as Map<dynamic, dynamic>?;
 
-      if (userData != null) {
-        List<dynamic> stars = userData['stars'];
-        stars.forEach((starId) {
-          ids.add(starId.toString());
-        });
-      }
-
-      setState(() {
-        starredPlacesIds = ids;
+    if (userPlaceData != null) {
+      userPlaceData.forEach((placeId, placeData) {
+        if (placeData['favorite'] == true) {
+          ids.add(placeId.toString());
+        }
       });
+    }
+
+    setState(() {
+      starredPlacesIds = ids;
     });
-  }
+  });
+}
 
   Color colorConvert(int argbVal) {
     int red = (argbVal >> 16) & 0xFF;
