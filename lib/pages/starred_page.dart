@@ -131,8 +131,7 @@ void retrieveStarredPlacesIds() {
                                             markerTags: value['tags'],
                                           ),
                                         ),
-                                      );
-                                    },
+                                      );                                    },
                                     child: Container(
                                       width: 150,
                                       height: 150,
@@ -140,27 +139,44 @@ void retrieveStarredPlacesIds() {
                                           horizontal: 8.0, vertical: 8.0),
                                       decoration: BoxDecoration(
                                         color: userColor,
+                                        borderRadius: BorderRadius.circular(25),
+                                        border: Border.all(
+                                          color: userColor,
+                                          width: 2,
+                                        ),
                                         image: DecorationImage(
                                           fit: BoxFit.cover,
-                                          image: NetworkImage(
-                                            value['imageLink'],
-                                          ),
+                                          image: NetworkImage(value['imageLink']),
                                         ),
                                         boxShadow: [
                                           BoxShadow(
                                             blurRadius: 4,
                                             color: Color(0x33000000),
                                             offset: Offset(0, 2),
-                                          )
+                                          ),
                                         ],
-                                        borderRadius: BorderRadius.circular(25),
-                                        border: Border.all(
-                                          color: userColor,
-                                          width: 2,
-                                        ),
                                       ),
                                       child: Stack(
                                         children: [
+                                          // Se não estiver bem, apaga este align
+                                          Align(
+                                            alignment: AlignmentDirectional(0, 0.5),
+                                            child: Container(
+                                              width: 250,
+                                              height: 250,
+                                              decoration: BoxDecoration(
+                                                borderRadius: BorderRadius.circular(25),
+                                                gradient: LinearGradient(
+                                                begin: Alignment.topCenter,
+                                                end: Alignment.bottomCenter,
+                                                colors: [
+                                                  Colors.transparent,
+                                                  Colors.black,
+                                                ],
+                                                ),
+                                              ),
+                                            ),
+                                          ),
                                           Align(
                                             alignment:
                                                 AlignmentDirectional(0, 0.5),
