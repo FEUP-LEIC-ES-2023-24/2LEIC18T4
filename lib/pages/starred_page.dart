@@ -183,19 +183,6 @@ void retrieveStarredPlacesIds() {
                                             child: Text(
                                               value['name'],
                                               style: TextStyle(
-                                                color: Colors.black,
-                                                letterSpacing: 0,
-                                                fontWeight: FontWeight.w900,
-                                                fontStyle: FontStyle.normal,
-                                              ),
-                                            ),
-                                          ),
-                                          Align(
-                                            alignment:
-                                                AlignmentDirectional(0, 0.5),
-                                            child: Text(
-                                              value['name'],
-                                              style: TextStyle(
                                                 color: Colors.white,
                                                 letterSpacing: 0,
                                                 fontWeight: FontWeight.w400,
