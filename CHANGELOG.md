@@ -6,9 +6,11 @@ Second sprint finished: an important update!
 ### Place page:
 - Better tag placement (now with real tags)
 - Place location, working hours and Discover@ medal status (mockup)
-- Place rating and share button (mockup)
+- Place rating and ranking (mockup)
 - Star and unstar a place (working, but soon will have a different look)
 - Accents with the user's faculty color
+- Share button shares Google Maps location
+- Reviews placeholder, will be updated soon with the ability of writing and seeing real reviews
 
 ### Starred page:
 - Cards with the places you star
@@ -38,6 +40,7 @@ Second sprint finished: an important update!
 - Login via email/password
 - Login via Google
 - A new user will have its name and username set as what's before the @ on their email, which can later be edited
+- Guest login now blocks users from using login-specific pages
 
 
 
