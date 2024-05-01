@@ -73,7 +73,7 @@ class _UserRegisterState extends State<UserRegister> {
         context: context,
         builder: (context) {
           return const AlertDialog(
-              title: Text("Email incorreto ou não registrado."));
+              title: Text("Wrong or unregistered email."));
         });
   }
 
