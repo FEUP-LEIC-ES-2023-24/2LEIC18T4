@@ -134,8 +134,7 @@ class _AccountPageState extends State<AccountPage> {
                               children: [
                                 Stack(
                                   children: [
-                                    Expanded(
-                                      flex: 1,
+                                    Positioned(
                                       child: Container(
                                         width: 120,
                                         height: 120,
@@ -226,23 +225,19 @@ class _AccountPageState extends State<AccountPage> {
                                         ),
                                         GestureDetector(
                                           onTap: () => Navigator.push(
-                                              context,
-                                              MaterialPageRoute(
-                                                  builder: (context) =>
-                                                      EditProfile())),
-                                          child: Expanded(
-                                            child: Text(
-                                              'Edit Profile',
-                                              style: TextStyle(
-                                                color: colorConvert(
-                                                    userData['faculty']
-                                                        ['color']),
-                                                fontSize: 18,
-                                                letterSpacing: 0,
-                                                fontWeight: FontWeight.w900,
-                                                decoration:
-                                                    TextDecoration.underline,
-                                              ),
+                                            context,
+                                            MaterialPageRoute(
+                                              builder: (context) => EditProfile(),
+                                            ),
+                                          ),
+                                          child: Text(
+                                            'Edit Profile',
+                                            style: TextStyle(
+                                              color: colorConvert(userData['faculty']['color']),
+                                              fontSize: 18,
+                                              letterSpacing: 0,
+                                              fontWeight: FontWeight.w900,
+                                              decoration: TextDecoration.underline,
                                             ),
                                           ),
                                         ),
