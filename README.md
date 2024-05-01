@@ -166,3 +166,6 @@ For the Second Sprint we need to improve two things:
 
 One aspect that went wrong was the Search page in the Debug Menu. It went wrong because of our lack of Dart experience and the late start of this item.
 The thing that went the best was changing the map and limiting it to just the Porto Area, as it was something that gave us some work but in the end works great.
+
+### Sprint 2
+This Sprint was focused on making functionality and aesthetic meet. Each person focused on a specific Page and 
