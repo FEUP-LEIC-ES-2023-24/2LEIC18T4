@@ -26,7 +26,7 @@ class PlacePage extends StatefulWidget {
 }
 
 class _PlacePageState extends State<PlacePage> {
-  final currentUser = FirebaseAuth.instance.currentUser!;
+  final currentUser = FirebaseAuth.instance.currentUser;
   final databaseReference = FirebaseDatabase.instance.ref("places");
   late String placeId = '';
   bool isStarred = false;
@@ -62,7 +62,7 @@ class _PlacePageState extends State<PlacePage> {
 
   void retrieveUserColor() {
     DatabaseReference userRef = FirebaseDatabase.instance.ref().child(
-        "users/${currentUser.email!.replaceAll('.', '_').replaceAll('@', '_').replaceAll('#', '_')}");
+        "users/${currentUser?.email!.replaceAll('.', '_').replaceAll('@', '_').replaceAll('#', '_')}");
 
     userRef.onValue.listen((event) {
       DataSnapshot snapshot = event.snapshot;
@@ -83,7 +83,7 @@ class _PlacePageState extends State<PlacePage> {
   void addStar() {
     final DatabaseReference userRef = FirebaseDatabase.instance
         .ref("user-place")
-        .child(currentUser.email!
+        .child(currentUser!.email!
             .replaceAll('.', '_')
             .replaceAll('@', '_')
             .replaceAll('#', '_'))
@@ -96,7 +96,7 @@ class _PlacePageState extends State<PlacePage> {
   void removeStar() {
     final DatabaseReference userRef = FirebaseDatabase.instance
         .ref("user-place")
-        .child(currentUser.email!
+        .child(currentUser!.email!
             .replaceAll('.', '_')
             .replaceAll('@', '_')
             .replaceAll('#', '_'))
@@ -186,7 +186,9 @@ class _PlacePageState extends State<PlacePage> {
     super.initState();
     // Call the function to check if the place is starred
     retrievePlaceId();
-    retrieveUserColor();
+    if (currentUser != null) {
+      retrieveUserColor();
+    }
   }
 
   @override
