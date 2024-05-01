@@ -18,9 +18,10 @@ Second sprint finished: an important update!
 - Gradient on cards for a more modern look and better readability
 
 ### Discover@ page:
-- A mockup for the soon-to-be-added Discover@ achievement system
+- A placeholder for the soon-to-be-added Discover@ achievement system
 - Scrollable categories
 - Medals grouped by city zones
+- The color of the faculty you select will be the same of the app's color accents
 
 ### Profile page:
 - Name, username, biography, faculty and profile picture can now be added
@@ -37,7 +38,6 @@ Second sprint finished: an important update!
 - Login via email/password
 - Login via Google
 - A new user will have its name and username set as what's before the @ on their email, which can later be edited
-- Guest login will have to be fixed soon - not working at the moment (you can login with teste@gmail.com / teste123, for testing, if you don't want to create an account)
 
 
 

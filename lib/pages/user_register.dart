@@ -82,7 +82,7 @@ class _UserRegisterState extends State<UserRegister> {
         context: context,
         builder: (context) {
           return const AlertDialog(
-              title: Text("Senha incorreta. Tente novamente ou redefina-a."));
+              title: Text("Incorrect password."));
         });
   }
 
@@ -112,7 +112,7 @@ class _UserRegisterState extends State<UserRegister> {
                 ),
                 AppTextField(
                   controller: passwordController,
-                  hintText: "Senha",
+                  hintText: "Password",
                   obscureText: true,
                 ),
                 const SizedBox(
@@ -120,14 +120,14 @@ class _UserRegisterState extends State<UserRegister> {
                 ),
                 AppTextField(
                   controller: confirmPasswordController,
-                  hintText: "Confirme a senha",
+                  hintText: "Confirm password",
                   obscureText: true,
                 ),
                 const SizedBox(
                   height: 20,
                 ),
                 ScreensButton(
-                  buttonText: 'Inscrever-se',
+                  buttonText: 'Register',
                   textColor: Colors.white,
                   buttonColor: Colors.black,
                   onTap: signUserUp,
@@ -144,7 +144,7 @@ class _UserRegisterState extends State<UserRegister> {
                               thickness: 0.5, color: Colors.grey.shade400)),
                       Padding(
                         padding: const EdgeInsets.symmetric(horizontal: 10.0),
-                        child: Text("Ou continue com"),
+                        child: Text("Or continue with"),
                       ),
                       Expanded(
                           child: Divider(
