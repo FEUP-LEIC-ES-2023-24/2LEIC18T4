@@ -7,6 +7,8 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+import "package:share_plus/share_plus.dart";
+
 import 'package:study_at/pages/reviews_page.dart';
 
 import "package:google_nav_bar/google_nav_bar.dart";
@@ -31,6 +33,8 @@ class _PlacePageState extends State<PlacePage> {
   late String placeId = '';
   bool isStarred = false;
   Color userColor = Colors.black;
+  late String lat = "";
+  late String lon = "";
 
   void retrievePlaceId() {
     String name = widget.name.toString();
@@ -45,6 +49,8 @@ class _PlacePageState extends State<PlacePage> {
         if (value['name'] == name && value['imageLink'] == imageLink) {
           setState(() {
             placeId = key;
+            lat = value['latitude'];
+            lon = value['longitude'];
           });
           return; // Stop iterating once the place is found
         }
@@ -287,10 +293,15 @@ class _PlacePageState extends State<PlacePage> {
                                       child: Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
                                             5, 0, 0, 0),
-                                        child: Icon(
-                                          Icons.share,
-                                          color: userColor,
-                                          size: 35,
+                                        child: GestureDetector(
+                                          child: Icon(
+                                            Icons.share,
+                                            color: userColor,
+                                            size: 35,
+                                          ),
+                                          onTap: () async {
+                                            await Share.share("https://www.google.com/maps/search/?api=1&query=$lat%2C$lon");
+                                          },
                                         ),
                                       ),
                                     ),
