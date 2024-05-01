@@ -196,7 +196,7 @@ class _StarredPageState extends State<StarredPage> {
                                                 AlignmentDirectional(0, 1),
                                             child: Icon(
                                               Icons.stars,
-                                              color: userColor,
+                                              color: Colors.white,
                                               size: 32,
                                             ),
                                           ),
