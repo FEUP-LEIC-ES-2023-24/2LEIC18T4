@@ -16,6 +16,9 @@ Documentation for the Study@ App from a high-level vision to low-level implement
     - [Sprint 0 Board](#sprint-0-board)
     - [Sprint 1 Board](#sprint-1-board)
     - [Sprint 2 Board](#sprint-2-board)
+  - [Sprint Retrospective](#sprint-retrospective)
+    - [Sprint 1](#sprint-1-1)
+    - [Sprint 2](#sprint-2-1)
 
 ```
 This Project was Developed for ESOF 2023/2024 by:
