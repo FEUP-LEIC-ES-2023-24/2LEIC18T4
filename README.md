@@ -15,6 +15,7 @@ Documentation for the Study@ App from a high-level vision to low-level implement
   - [Project Management](#project-management)
     - [Sprint 0 Board](#sprint-0-board)
     - [Sprint 1 Board](#sprint-1-board)
+    - [Sprint 2 Board](#sprint-2-board)
 
 ```
 This Project was Developed for ESOF 2023/2024 by:
@@ -141,10 +142,22 @@ For last but not least, we have a Tag class (with a name atribute) connected to 
 <img src="docs/screenshots/profile.jpg" width="360" height="740">
 <img src="docs/screenshots/debugsearch.jpeg" width="360" height="740">
 
+#### Sprint 2
+<img src="docs/screenshots/register.jpg" width="360" height="740">
+<img src="docs/screenshots/login.jpg" width="360" height="740">
+<img src="docs/screenshots/place2.jpg" width="360" height="740">
+<img src="docs/screenshots/review_place.jpg" width="360" height="740">
+<img src="docs/screenshots/starred.jpg" width="360" height="740">
+<img src="docs/screenshots/discover@.jpeg" width="360" height="740">
+<img src="docs/screenshots/profile2.jpeg" width="360" height="740">
+<img src="docs/screenshots/edit_profile.jpeg" width="360" height="740">
+<img src="docs/screenshots/faculty.jpeg" width="360" height="740">
+<img src="docs/screenshots/guest.jpeg" width="360" height="740">
+
 ## Project Management
 In order to facilitate team communication and organization, [GitHub Projects](https://github.com/orgs/FEUP-LEIC-ES-2023-24/projects/74) was used to do the Project Management of this project.
 
-The project has 6 columns: **User Stories**, **Product Backlog**, **Sprint Backlog**, **In progress**, **In Review** and **Done**. It is important to note that, at the end of any iteration, the tasks that weren't finished are passed to the next one, so that the In Progress column appears empty at the end of every iteration.
+The project has 7 columns: **User Stories**, **Product Backlog**, **Sprint Backlog**, **In progress**, **In Review**, **Done** and **Approved by PO**. It is important to note that, at the end of any iteration, the tasks that weren't finished are passed to the next one, so that the In Progress column appears empty at the end of every iteration.
 ### Sprint 0 Board
 
 ![sprint0_board](docs/pictures/sprint-boards/Sprint0.png)
@@ -157,6 +170,11 @@ All User Stories can be found [here](https://github.com/FEUP-LEIC-ES-2023-24/2LE
 
 For this First Official Sprint, we looked into the backlog and what we hadn´t managed to achieve and worked on getting what we got wrong corrected first. The Domain Modelling has its description and all the screenshots are here on this README.md. The first thing the backlog gave us was the map to improve. Next we moved on to the search bar and icons, as well as improving the database with tags for each location. We also started working on the profile page. Screenshots of the work can be found above, on Vertical Prototype, Sprint 1.
 
+### Sprint 2 Board
+![sprint2_board](docs/pictures/sprint-boards/Sprint2.png)
+
+On this very important Sprint 2, we made lots of improvements. We created a fully functioning Starred Page, Place Page for each place and Reviews with some placeholders, Added a Share Location button and the most important, we can register and login into our own individual accounts, as well as edit them. Also, we have implemented accent colors corresponding to the user's faculty.
+
 ## Sprint Retrospective
 ### Sprint 1
 This Sprint worked very well, we all worked on the project, doing our parts and helping each other on any problems that may have arised. The tasks were well defined and divided.
@@ -168,4 +186,11 @@ One aspect that went wrong was the Search page in the Debug Menu. It went wrong 
 The thing that went the best was changing the map and limiting it to just the Porto Area, as it was something that gave us some work but in the end works great.
 
 ### Sprint 2
-This Sprint was focused on making functionality and aesthetic meet. Each person focused on a specific Page and  
+This Sprint was focused on making functionality and aesthetics meet. Each person focused on a specific Page and converged to make them all work together seamlessly.
+The Sprint went very well, we made lots of improvements and added a lot of functionalities, working well with the plans on the board.
+
+For the third sprint:
+- We need to finish the functionalities missing for the reviews and achievements.
+
+One aspect that went very well was the amount of work that we got done, we are really proud of how the app is starting to look like, from the starred, to the sharing, everything is shaping up. 
+The only thing that went wrong is that we are still stuck on the search page.
