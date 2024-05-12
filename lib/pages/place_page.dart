@@ -37,6 +37,9 @@ class _PlacePageState extends State<PlacePage> {
   late String lat = "";
   late String lon = "";
   double _rating = 0;
+  late String local = "";
+  late String horarioOpen = "";
+  late String horarioClose = "";
 
   void retrievePlaceId() {
     String name = widget.name.toString();
@@ -53,6 +56,9 @@ class _PlacePageState extends State<PlacePage> {
             placeId = key;
             lat = value['latitude'];
             lon = value['longitude'];
+            local = value['location'];
+            horarioOpen = value['opens'];
+            horarioClose = value['closes'];
           });
           return; // Stop iterating once the place is found
         }
@@ -506,7 +512,7 @@ class _PlacePageState extends State<PlacePage> {
                                   padding: EdgeInsetsDirectional.fromSTEB(
                                       5, 0, 0, 0),
                                   child: Text(
-                                    'Biblioteca da FEUP, R. Dr. Roberto Frias, 4200-465 Porto',
+                                    local,
                                     style: TextStyle(
                                       fontSize: 18,
                                       letterSpacing: 0,
@@ -547,7 +553,7 @@ class _PlacePageState extends State<PlacePage> {
                                       text: TextSpan(
                                         children: [
                                           TextSpan(
-                                            text: '8h30',
+                                            text: horarioOpen,
                                             style: TextStyle(
                                               color: Colors.black,
                                               fontSize: 20,
@@ -563,7 +569,7 @@ class _PlacePageState extends State<PlacePage> {
                                             ),
                                           ),
                                           TextSpan(
-                                            text: '19h30',
+                                            text: horarioClose,
                                             style: TextStyle(
                                               color: Colors.black,
                                               fontSize: 20,
