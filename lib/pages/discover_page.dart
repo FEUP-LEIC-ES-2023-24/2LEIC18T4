@@ -1,8 +1,12 @@
+import 'dart:async';
+
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/material.dart';
+import 'package:geolocator/geolocator.dart';
 import 'package:provider/provider.dart';
+
 
 /*class DiscoverPage extends StatelessWidget {
   const DiscoverPage({super.key});
@@ -29,16 +33,12 @@ class _DiscoverPageState extends State<DiscoverPage> {
   void initState() {
     super.initState();
     _model = createModel(context, () => AchievementsPageModel());
-  }
-
-  @override
-  void dispose() {
-    _model.dispose();
-
-    super.dispose();
-  }*/
-
+  } */
   final currentUser = FirebaseAuth.instance.currentUser;
+  final userPlaceCollection = FirebaseDatabase.instance.ref('user-place');
+  final DatabaseReference databaseReference =
+      FirebaseDatabase.instance.ref("places");
+  late StreamSubscription<Position> positionStream;
   Color userColor = Colors.black;
 
   Color colorConvert(int argbVal) {
@@ -70,9 +70,48 @@ class _DiscoverPageState extends State<DiscoverPage> {
   }
 
   @override
+  void dispose() {
+    positionStream.cancel();
+    super.dispose();
+  }
+
+  void geolocationListener() {
+    StreamSubscription<Position> positionStream =
+        Geolocator.getPositionStream().listen((Position? position) {
+      if (position != null) {
+        medalUnlocker(position.latitude, position.longitude);
+      }
+    });
+  }
+  
+  void medalUnlocker(double? lat, double? lon) async {
+    if (lat != null && lon != null) {
+      DataSnapshot snapshot = await databaseReference.get();
+      if (snapshot.value != null) {
+        Map<dynamic, dynamic> values = snapshot.value as Map<dynamic, dynamic>;
+        values.forEach((key, value) async {
+          double placelat = value['latitude'];
+          double placelon = value['longitude'];
+          if (Geolocator.distanceBetween(lat, lon, placelat, placelon) < 500) {
+            await userPlaceCollection
+                .child(FirebaseAuth.instance.currentUser!.email!
+                    .replaceAll('.', '_')
+                    .replaceAll('@', '_')
+                    .replaceAll('#', '_'))
+                .child(value['id'])
+                .update({'visited': true});
+          }
+        });
+      }
+    }
+}
+  
+
+  @override
   void initState() {
     super.initState();
     retrieveUserColor();
+    geolocationListener();
   }
 
   @override
