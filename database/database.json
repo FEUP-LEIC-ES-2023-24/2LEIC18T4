@@ -345,329 +345,392 @@
       "123": {
         "comment": "Great place to study",
         "favorite": true,
-        "rating": 5
+        "rating": 5,
+        "visited": false
       },
       "127": {
         "comment": "Great place to study",
         "favorite": false,
-        "rating": 5
+        "rating": 5,
+        "visited": false
       },
       "174": {
         "comment": "Great place to study",
         "favorite": true,
-        "rating": 5
+        "rating": 5,
+        "visited": false
       },
       "259": {
         "comment": "Great place to study",
         "favorite": false,
-        "rating": 5
+        "rating": 5,
+        "visited": false
       },
       "273": {
         "comment": "Great place to study",
         "favorite": true,
-        "rating": 5
+        "rating": 5,
+        "visited": false
       },
       "276": {
         "comment": "Great place to study",
         "favorite": false,
-        "rating": 5
+        "rating": 5,
+        "visited": false
       },
       "368": {
         "comment": "Great place to study",
         "favorite": true,
-        "rating": 5
+        "rating": 5,
+        "visited": false
       },
       "412": {
         "comment": "Great place to study",
         "favorite": false,
-        "rating": 5
+        "rating": 5,
+        "visited": false
       },
       "491": {
         "comment": "Great place to study",
         "favorite": true,
-        "rating": 5
+        "rating": 5,
+        "visited": false
       },
       "591": {
         "comment": "Great place to study",
         "favorite": false,
-        "rating": 5
+        "rating": 5,
+        "visited": false
       },
       "682": {
         "comment": "Great place to study",
         "favorite": true,
-        "rating": 5
+        "rating": 5,
+        "visited": false
       },
       "696": {
         "comment": "Great place to study",
         "favorite": false,
-        "rating": 5
+        "rating": 5,
+        "visited": false
       },
       "721": {
         "comment": "Great place to study",
         "favorite": true,
-        "rating": 5
+        "rating": 5,
+        "visited": false
       },
       "756": {
         "comment": "Great place to study",
         "favorite": false,
-        "rating": 5
+        "rating": 5,
+        "visited": false
       },
       "812": {
         "comment": "Great place to study",
         "favorite": true,
-        "rating": 5
+        "rating": 5,
+        "visited": false
       },
       "823": {
         "comment": "Great place to study",
         "favorite": false,
-        "rating": 5
+        "rating": 5,
+        "visited": false
       },
       "835": {
         "comment": "Great place to study",
         "favorite": true,
-        "rating": 5
+        "rating": 5,
+        "visited": false
       },
       "938": {
         "comment": "Great place to study",
         "favorite": false,
-        "rating": 5
+        "rating": 5,
+        "visited": false
       }
     },
     "clara_gmail_com": {
       "123": {
         "comment": "Great place to study",
         "favorite": true,
-        "rating": 5
+        "rating": 5,
+        "visited": false
       },
       "127": {
         "comment": "Great place to study",
         "favorite": false,
-        "rating": 5
+        "rating": 5,
+        "visited": false
       },
       "174": {
         "comment": "Great place to study",
         "favorite": true,
-        "rating": 5
+        "rating": 5,
+        "visited": false
       },
       "259": {
         "comment": "Great place to study",
         "favorite": false,
-        "rating": 5
+        "rating": 5,
+        "visited": false
       },
       "273": {
         "comment": "Great place to study",
         "favorite": true,
-        "rating": 5
+        "rating": 5,
+        "visited": false
       },
       "276": {
         "comment": "Great place to study",
         "favorite": false,
-        "rating": 5
+        "rating": 5,
+        "visited": false
       },
       "368": {
         "comment": "Great place to study",
         "favorite": true,
-        "rating": 5
+        "rating": 5,
+        "visited": false
       },
       "412": {
         "comment": "Great place to study",
         "favorite": false,
-        "rating": 5
+        "rating": 5,
+        "visited": false
       },
       "491": {
         "comment": "Great place to study",
         "favorite": false,
-        "rating": 5
+        "rating": 5,
+        "visited": false
       },
       "591": {
         "comment": "Great place to study",
         "favorite": false,
-        "rating": 5
+        "rating": 5,
+        "visited": false
       },
       "682": {
         "comment": "Great place to study",
         "favorite": true,
-        "rating": 5
+        "rating": 5,
+        "visited": false
       },
       "696": {
         "comment": "Great place to study",
         "favorite": false,
-        "rating": 5
+        "rating": 5,
+        "visited": false
       },
       "721": {
         "comment": "Great place to study",
         "favorite": true,
-        "rating": 5
+        "rating": 5,
+        "visited": false
       },
       "756": {
         "comment": "Great place to study",
         "favorite": false,
-        "rating": 5
+        "rating": 5,
+        "visited": false
       },
       "812": {
         "comment": "Great place to study",
         "favorite": false,
-        "rating": 5
+        "rating": 5,
+        "visited": false
       },
       "823": {
         "comment": "Great place to study",
         "favorite": false,
-        "rating": 5
+        "rating": 5,
+        "visited": false
       },
       "835": {
         "comment": "Great place to study",
         "favorite": false,
-        "rating": 5
+        "rating": 5,
+        "visited": false
       },
       "938": {
         "comment": "Great place to study",
         "favorite": false,
-        "rating": 5
+        "rating": 5,
+        "visited": false
       }
     },
     "pedro_gmail_com": {
       "123": {
         "comment": "Great place to study",
         "favorite": true,
-        "rating": 5
+        "rating": 5,
+        "visited": false
       },
       "127": {
         "comment": "Great place to study",
         "favorite": false,
         "rating": 5,
-        "visited": 5
+        "visited": false
       },
       "174": {
         "comment": "Great place to study",
         "favorite": true,
-        "rating": 5
+        "rating": 5,
+        "visited": false
       },
       "259": {
         "comment": "Great place to study",
         "favorite": false,
-        "rating": 5
+        "rating": 5,
+        "visited": false
       },
       "273": {
         "comment": "Great place to study",
         "favorite": true,
-        "rating": 5
+        "rating": 5,
+        "visited": false
       },
       "276": {
         "comment": "Great place to study",
         "favorite": false,
-        "rating": 5
+        "rating": 5,
+        "visited": false
       },
       "368": {
         "comment": "Great place to study",
         "favorite": true,
-        "rating": 5
+        "rating": 5,
+        "visited": false
       },
       "412": {
         "comment": "Great place to study",
         "favorite": false,
-        "rating": 5
+        "rating": 5,
+        "visited": false
       },
       "491": {
         "comment": "Great place to study",
         "favorite": true,
-        "rating": 5
+        "rating": 5,
+        "visited": false
       },
       "591": {
         "comment": "Great place to study",
         "favorite": false,
-        "rating": 5
+        "rating": 5,
+        "visited": false
       },
       "682": {
         "comment": "Great place to study",
         "favorite": true,
-        "rating": 5
+        "rating": 5,
+        "visited": false
       },
       "696": {
         "comment": "Great place to study",
         "favorite": false,
-        "rating": 5
+        "rating": 5,
+        "visited": false
       },
       "721": {
         "comment": "Great place to study",
         "favorite": true,
-        "rating": 5
+        "rating": 5,
+        "visited": false
       },
       "756": {
         "comment": "Great place to study",
         "favorite": false,
-        "rating": 5
+        "rating": 5,
+        "visited": false
       },
       "812": {
         "comment": "Great place to study",
         "favorite": true,
-        "rating": 5
+        "rating": 5,
+        "visited": false
       },
       "823": {
         "comment": "Great place to study",
         "favorite": false,
-        "rating": 5
+        "rating": 5,
+        "visited": false
       },
       "835": {
         "comment": "Great place to study",
         "favorite": true,
-        "rating": 5
+        "rating": 5,
+        "visited": false
       },
       "938": {
         "comment": "Great place to study",
         "favorite": false,
-        "rating": 5
+        "rating": 5,
+        "visited": false
       }
     },
     "rodri_gmail_com": {
       "123": {
         "comment": "Great place to study",
         "favorite": true,
-        "rating": 5
+        "rating": 5,
+        "visited": false
       },
       "127": {
         "comment": "Great place to study",
         "favorite": false,
-        "rating": 5
+        "rating": 5,
+        "visited": false
       },
       "174": {
         "comment": "Great place to study",
         "favorite": false,
-        "rating": 5
+        "rating": 5,
+        "visited": false
       },
       "259": {
         "comment": "Great place to study",
         "favorite": false,
-        "rating": 5
+        "rating": 5,
+        "visited": false
       },
       "273": {
         "comment": "Great place to study",
         "favorite": true,
-        "rating": 5
+        "rating": 5,
+        "visited": false
       },
       "276": {
         "comment": "Great place to study",
         "favorite": false,
-        "rating": 5
+        "rating": 5,
+        "visited": false
       },
       "368": {
         "comment": "Great place to study",
         "favorite": true,
-        "rating": 5
+        "rating": 5,
+        "visited": false
       },
       "412": {
         "comment": "Great place to study",
         "favorite": false,
-        "rating": 5
+        "rating": 5,
+        "visited": false
       },
       "491": {
         "comment": "Great place to study",
         "favorite": true,
-        "rating": 5
+        "rating": 5,
+        "visited": false
       },
       "591": {
         "comment": "Great place to study",
         "favorite": false,
-        "rating": 5
+        "rating": 5,
+        "visited": false
       },
       "682": {
         "comment": "Great place to study",
@@ -677,7 +740,8 @@
       "696": {
         "comment": "Great place to study",
         "favorite": false,
-        "rating": 5
+        "rating": 5,
+        "visited": false
       },
       "721": {
         "comment": "Great place to study",
@@ -687,94 +751,112 @@
       "756": {
         "comment": "Great place to study",
         "favorite": false,
-        "rating": 5
+        "rating": 5,
+        "visited": false
       },
       "812": {
         "comment": "Great place to study",
         "favorite": true,
-        "rating": 5
+        "rating": 5,
+        "visited": false
       },
       "823": {
         "comment": "Great place to study",
         "favorite": false,
-        "rating": 5
+        "rating": 5,
+        "visited": false
       },
       "835": {
         "comment": "Great place to study",
         "favorite": true,
-        "rating": 5
+        "rating": 5,
+        "visited": false
       },
       "938": {
         "comment": "Great place to study",
         "favorite": false,
-        "rating": 5
+        "rating": 5,
+        "visited": false
       }
     },
     "rodrigodiasdesousa_gmail_com": {
       "123": {
         "comment": "Great place to study",
         "favorite": true,
-        "rating": 5
+        "rating": 5,
+        "visited": false
       },
       "127": {
         "comment": "Great place to study",
         "favorite": false,
-        "rating": 5
+        "rating": 5,
+        "visited": false
       },
       "174": {
         "comment": "Great place to study",
         "favorite": true,
-        "rating": 5
+        "rating": 5,
+        "visited": false
       },
       "259": {
         "comment": "Great place to study",
         "favorite": true,
-        "rating": 5
+        "rating": 5,
+        "visited": false
       },
       "273": {
         "comment": "Great place to study",
         "favorite": false,
-        "rating": 5
+        "rating": 5,
+        "visited": false
       },
       "276": {
         "comment": "Great place to study",
         "favorite": false,
-        "rating": 5
+        "rating": 5,
+        "visited": false
       },
       "368": {
         "comment": "Great place to study",
         "favorite": true,
-        "rating": 5
+        "rating": 5,
+        "visited": false
       },
       "412": {
         "comment": "Great place to study",
         "favorite": false,
-        "rating": 5
+        "rating": 5,
+        "visited": false
       },
       "491": {
         "comment": "Great place to study",
         "favorite": false,
-        "rating": 5
+        "rating": 5,
+        "visited": false
       },
       "591": {
         "comment": "Great place to study",
         "favorite": false,
-        "rating": 5
+        "rating": 5,
+        "visited": false
       },
       "682": {
         "comment": "Great place to study",
         "favorite": true,
-        "rating": 5
+        "rating": 5,
+        "visited": false
       },
       "696": {
         "comment": "Great place to study",
         "favorite": false,
-        "rating": 5
+        "rating": 5,
+        "visited": false
       },
       "721": {
         "comment": "Great place to study",
         "favorite": true,
-        "rating": 5
+        "rating": 5,
+        "visited": false
       },
       "756": {
         "comment": "Great place to study",
@@ -784,109 +866,130 @@
       "812": {
         "comment": "Great place to study",
         "favorite": true,
-        "rating": 5
+        "rating": 5,
+        "visited": false
       },
       "823": {
         "comment": "Great place to study",
         "favorite": false,
-        "rating": 5
+        "rating": 5,
+        "visited": false
       },
       "835": {
         "comment": "Great place to study",
         "favorite": true,
-        "rating": 5
+        "rating": 5,
+        "visited": false
       },
       "938": {
         "comment": "Great place to study",
         "favorite": false,
-        "rating": 5
+        "rating": 5,
+        "visited": false
       }
     },
     "vicenteteste_gmail_com": {
       "123": {
         "comment": "Great place to study",
         "favorite": true,
-        "rating": 5
+        "rating": 5,
+        "visited": false
       },
       "127": {
         "comment": "Great place to study",
         "favorite": false,
-        "rating": 5
+        "rating": 5,
+        "visited": false
       },
       "174": {
         "comment": "Great place to study",
         "favorite": true,
-        "rating": 5
+        "rating": 5,
+        "visited": false
       },
       "259": {
         "comment": "Great place to study",
         "favorite": false,
-        "rating": 5
+        "rating": 5,
+        "visited": false
       },
       "273": {
         "comment": "Great place to study",
         "favorite": true,
-        "rating": 5
+        "rating": 5,
+        "visited": false
       },
       "276": {
         "comment": "Great place to study",
         "favorite": false,
-        "rating": 5
+        "rating": 5,
+        "visited": false
       },
       "368": {
         "comment": "Great place to study",
         "favorite": true,
-        "rating": 5
+        "rating": 5,
+        "visited": false
       },
       "412": {
         "comment": "Great place to study",
         "favorite": false,
-        "rating": 5
+        "rating": 5,
+        "visited": false
       },
       "491": {
         "comment": "Great place to study",
         "favorite": true,
-        "rating": 5
+        "rating": 5,
+        "visited": false
       },
       "591": {
         "comment": "Great place to study",
         "favorite": false,
-        "rating": 5
+        "rating": 5,
+        "visited": false
       },
       "682": {
         "comment": "Great place to study",
         "favorite": true,
-        "rating": 5
+        "rating": 5,
+        "visited": false
       },
       "696": {
         "comment": "Great place to study",
         "favorite": false,
-        "rating": 5
+        "rating": 5,
+        "visited": false
       },
       "721": {
         "comment": "Great place to study",
         "favorite": true,
-        "rating": 5
+        "rating": 5,
+        "visited": false
       },
       "756": {
         "comment": "Great place to study",
         "favorite": false,
-        "rating": 5
+        "rating": 5,
+        "visited": false
       },
       "812": {
         "comment": "Great place to study",
         "favorite": true,
-        "rating": 5
+        "rating": 5,
+        "visited": false
       },
       "823": {
         "comment": "Great place to study",
         "favorite": false,
-        "rating": 5
+        "rating": 5,
+        "visited": false
       },
       "835": {
         "comment": "Great place to study",
         "favorite": true,
-        "rating": 4.5
+        "rating": 4.5,
+        "visited": false
       }
     }
   },
