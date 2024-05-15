@@ -7,6 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:provider/provider.dart';
 
+import 'package:study_at/pages/place_page.dart';
 
 /*class DiscoverPage extends StatelessWidget {
   const DiscoverPage({super.key});
@@ -40,6 +41,13 @@ class _DiscoverPageState extends State<DiscoverPage> {
       FirebaseDatabase.instance.ref("places");
   late StreamSubscription<Position> positionStream;
   Color userColor = Colors.black;
+  List<String> PlacesBoavista = [];
+  List<String> PlacesCampoAlegre = [];
+  List<String> PlacesAsprela = [];
+  List<String> PlacesVilaDoConde = [];
+  List<String> PlacesBatalha = [];
+  List<String> PlacesFoz = [];
+  List<String> PlacesCristal = [];
 
   Color colorConvert(int argbVal) {
     int red = (argbVal >> 16) & 0xFF;
@@ -105,12 +113,68 @@ class _DiscoverPageState extends State<DiscoverPage> {
       }
     }
 }
+void retrievePlacesIds() {
+    DatabaseReference userRef = FirebaseDatabase.instance.ref().child(
+        "place");
+
+    userRef.onValue.listen((event) {
+      DataSnapshot snapshot = event.snapshot;
+      List<String> id1 = [];
+      List<String> id2 = [];
+      List<String> id3 = [];
+      List<String> id4 = [];
+      List<String> id5 = [];
+      List<String> id6 = [];
+      List<String> id7 = [];
+
+      
+      Map<dynamic, dynamic>? placeData =
+          snapshot.value as Map<dynamic, dynamic>?;
+
+      if (placeData != null) {
+        placeData.forEach((placeId, placeData) {
+          if (placeData['region'] == "Boavista") {
+            id1.add(placeId.toString());
+          }
+          if (placeData['region'] == "Campo Alegre") {
+            id2.add(placeId.toString());
+          }
+          if (placeData['region'] == "Asprela") {
+            id3.add(placeId.toString());
+          }
+          if (placeData['region'] == "Vila do Conde") {
+            id4.add(placeId.toString());
+          }
+          if (placeData['region'] == "Batalha") {
+            id5.add(placeId.toString());
+          }
+          if (placeData['region'] == "Foz") {
+            id6.add(placeId.toString());
+          }
+          if (placeData['region'] == "Palácio Cristal") {
+            id7.add(placeId.toString());
+          }
+        });
+      }
+
+      setState(() {
+        PlacesBoavista = id1;
+        PlacesCampoAlegre = id2;
+        PlacesAsprela = id3;
+        PlacesVilaDoConde = id4;
+        PlacesBatalha = id5;
+        PlacesFoz = id6;
+        PlacesCristal = id7;
+      });
+    });
+  }
   
 
   @override
   void initState() {
     super.initState();
     retrieveUserColor();
+    retrievePlacesIds();
     geolocationListener();
   }
 
@@ -197,118 +261,59 @@ class _DiscoverPageState extends State<DiscoverPage> {
                               shrinkWrap: true,
                               scrollDirection: Axis.horizontal,
                               children: [
-                                Container(
-                                  width: 120,
-                                  height: 120,
-                                  clipBehavior: Clip.antiAlias,
-                                  decoration: BoxDecoration(
-                                    shape: BoxShape.circle,
-                                  ),
-                                  child: Image.network(
-                                    'https://picsum.photos/seed/67/600',
-                                    fit: BoxFit.cover,
-                                  ),
-                                ),
-                                Container(
-                                  width: 120,
-                                  height: 120,
-                                  clipBehavior: Clip.antiAlias,
-                                  decoration: BoxDecoration(
-                                    shape: BoxShape.circle,
-                                  ),
-                                  child: Image.network(
-                                    'https://picsum.photos/seed/629/600',
-                                    fit: BoxFit.cover,
-                                  ),
-                                ),
-                                Container(
-                                  width: 120,
-                                  height: 120,
-                                  clipBehavior: Clip.antiAlias,
-                                  decoration: BoxDecoration(
-                                    shape: BoxShape.circle,
-                                  ),
-                                  child: Image.network(
-                                    'https://picsum.photos/seed/268/600',
-                                    fit: BoxFit.cover,
-                                  ),
-                                ),
-                                Container(
-                                  width: 120,
-                                  height: 120,
-                                  clipBehavior: Clip.antiAlias,
-                                  decoration: BoxDecoration(
-                                    shape: BoxShape.circle,
-                                  ),
-                                  child: Image.network(
-                                    'https://picsum.photos/seed/452/600',
-                                    fit: BoxFit.cover,
-                                  ),
-                                ),
-                                Container(
-                                  width: 120,
-                                  height: 120,
-                                  clipBehavior: Clip.antiAlias,
-                                  decoration: BoxDecoration(
-                                    shape: BoxShape.circle,
-                                  ),
-                                  child: Image.network(
-                                    'https://picsum.photos/seed/874/600',
-                                    fit: BoxFit.cover,
-                                  ),
-                                ),
-                                Container(
-                                  width: 120,
-                                  height: 120,
-                                  clipBehavior: Clip.antiAlias,
-                                  decoration: BoxDecoration(
-                                    shape: BoxShape.circle,
-                                  ),
-                                  child: Image.network(
-                                    'https://picsum.photos/seed/530/600',
-                                    fit: BoxFit.cover,
-                                  ),
-                                ),
-                                Container(
-                                  width: 120,
-                                  height: 120,
-                                  clipBehavior: Clip.antiAlias,
-                                  decoration: BoxDecoration(
-                                    shape: BoxShape.circle,
-                                  ),
-                                  child: Image.network(
-                                    'https://picsum.photos/seed/36/600',
-                                    fit: BoxFit.cover,
-                                  ),
-                                ),
-                                Container(
-                                  width: 120,
-                                  height: 120,
-                                  clipBehavior: Clip.antiAlias,
-                                  decoration: BoxDecoration(
-                                    shape: BoxShape.circle,
-                                  ),
-                                  child: Image.network(
-                                    'https://picsum.photos/seed/811/600',
-                                    fit: BoxFit.cover,
-                                  ),
-                                ),
-                                Container(
-                                  width: 120,
-                                  height: 120,
-                                  clipBehavior: Clip.antiAlias,
-                                  decoration: BoxDecoration(
-                                    shape: BoxShape.circle,
-                                  ),
-                                  child: Image.network(
-                                    'https://picsum.photos/seed/522/600',
-                                    fit: BoxFit.cover,
-                                  ),
-                                ),
+                                PlacesBoavista.isEmpty
+                                  ? Center(
+                                    child: Text("No places in Boavista"),
+                                  )
+                                  : Expanded(
+                                    child: StreamBuilder(
+                                      stream: databaseReference.onValue,
+                                      builder: (BuildContext context,AsyncSnapshot<dynamic> snapshot) {
+                                        // Add a return statement at the end
+                                      if (snapshot.hasData && snapshot.data != null) {
+                                        Map<dynamic, dynamic> data =
+                                        snapshot.data!.snapshot.value;
+                                        List<Widget> items = [];
+                                        data.forEach((key, value) {
+                                        // Check if the place is starred
+                                        if (PlacesBoavista.contains(key)) {
+                                          items.add(
+                                            GestureDetector(
+                                              onTap: () {
+                                                Navigator.push(
+                                                  context,
+                                                  MaterialPageRoute(
+                                                    builder: (context) => PlacePage(
+                                                      imagelink: value['imageLink'],
+                                                      name: value['name'],
+                                                      markerTags: value['tags'],
+                                                    ),
+                                                  ),
+                                                );
+                                                Container(
+                                                  width: 120,
+                                                  height: 120,
+                                                  clipBehavior: Clip.antiAlias,
+                                                  decoration: BoxDecoration(
+                                                    shape: BoxShape.circle,
+                                                    image: DecorationImage(
+                                                      fit: BoxFit.cover,
+                                                      image: NetworkImage(value['imageLink']),
+                                                    ),
+                                                  )
+                                                );
+                                                }
+                                              )
+                                            );
+                                          }
+                                        }
+                                        );
+                                      }
+                                      return Container();
+                                      }
+                                    )
+                                  )
                               ],
-                            ),
-                          ),
-                        ],
                       ),
                     ),
                     Container(
@@ -922,9 +927,12 @@ class _DiscoverPageState extends State<DiscoverPage> {
                   ],
                 ),
               ),
-            ),
+                  ],
           ),
         ),
+            )
+          )
+        )
       );
     } else {
       return Scaffold(
