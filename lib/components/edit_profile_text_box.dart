@@ -21,7 +21,11 @@ class EditProfileTextBox extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Expanded(child: Text(text, overflow: TextOverflow.ellipsis,)),
+              Expanded(
+                  child: Text(
+                text,
+                overflow: TextOverflow.ellipsis,
+              )),
               IconButton(
                 onPressed: onPressed,
                 icon: Icon(

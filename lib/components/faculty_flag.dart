@@ -14,9 +14,7 @@ class _FacultyFlagState extends State<FacultyFlag> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      decoration: BoxDecoration(
-        color: widget.facultyColor
-      ),
+      decoration: BoxDecoration(color: widget.facultyColor),
       margin: const EdgeInsets.symmetric(horizontal: 3),
       padding: const EdgeInsets.all(2),
       child: Text(

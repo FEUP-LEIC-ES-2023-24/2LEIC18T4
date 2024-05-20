@@ -7,7 +7,12 @@ class ScreensButton extends StatelessWidget {
 
   final Function()? onTap;
 
-  const ScreensButton({super.key, required this.buttonText, required this.textColor, required this.buttonColor, required this.onTap});
+  const ScreensButton(
+      {super.key,
+      required this.buttonText,
+      required this.textColor,
+      required this.buttonColor,
+      required this.onTap});
 
   @override
   Widget build(BuildContext context) {

@@ -20,14 +20,13 @@ class MockUser extends Mock implements User {}
   MockSpec<DataSnapshot>()
 ])
 void main() {
-
   setUpAll(() async {
     await Firebase.initializeApp(
-      options: FirebaseOptions(
+        options: FirebaseOptions(
       apiKey: 'AIzaSyBIdFDn75aSB6zm6LiRKxZ0k9ZCyr8j5ho',
       appId: '1:206182314858:android:a9e8effc89c2801675ab13',
       databaseURL:
-        'https://studyatapp-default-rtdb.europe-west1.firebasedatabase.app',
+          'https://studyatapp-default-rtdb.europe-west1.firebasedatabase.app',
       messagingSenderId: '206182314858',
       projectId: 'studyatapp',
       storageBucket: 'studyatapp.appspot.com',
@@ -80,8 +79,6 @@ void main() {
 
       verify(mockDatabaseReference.child('users/teste_gmail_com')).called(1);
       verify(mockDatabaseReference.get()).called(1);
-
     });
-
   });
 }

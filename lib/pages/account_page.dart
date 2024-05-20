@@ -35,14 +35,14 @@ class _AccountPageState extends State<AccountPage> {
             .ref()
             .child("users")
             .child(currentUser!.email!
-            .replaceAll('.', '_')
-            .replaceAll('@', '_')
-            .replaceAll('#', '_'))
+                .replaceAll('.', '_')
+                .replaceAll('@', '_')
+                .replaceAll('#', '_'))
             .onValue,
         builder: (context, snapshot) {
           if (snapshot.hasData) {
             final userData =
-            snapshot.data!.snapshot.value as Map<dynamic, dynamic>;
+                snapshot.data!.snapshot.value as Map<dynamic, dynamic>;
             return GestureDetector(
               child: Scaffold(
                 backgroundColor: Colors.white,
@@ -55,7 +55,8 @@ class _AccountPageState extends State<AccountPage> {
                       Align(
                         alignment: Alignment.topLeft,
                         child: Padding(
-                          padding: const EdgeInsets.only(left: 15.0, bottom: 1.0),
+                          padding:
+                              const EdgeInsets.only(left: 15.0, bottom: 1.0),
                           child: Text(
                             "Account",
                             style: TextStyle(
@@ -74,7 +75,8 @@ class _AccountPageState extends State<AccountPage> {
                             color: Colors.white,
                           ),
                           child: Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(15, 0, 15, 0),
+                            padding:
+                                EdgeInsetsDirectional.fromSTEB(15, 0, 15, 0),
                             child: Row(
                               mainAxisSize: MainAxisSize.max,
                               mainAxisAlignment: MainAxisAlignment.start,
@@ -102,7 +104,8 @@ class _AccountPageState extends State<AccountPage> {
                                       right: 0,
                                       child: Center(
                                         child: FacultyFlag(
-                                          facultyName: userData['faculty']['name'],
+                                          facultyName: userData['faculty']
+                                              ['name'],
                                           facultyColor: colorConvert(
                                               userData['faculty']['color']),
                                         ),
@@ -118,14 +121,15 @@ class _AccountPageState extends State<AccountPage> {
                                     child: Column(
                                       mainAxisSize: MainAxisSize.max,
                                       mainAxisAlignment:
-                                      MainAxisAlignment.center,
+                                          MainAxisAlignment.center,
                                       crossAxisAlignment:
-                                      CrossAxisAlignment.start,
+                                          CrossAxisAlignment.start,
                                       children: [
                                         Flexible(
                                           child: Padding(
-                                            padding: EdgeInsetsDirectional.fromSTEB(
-                                                0, 0, 0, 12),
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    0, 0, 0, 12),
                                             child: AutoSizeText(
                                               userData['name'],
                                               maxLines: 1,
@@ -141,8 +145,9 @@ class _AccountPageState extends State<AccountPage> {
                                         ),
                                         Flexible(
                                           child: Padding(
-                                            padding: EdgeInsetsDirectional.fromSTEB(
-                                                0, 0, 0, 12),
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    0, 0, 0, 12),
                                             child: AutoSizeText(
                                               "@${userData['username']}",
                                               maxLines: 1,
@@ -157,8 +162,9 @@ class _AccountPageState extends State<AccountPage> {
                                         ),
                                         Flexible(
                                           child: Padding(
-                                            padding: EdgeInsetsDirectional.fromSTEB(
-                                                0, 0, 0, 12),
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    0, 0, 0, 12),
                                             child: AutoSizeText(
                                               userData['bio'],
                                               textAlign: TextAlign.start,
@@ -175,17 +181,20 @@ class _AccountPageState extends State<AccountPage> {
                                           onTap: () => Navigator.push(
                                             context,
                                             MaterialPageRoute(
-                                              builder: (context) => EditProfile(),
+                                              builder: (context) =>
+                                                  EditProfile(),
                                             ),
                                           ),
                                           child: Text(
                                             'Edit Profile',
                                             style: TextStyle(
-                                              color: colorConvert(userData['faculty']['color']),
+                                              color: colorConvert(
+                                                  userData['faculty']['color']),
                                               fontSize: 18,
                                               letterSpacing: 0,
                                               fontWeight: FontWeight.w900,
-                                              decoration: TextDecoration.underline,
+                                              decoration:
+                                                  TextDecoration.underline,
                                             ),
                                           ),
                                         ),
@@ -207,7 +216,8 @@ class _AccountPageState extends State<AccountPage> {
                             color: Colors.white,
                           ),
                           child: Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(15, 0, 15, 0),
+                            padding:
+                                EdgeInsetsDirectional.fromSTEB(15, 0, 15, 0),
                             child: Column(
                               mainAxisSize: MainAxisSize.max,
                               mainAxisAlignment: MainAxisAlignment.start,
@@ -221,7 +231,7 @@ class _AccountPageState extends State<AccountPage> {
                                         flex: 1,
                                         child: Align(
                                           alignment:
-                                          AlignmentDirectional(-1, 0),
+                                              AlignmentDirectional(-1, 0),
                                           child: Text(
                                             'History',
                                             style: TextStyle(
@@ -244,7 +254,7 @@ class _AccountPageState extends State<AccountPage> {
                                               letterSpacing: 0,
                                               fontWeight: FontWeight.w900,
                                               decoration:
-                                              TextDecoration.underline,
+                                                  TextDecoration.underline,
                                             ),
                                           ),
                                         ),
@@ -265,13 +275,13 @@ class _AccountPageState extends State<AccountPage> {
                                           decoration: BoxDecoration(
                                             color: Colors.white,
                                             borderRadius:
-                                            BorderRadius.circular(0),
+                                                BorderRadius.circular(0),
                                           ),
                                           child: Stack(
                                             children: [
                                               ClipRRect(
                                                 borderRadius:
-                                                BorderRadius.circular(20),
+                                                    BorderRadius.circular(20),
                                                 child: Image.network(
                                                   'https://picsum.photos/seed/771/600',
                                                   width: double.infinity,
@@ -287,14 +297,14 @@ class _AccountPageState extends State<AccountPage> {
                                                   decoration: BoxDecoration(
                                                     color: Colors.black,
                                                     borderRadius:
-                                                    BorderRadius.circular(
-                                                        20),
+                                                        BorderRadius.circular(
+                                                            20),
                                                   ),
                                                 ),
                                               ),
                                               Align(
                                                 alignment:
-                                                AlignmentDirectional(0, 0),
+                                                    AlignmentDirectional(0, 0),
                                                 child: Padding(
                                                   padding: EdgeInsetsDirectional
                                                       .fromSTEB(13, 13, 13, 13),
@@ -306,9 +316,9 @@ class _AccountPageState extends State<AccountPage> {
                                                       fontSize: 24,
                                                       letterSpacing: 0,
                                                       fontWeight:
-                                                      FontWeight.w500,
+                                                          FontWeight.w500,
                                                       fontStyle:
-                                                      FontStyle.italic,
+                                                          FontStyle.italic,
                                                     ),
                                                     minFontSize: 12,
                                                   ),
@@ -333,7 +343,7 @@ class _AccountPageState extends State<AccountPage> {
                                             children: [
                                               ClipRRect(
                                                 borderRadius:
-                                                BorderRadius.circular(20),
+                                                    BorderRadius.circular(20),
                                                 child: Image.network(
                                                   'https://picsum.photos/seed/592/600',
                                                   width: double.infinity,
@@ -349,14 +359,14 @@ class _AccountPageState extends State<AccountPage> {
                                                   decoration: BoxDecoration(
                                                     color: Colors.black,
                                                     borderRadius:
-                                                    BorderRadius.circular(
-                                                        20),
+                                                        BorderRadius.circular(
+                                                            20),
                                                   ),
                                                 ),
                                               ),
                                               Align(
                                                 alignment:
-                                                AlignmentDirectional(0, 0),
+                                                    AlignmentDirectional(0, 0),
                                                 child: Padding(
                                                   padding: EdgeInsetsDirectional
                                                       .fromSTEB(13, 13, 13, 13),
@@ -368,9 +378,9 @@ class _AccountPageState extends State<AccountPage> {
                                                       fontSize: 24,
                                                       letterSpacing: 0,
                                                       fontWeight:
-                                                      FontWeight.w500,
+                                                          FontWeight.w500,
                                                       fontStyle:
-                                                      FontStyle.italic,
+                                                          FontStyle.italic,
                                                     ),
                                                     minFontSize: 12,
                                                   ),
@@ -436,7 +446,7 @@ class _AccountPageState extends State<AccountPage> {
                                         flex: 4,
                                         child: RichText(
                                           textScaler:
-                                          MediaQuery.of(context).textScaler,
+                                              MediaQuery.of(context).textScaler,
                                           text: TextSpan(
                                             children: [
                                               TextSpan(
@@ -444,7 +454,7 @@ class _AccountPageState extends State<AccountPage> {
                                                 style: TextStyle(
                                                   color: colorConvert(
                                                       userData['faculty']
-                                                      ['color']),
+                                                          ['color']),
                                                   fontSize: 20,
                                                   letterSpacing: 0,
                                                   fontWeight: FontWeight.bold,

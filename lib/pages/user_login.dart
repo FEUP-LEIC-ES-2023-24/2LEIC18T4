@@ -76,7 +76,6 @@ class _UserLoginState extends State<UserLogin> {
                     "Study@",
                     style: TextStyle(fontWeight: FontWeight.w900, fontSize: 35),
                   ),
-                 
                   const SizedBox(height: 50),
                   AppTextField(
                     controller: usernamecontroller,
@@ -136,7 +135,6 @@ class _UserLoginState extends State<UserLogin> {
                             await AuthService().signInGoogle();
                           },
                           imagepath: 'lib/images/google.png'),
-
                     ],
                   ),
                 ],

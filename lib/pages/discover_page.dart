@@ -3,11 +3,8 @@ import 'dart:async';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/material.dart';
 import 'package:geolocator/geolocator.dart';
-import 'package:provider/provider.dart';
 
-import 'package:study_at/pages/place_page.dart';
 
 /*class DiscoverPage extends StatelessWidget {
   const DiscoverPage({super.key});
@@ -91,7 +88,7 @@ class _DiscoverPageState extends State<DiscoverPage> {
       }
     });
   }
-  
+
   void medalUnlocker(double? lat, double? lon) async {
     if (lat != null && lon != null) {
       DataSnapshot snapshot = await databaseReference.get();
@@ -112,10 +109,10 @@ class _DiscoverPageState extends State<DiscoverPage> {
         });
       }
     }
-}
-void retrievePlacesIds() {
-    DatabaseReference userRef = FirebaseDatabase.instance.ref().child(
-        "place");
+  }
+
+  void retrievePlacesIds() {
+    DatabaseReference userRef = FirebaseDatabase.instance.ref().child("place");
 
     userRef.onValue.listen((event) {
       DataSnapshot snapshot = event.snapshot;
@@ -127,7 +124,6 @@ void retrievePlacesIds() {
       List<String> id6 = [];
       List<String> id7 = [];
 
-      
       Map<dynamic, dynamic>? placeData =
           snapshot.value as Map<dynamic, dynamic>?;
 
@@ -168,7 +164,6 @@ void retrievePlacesIds() {
       });
     });
   }
-  
 
   @override
   void initState() {
@@ -694,8 +689,6 @@ void retrievePlacesIds() {
           ),
         ),
       );
-
-        
     } else {
       return Scaffold(
         backgroundColor: Colors.white60,

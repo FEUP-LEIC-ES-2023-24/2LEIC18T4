@@ -22,12 +22,14 @@ class StoreData {
   }
 
   Future<void> storeImageToUser(Uint8List file) async {
+    String imageUrl = await uploadImage2Storage(
+        'profileImages',
+        file,
+        currentUser.email!
+            .replaceAll('.', '_')
+            .replaceAll('@', '_')
+            .replaceAll('#', '_'));
 
-    String imageUrl = await uploadImage2Storage('profileImages', file, currentUser.email!
-              .replaceAll('.', '_')
-              .replaceAll('@', '_')
-              .replaceAll('#', '_'));
-              
     await userCollection
         .child(currentUser.email!
             .replaceAll('.', '_')

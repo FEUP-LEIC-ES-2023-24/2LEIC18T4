@@ -21,13 +21,16 @@ Future<void> main() async {
   FirebaseAuth.instance.authStateChanges().listen((user) async {
     // Crie um nó de usuário no banco de dados Firebase Realtime Database
     final DatabaseReference userRef = FirebaseDatabase.instance.ref("users");
-    final String userEmail = user!.email!.replaceAll('.', '_').replaceAll('@', '_').replaceAll('#', '_');
+    final String userEmail = user!.email!
+        .replaceAll('.', '_')
+        .replaceAll('@', '_')
+        .replaceAll('#', '_');
 
     final DatabaseReference userNodeRef = userRef.child(userEmail);
 
     final DataSnapshot prazer = await userNodeRef.get();
 
-    if(prazer.exists) return;
+    if (prazer.exists) return;
 
     print("adding user info");
     await userNodeRef.set({
@@ -35,7 +38,7 @@ Future<void> main() async {
       'username': user!.email!.split('@')[0],
       'bio': 'Um novo usuário do Study@!',
       'faculty': {'name': 'Other', 'color': Colors.black.value},
-      'profileImage' : "https://picsum.photos/seed/283/600",
+      'profileImage': "https://picsum.photos/seed/283/600",
       'stars': ['174'],
     });
   });
@@ -51,7 +54,8 @@ class StudyAt extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: const LoginPage(),
-      theme: ThemeData(fontFamily: 'Merriweather', colorSchemeSeed: Colors.white),
+      theme:
+          ThemeData(fontFamily: 'Merriweather', colorSchemeSeed: Colors.white),
     );
   }
 }

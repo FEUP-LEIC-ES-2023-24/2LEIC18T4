@@ -117,96 +117,101 @@ class _StarredPageState extends State<StarredPage> {
                                   snapshot.data!.snapshot.value;
                               List<Widget> items = [];
 
-                            data.forEach((key, value) {
-                              // Check if the place is starred
-                              if (starredPlacesIds.contains(key)) {
-                                items.add(
-                                  GestureDetector(
-                                    onTap: () {
-                                      Navigator.push(
-                                        context,
-                                        MaterialPageRoute(
-                                          builder: (context) => PlacePage(
-                                            imagelink: value['imageLink'],
-                                            name: value['name'],
-                                            markerTags: value['tags'],
+                              data.forEach((key, value) {
+                                // Check if the place is starred
+                                if (starredPlacesIds.contains(key)) {
+                                  items.add(
+                                    GestureDetector(
+                                      onTap: () {
+                                        Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                            builder: (context) => PlacePage(
+                                              imagelink: value['imageLink'],
+                                              name: value['name'],
+                                              markerTags: value['tags'],
+                                            ),
                                           ),
-                                        ),
-                                      );                                    },
-                                    child: Container(
-                                      width: 150,
-                                      height: 150,
-                                      margin: EdgeInsets.symmetric(
-                                          horizontal: 8.0, vertical: 8.0),
-                                      decoration: BoxDecoration(
-                                        color: userColor,
-                                        borderRadius: BorderRadius.circular(25),
-                                        border: Border.all(
+                                        );
+                                      },
+                                      child: Container(
+                                        width: 150,
+                                        height: 150,
+                                        margin: EdgeInsets.symmetric(
+                                            horizontal: 8.0, vertical: 8.0),
+                                        decoration: BoxDecoration(
                                           color: userColor,
-                                          width: 2,
-                                        ),
-                                        image: DecorationImage(
-                                          fit: BoxFit.cover,
-                                          image: NetworkImage(value['imageLink']),
-                                        ),
-                                        boxShadow: [
-                                          BoxShadow(
-                                            blurRadius: 4,
-                                            color: Color(0x33000000),
-                                            offset: Offset(0, 2),
+                                          borderRadius:
+                                              BorderRadius.circular(25),
+                                          border: Border.all(
+                                            color: userColor,
+                                            width: 2,
                                           ),
-                                        ],
-                                      ),
-                                      child: Stack(
-                                        children: [
-                                          // Se não estiver bem, apaga este align
-                                          Align(
-                                            alignment: AlignmentDirectional(0, 0.5),
-                                            child: Container(
-                                              width: 250,
-                                              height: 250,
-                                              decoration: BoxDecoration(
-                                                borderRadius: BorderRadius.circular(25),
-                                                gradient: LinearGradient(
-                                                begin: Alignment.topCenter,
-                                                end: Alignment.bottomCenter,
-                                                colors: [
-                                                  Colors.transparent,
-                                                  Colors.black,
-                                                ],
+                                          image: DecorationImage(
+                                            fit: BoxFit.cover,
+                                            image: NetworkImage(
+                                                value['imageLink']),
+                                          ),
+                                          boxShadow: [
+                                            BoxShadow(
+                                              blurRadius: 4,
+                                              color: Color(0x33000000),
+                                              offset: Offset(0, 2),
+                                            ),
+                                          ],
+                                        ),
+                                        child: Stack(
+                                          children: [
+                                            // Se não estiver bem, apaga este align
+                                            Align(
+                                              alignment:
+                                                  AlignmentDirectional(0, 0.5),
+                                              child: Container(
+                                                width: 250,
+                                                height: 250,
+                                                decoration: BoxDecoration(
+                                                  borderRadius:
+                                                      BorderRadius.circular(25),
+                                                  gradient: LinearGradient(
+                                                    begin: Alignment.topCenter,
+                                                    end: Alignment.bottomCenter,
+                                                    colors: [
+                                                      Colors.transparent,
+                                                      Colors.black,
+                                                    ],
+                                                  ),
                                                 ),
                                               ),
                                             ),
-                                          ),
-                                          Align(
-                                            alignment:
-                                                AlignmentDirectional(0, 0.5),
-                                            child: Text(
-                                              value['name'],
-                                              style: TextStyle(
-                                                color: Colors.white,
-                                                letterSpacing: 0,
-                                                fontWeight: FontWeight.w400,
-                                                fontStyle: FontStyle.normal,
+                                            Align(
+                                              alignment:
+                                                  AlignmentDirectional(0, 0.5),
+                                              child: Text(
+                                                value['name'],
+                                                style: TextStyle(
+                                                  color: Colors.white,
+                                                  letterSpacing: 0,
+                                                  fontWeight: FontWeight.w400,
+                                                  fontStyle: FontStyle.normal,
+                                                ),
                                               ),
                                             ),
-                                          ),
-                                          Align(
-                                            alignment:
-                                                AlignmentDirectional(0, 1),
-                                            child: Icon(
-                                              Icons.stars,
-                                              color: Colors.white,
-                                              size: 32,
+                                            Align(
+                                              alignment:
+                                                  AlignmentDirectional(0, 1),
+                                              child: Icon(
+                                                Icons.stars,
+                                                color: Colors.white,
+                                                size: 32,
+                                              ),
                                             ),
-                                          ),
-                                        ],
+                                          ],
+                                        ),
                                       ),
                                     ),
-                                  ),
-                                );
-                              }
-                            });
+                                  );
+                                }
+                              });
 
                               return GridView.count(
                                 crossAxisCount: 2, // Number of items per row

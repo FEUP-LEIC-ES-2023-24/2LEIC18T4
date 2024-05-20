@@ -60,10 +60,9 @@ class _MapPageState extends State<MapPage> {
                       onTap: () => createMarkerPopup(
                           context,
                           value['name'].toString(),
-                          value['imageLink'].toString(), markerTags),
+                          value['imageLink'].toString(),
+                          markerTags),
                     ))));
-
-
           });
 
           setState(() {

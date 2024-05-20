@@ -13,7 +13,7 @@ class _SearchPageState extends State<SearchPage> {
   late Query _query;
   List<Map<dynamic, dynamic>> _placesList = [];
 
-@override
+  @override
   void initState() {
     super.initState();
     _query = placesRef.orderByChild('name');
@@ -25,7 +25,7 @@ class _SearchPageState extends State<SearchPage> {
     });
   }
 
-void updateList(String value) {
+  void updateList(String value) {
     setState(() {
       if (value.isEmpty) {
         _query = placesRef.orderByChild('name');
@@ -38,7 +38,6 @@ void updateList(String value) {
       }
     });
   }
-
 
   @override
   Widget build(BuildContext context) {

@@ -7,14 +7,16 @@ import 'package:http/http.dart' as http;
 class MockHttpClient extends Mock implements http.Client {}
 
 void main() {
-  testWidgets('DiscoverPage - Renders Boavista location', (WidgetTester tester) async {
+  testWidgets('DiscoverPage - Renders Boavista location',
+      (WidgetTester tester) async {
     // Arrange
     final locationName = 'Boavista';
     final mockClient = MockHttpClient();
 
     // Mock HTTP client response
     when(mockClient.get(Uri.parse('https://picsum.photos/seed/67/600')))
-        .thenAnswer((_) async => http.Response('', 200)); // Add responses for all image URLs
+        .thenAnswer((_) async =>
+            http.Response('', 200)); // Add responses for all image URLs
 
     // Act
     await tester.pumpWidget(MaterialApp(

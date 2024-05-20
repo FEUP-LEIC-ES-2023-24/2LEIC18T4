@@ -12,7 +12,6 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -37,21 +36,19 @@ class _LoginPageState extends State<LoginPage> {
             TextButton(
               child: Text('Login', style: TextStyle(color: Colors.white)),
               style: TextButton.styleFrom(
-                backgroundColor: Colors.black,
-                textStyle: TextStyle(color: Colors.white)
-              ),
+                  backgroundColor: Colors.black,
+                  textStyle: TextStyle(color: Colors.white)),
               onPressed: () => Navigator.push(context,
-              MaterialPageRoute(builder: ((context) => AuthPage()))),
+                  MaterialPageRoute(builder: ((context) => AuthPage()))),
             ),
             const SizedBox(height: 20),
             TextButton(
               child: Text('Register', style: TextStyle(color: Colors.white)),
               style: TextButton.styleFrom(
-                backgroundColor: Colors.black,
-                textStyle: TextStyle(color: Colors.white)
-              ),
+                  backgroundColor: Colors.black,
+                  textStyle: TextStyle(color: Colors.white)),
               onPressed: () => Navigator.push(context,
-              MaterialPageRoute(builder: ((context) => UserRegister()))),
+                  MaterialPageRoute(builder: ((context) => UserRegister()))),
             ),
             const SizedBox(height: 20),
             GestureDetector(

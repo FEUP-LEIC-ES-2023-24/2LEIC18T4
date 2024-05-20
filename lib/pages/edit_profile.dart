@@ -4,7 +4,6 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:latlong2/latlong.dart';
 import 'package:study_at/components/edit_profile_text_box.dart';
 import 'package:study_at/components/image_picker_utils.dart';
 import 'package:study_at/components/store_imgdata.dart';
@@ -165,8 +164,8 @@ class _EditProfileState extends State<EditProfile> {
                           )
                         : CircleAvatar(
                             radius: 60,
-                            backgroundImage: NetworkImage(
-                                userData['profileImage']),
+                            backgroundImage:
+                                NetworkImage(userData['profileImage']),
                           ),
                     Positioned(
                       bottom: -10,
@@ -183,7 +182,6 @@ class _EditProfileState extends State<EditProfile> {
                         ),
                       ),
                     ),
-
                     Positioned(
                       bottom: -10,
                       right: 215,
@@ -252,9 +250,11 @@ class _EditProfileState extends State<EditProfile> {
                         value: userData['faculty']['name'],
                         items: facultyList.map((faculty) {
                           return DropdownMenuItem(
-                              value: faculty.name, child: Row(
+                              value: faculty.name,
+                              child: Row(
                                 children: [
-                                  Icon(Icons.school, color: colorConvert(faculty.color)),
+                                  Icon(Icons.school,
+                                      color: colorConvert(faculty.color)),
                                   SizedBox(width: 10),
                                   Text(faculty.name)
                                 ],
@@ -268,7 +268,7 @@ class _EditProfileState extends State<EditProfile> {
                               selectedFacultyName = selectedFaculty.name;
                               selectedFacultyColor = selectedFaculty.color;
                             });
-                    
+
                             updateFaculty(selectedFaculty.name);
                           }
                         }),

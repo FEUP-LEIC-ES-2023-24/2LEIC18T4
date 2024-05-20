@@ -33,12 +33,16 @@ class _UserRegisterState extends State<UserRegister> {
       if (passwordController.text == confirmPasswordController.text) {
         UserCredential userCredential = await FirebaseAuth.instance
             .createUserWithEmailAndPassword(
-            email: usernamecontroller.text,
-            password: passwordController.text);
+                email: usernamecontroller.text,
+                password: passwordController.text);
 
         // Crie um nó de usuário no banco de dados Firebase Realtime Database
-        final DatabaseReference userRef = FirebaseDatabase.instance.ref("users");
-        final String userEmail = userCredential.user!.email!.replaceAll('.', '_').replaceAll('@', '_').replaceAll('#', '_');
+        final DatabaseReference userRef =
+            FirebaseDatabase.instance.ref("users");
+        final String userEmail = userCredential.user!.email!
+            .replaceAll('.', '_')
+            .replaceAll('@', '_')
+            .replaceAll('#', '_');
         final DatabaseReference userNodeRef = userRef.child(userEmail);
 
         userNodeRef.set({
@@ -46,7 +50,7 @@ class _UserRegisterState extends State<UserRegister> {
           'username': usernamecontroller.text.split('@')[0],
           'bio': 'Um novo usuário do Study@!',
           'faculty': {'name': 'Other', 'color': Colors.black.value},
-          'profileImage' : "https://picsum.photos/seed/283/600",
+          'profileImage': "https://picsum.photos/seed/283/600",
           'stars': ['174'],
         }).then((_) {
           print('Nó do usuário criado com sucesso');
@@ -72,8 +76,7 @@ class _UserRegisterState extends State<UserRegister> {
     showDialog(
         context: context,
         builder: (context) {
-          return const AlertDialog(
-              title: Text("Wrong or unregistered email."));
+          return const AlertDialog(title: Text("Wrong or unregistered email."));
         });
   }
 
@@ -81,8 +84,7 @@ class _UserRegisterState extends State<UserRegister> {
     showDialog(
         context: context,
         builder: (context) {
-          return const AlertDialog(
-              title: Text("Incorrect password."));
+          return const AlertDialog(title: Text("Incorrect password."));
         });
   }
 
@@ -160,8 +162,7 @@ class _UserRegisterState extends State<UserRegister> {
                         onTap: () async {
                           await AuthService().signInGoogle();
                         },
-                        imagepath: 'lib/images/google.png'
-                    ),
+                        imagepath: 'lib/images/google.png'),
                   ],
                 ),
               ],

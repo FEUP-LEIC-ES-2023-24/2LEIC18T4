@@ -353,17 +353,27 @@ class _PlacePageState extends State<PlacePage> {
                                                             _rating = rating;
                                                           });
                                                         }),
-                                                    SizedBox(height: 18,),
+                                                    SizedBox(
+                                                      height: 18,
+                                                    ),
                                                     TextButton(
                                                       style: ButtonStyle(
-                                                        backgroundColor: MaterialStateProperty.all<Color>(Colors.black),
-                                                        foregroundColor: MaterialStateProperty.all<Color>(Colors.white)
-                                                      ),
+                                                          backgroundColor:
+                                                              MaterialStateProperty
+                                                                  .all<Color>(
+                                                                      Colors
+                                                                          .black),
+                                                          foregroundColor:
+                                                              MaterialStateProperty
+                                                                  .all<Color>(
+                                                                      Colors
+                                                                          .white)),
                                                       onPressed: () {
                                                         Navigator.of(context)
                                                             .pop();
                                                       },
-                                                      child: Text("Submit rating"),
+                                                      child:
+                                                          Text("Submit rating"),
                                                     )
                                                   ],
                                                 ),
