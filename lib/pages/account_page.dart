@@ -2,37 +2,8 @@ import 'package:auto_size_text/auto_size_text.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
-
-import 'package:auto_size_text/auto_size_text.dart';
-import 'package:flutter/gestures.dart';
-import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 import 'package:study_at/components/faculty_flag.dart';
 import 'package:study_at/pages/edit_profile.dart';
-
-/*class AccountPage extends StatelessWidget {
-  const AccountPage({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return const Placeholder();
-  }
-}
-
-
-class AccountPageModel extends FlutterFlowModel<AccountPage> {
-  ///  State fields for stateful widgets in this page.
-
-  final unfocusNode = FocusNode();
-
-  @override
-  void initState(BuildContext context) {}
-
-  @override
-  void dispose() {
-    unfocusNode.dispose();
-  }
-}*/
 
 class AccountPage extends StatefulWidget {
   const AccountPage({super.key});
@@ -42,23 +13,6 @@ class AccountPage extends StatefulWidget {
 }
 
 class _AccountPageState extends State<AccountPage> {
-  /*late AccountPageModel _model;
-
-  final scaffoldKey = GlobalKey<ScaffoldState>();
-
-  @override
-  void initState() {
-    super.initState();
-    _model = createModel(context, () => AccountPageModel());
-  }
-
-  @override
-  void dispose() {
-    _model.dispose();
-
-    super.dispose();
-  }*/
-
   final currentUser = FirebaseAuth.instance.currentUser;
 
   Color colorConvert(int argbVal) {
@@ -81,20 +35,16 @@ class _AccountPageState extends State<AccountPage> {
             .ref()
             .child("users")
             .child(currentUser!.email!
-                .replaceAll('.', '_')
-                .replaceAll('@', '_')
-                .replaceAll('#', '_'))
+            .replaceAll('.', '_')
+            .replaceAll('@', '_')
+            .replaceAll('#', '_'))
             .onValue,
         builder: (context, snapshot) {
           if (snapshot.hasData) {
             final userData =
-                snapshot.data!.snapshot.value as Map<dynamic, dynamic>;
+            snapshot.data!.snapshot.value as Map<dynamic, dynamic>;
             return GestureDetector(
-              /*onTap: () => _model.unfocusNode.canRequestFocus
-            ? FocusScope.of(context).requestFocus(_model.unfocusNode)
-            : FocusScope.of(context).unfocus(),*/
               child: Scaffold(
-                //key: scaffoldKey,
                 backgroundColor: Colors.white,
                 body: SafeArea(
                   top: true,
@@ -105,8 +55,7 @@ class _AccountPageState extends State<AccountPage> {
                       Align(
                         alignment: Alignment.topLeft,
                         child: Padding(
-                          padding:
-                              const EdgeInsets.only(left: 15.0, bottom: 1.0),
+                          padding: const EdgeInsets.only(left: 15.0, bottom: 1.0),
                           child: Text(
                             "Account",
                             style: TextStyle(
@@ -125,8 +74,7 @@ class _AccountPageState extends State<AccountPage> {
                             color: Colors.white,
                           ),
                           child: Padding(
-                            padding:
-                                EdgeInsetsDirectional.fromSTEB(15, 0, 15, 0),
+                            padding: EdgeInsetsDirectional.fromSTEB(15, 0, 15, 0),
                             child: Row(
                               mainAxisSize: MainAxisSize.max,
                               mainAxisAlignment: MainAxisAlignment.start,
@@ -154,8 +102,7 @@ class _AccountPageState extends State<AccountPage> {
                                       right: 0,
                                       child: Center(
                                         child: FacultyFlag(
-                                          facultyName: userData['faculty']
-                                              ['name'],
+                                          facultyName: userData['faculty']['name'],
                                           facultyColor: colorConvert(
                                               userData['faculty']['color']),
                                         ),
@@ -171,46 +118,47 @@ class _AccountPageState extends State<AccountPage> {
                                     child: Column(
                                       mainAxisSize: MainAxisSize.max,
                                       mainAxisAlignment:
-                                          MainAxisAlignment.center,
+                                      MainAxisAlignment.center,
                                       crossAxisAlignment:
-                                          CrossAxisAlignment.start,
+                                      CrossAxisAlignment.start,
                                       children: [
                                         Flexible(
                                           child: Padding(
-                                            padding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    0, 0, 0, 12),
+                                            padding: EdgeInsetsDirectional.fromSTEB(
+                                                0, 0, 0, 12),
                                             child: AutoSizeText(
                                               userData['name'],
                                               maxLines: 1,
                                               style: TextStyle(
-                                                fontSize: 27,
+                                                fontSize: 25,
                                                 letterSpacing: 0,
+                                                fontWeight: FontWeight.bold,
                                               ),
-                                              minFontSize: 25,
+                                              minFontSize: 20,
+                                              overflow: TextOverflow.ellipsis,
                                             ),
                                           ),
                                         ),
                                         Flexible(
                                           child: Padding(
-                                            padding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    0, 0, 0, 12),
-                                            child: Text(
+                                            padding: EdgeInsetsDirectional.fromSTEB(
+                                                0, 0, 0, 12),
+                                            child: AutoSizeText(
                                               "@${userData['username']}",
                                               maxLines: 1,
                                               style: TextStyle(
-                                                fontSize: 14,
+                                                fontSize: 16,
                                                 letterSpacing: 0,
                                               ),
+                                              minFontSize: 14,
+                                              overflow: TextOverflow.ellipsis,
                                             ),
                                           ),
                                         ),
                                         Flexible(
                                           child: Padding(
-                                            padding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    0, 0, 0, 12),
+                                            padding: EdgeInsetsDirectional.fromSTEB(
+                                                0, 0, 0, 12),
                                             child: AutoSizeText(
                                               userData['bio'],
                                               textAlign: TextAlign.start,
@@ -259,8 +207,7 @@ class _AccountPageState extends State<AccountPage> {
                             color: Colors.white,
                           ),
                           child: Padding(
-                            padding:
-                                EdgeInsetsDirectional.fromSTEB(15, 0, 15, 0),
+                            padding: EdgeInsetsDirectional.fromSTEB(15, 0, 15, 0),
                             child: Column(
                               mainAxisSize: MainAxisSize.max,
                               mainAxisAlignment: MainAxisAlignment.start,
@@ -274,7 +221,7 @@ class _AccountPageState extends State<AccountPage> {
                                         flex: 1,
                                         child: Align(
                                           alignment:
-                                              AlignmentDirectional(-1, 0),
+                                          AlignmentDirectional(-1, 0),
                                           child: Text(
                                             'History',
                                             style: TextStyle(
@@ -297,7 +244,7 @@ class _AccountPageState extends State<AccountPage> {
                                               letterSpacing: 0,
                                               fontWeight: FontWeight.w900,
                                               decoration:
-                                                  TextDecoration.underline,
+                                              TextDecoration.underline,
                                             ),
                                           ),
                                         ),
@@ -318,13 +265,13 @@ class _AccountPageState extends State<AccountPage> {
                                           decoration: BoxDecoration(
                                             color: Colors.white,
                                             borderRadius:
-                                                BorderRadius.circular(0),
+                                            BorderRadius.circular(0),
                                           ),
                                           child: Stack(
                                             children: [
                                               ClipRRect(
                                                 borderRadius:
-                                                    BorderRadius.circular(20),
+                                                BorderRadius.circular(20),
                                                 child: Image.network(
                                                   'https://picsum.photos/seed/771/600',
                                                   width: double.infinity,
@@ -340,14 +287,14 @@ class _AccountPageState extends State<AccountPage> {
                                                   decoration: BoxDecoration(
                                                     color: Colors.black,
                                                     borderRadius:
-                                                        BorderRadius.circular(
-                                                            20),
+                                                    BorderRadius.circular(
+                                                        20),
                                                   ),
                                                 ),
                                               ),
                                               Align(
                                                 alignment:
-                                                    AlignmentDirectional(0, 0),
+                                                AlignmentDirectional(0, 0),
                                                 child: Padding(
                                                   padding: EdgeInsetsDirectional
                                                       .fromSTEB(13, 13, 13, 13),
@@ -359,9 +306,9 @@ class _AccountPageState extends State<AccountPage> {
                                                       fontSize: 24,
                                                       letterSpacing: 0,
                                                       fontWeight:
-                                                          FontWeight.w500,
+                                                      FontWeight.w500,
                                                       fontStyle:
-                                                          FontStyle.italic,
+                                                      FontStyle.italic,
                                                     ),
                                                     minFontSize: 12,
                                                   ),
@@ -386,7 +333,7 @@ class _AccountPageState extends State<AccountPage> {
                                             children: [
                                               ClipRRect(
                                                 borderRadius:
-                                                    BorderRadius.circular(20),
+                                                BorderRadius.circular(20),
                                                 child: Image.network(
                                                   'https://picsum.photos/seed/592/600',
                                                   width: double.infinity,
@@ -402,14 +349,14 @@ class _AccountPageState extends State<AccountPage> {
                                                   decoration: BoxDecoration(
                                                     color: Colors.black,
                                                     borderRadius:
-                                                        BorderRadius.circular(
-                                                            20),
+                                                    BorderRadius.circular(
+                                                        20),
                                                   ),
                                                 ),
                                               ),
                                               Align(
                                                 alignment:
-                                                    AlignmentDirectional(0, 0),
+                                                AlignmentDirectional(0, 0),
                                                 child: Padding(
                                                   padding: EdgeInsetsDirectional
                                                       .fromSTEB(13, 13, 13, 13),
@@ -421,9 +368,9 @@ class _AccountPageState extends State<AccountPage> {
                                                       fontSize: 24,
                                                       letterSpacing: 0,
                                                       fontWeight:
-                                                          FontWeight.w500,
+                                                      FontWeight.w500,
                                                       fontStyle:
-                                                          FontStyle.italic,
+                                                      FontStyle.italic,
                                                     ),
                                                     minFontSize: 12,
                                                   ),
@@ -489,7 +436,7 @@ class _AccountPageState extends State<AccountPage> {
                                         flex: 4,
                                         child: RichText(
                                           textScaler:
-                                              MediaQuery.of(context).textScaler,
+                                          MediaQuery.of(context).textScaler,
                                           text: TextSpan(
                                             children: [
                                               TextSpan(
@@ -497,7 +444,7 @@ class _AccountPageState extends State<AccountPage> {
                                                 style: TextStyle(
                                                   color: colorConvert(
                                                       userData['faculty']
-                                                          ['color']),
+                                                      ['color']),
                                                   fontSize: 20,
                                                   letterSpacing: 0,
                                                   fontWeight: FontWeight.bold,
@@ -548,7 +495,7 @@ class _AccountPageState extends State<AccountPage> {
           backgroundColor: Colors.white60,
           body: Center(
             child: Text("You must be logged in to access this page."),
-      ));
+          ));
     }
   }
 }
