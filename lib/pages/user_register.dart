@@ -160,14 +160,8 @@ class _UserRegisterState extends State<UserRegister> {
                         onTap: () async {
                           await AuthService().signInGoogle();
                         },
-                        imagepath: 'lib/images/google.png'),
-                    const SizedBox(
-                      width: 40,
+                        imagepath: 'lib/images/google.png'
                     ),
-                    IconSquareTile(
-                        onTap: () {
-                        },
-                        imagepath: 'lib/images/github.png'),
                   ],
                 ),
               ],

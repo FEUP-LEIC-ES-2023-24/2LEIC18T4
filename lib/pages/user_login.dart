@@ -1,6 +1,7 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:study_at/auth_service.dart';
 import 'package:study_at/components/apptextfield.dart';
 import 'package:study_at/components/icon_square_tile.dart';
 import 'package:study_at/components/screens_button.dart';
@@ -131,14 +132,11 @@ class _UserLoginState extends State<UserLogin> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       IconSquareTile(
-                          onTap:(){},
+                          onTap: () async {
+                            await AuthService().signInGoogle();
+                          },
                           imagepath: 'lib/images/google.png'),
-                      const SizedBox(
-                        width: 40,
-                      ),
-                      IconSquareTile(
-                          onTap:(){},
-                          imagepath: 'lib/images/github.png'),
+
                     ],
                   ),
                 ],
