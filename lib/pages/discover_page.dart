@@ -261,59 +261,46 @@ void retrievePlacesIds() {
                               shrinkWrap: true,
                               scrollDirection: Axis.horizontal,
                               children: [
-                                PlacesBoavista.isEmpty
-                                  ? Center(
-                                    child: Text("No places in Boavista"),
-                                  )
-                                  : Expanded(
-                                    child: StreamBuilder(
-                                      stream: databaseReference.onValue,
-                                      builder: (BuildContext context,AsyncSnapshot<dynamic> snapshot) {
-                                        // Add a return statement at the end
-                                      if (snapshot.hasData && snapshot.data != null) {
-                                        Map<dynamic, dynamic> data =
-                                        snapshot.data!.snapshot.value;
-                                        List<Widget> items = [];
-                                        data.forEach((key, value) {
-                                        // Check if the place is starred
-                                        if (PlacesBoavista.contains(key)) {
-                                          items.add(
-                                            GestureDetector(
-                                              onTap: () {
-                                                Navigator.push(
-                                                  context,
-                                                  MaterialPageRoute(
-                                                    builder: (context) => PlacePage(
-                                                      imagelink: value['imageLink'],
-                                                      name: value['name'],
-                                                      markerTags: value['tags'],
-                                                    ),
-                                                  ),
-                                                );
-                                                Container(
-                                                  width: 120,
-                                                  height: 120,
-                                                  clipBehavior: Clip.antiAlias,
-                                                  decoration: BoxDecoration(
-                                                    shape: BoxShape.circle,
-                                                    image: DecorationImage(
-                                                      fit: BoxFit.cover,
-                                                      image: NetworkImage(value['imageLink']),
-                                                    ),
-                                                  )
-                                                );
-                                                }
-                                              )
-                                            );
-                                          }
-                                        }
-                                        );
-                                      }
-                                      return Container();
-                                      }
-                                    )
-                                  )
+                                Container(
+                                  width: 120,
+                                  height: 120,
+                                  clipBehavior: Clip.antiAlias,
+                                  decoration: BoxDecoration(
+                                    shape: BoxShape.circle,
+                                  ),
+                                  child: Image.network(
+                                    'https://lh3.googleusercontent.com/proxy/vZdtAqQBb3WCFntjm3TNW_dz8Vh_ko1isJyWqlNPjbUqKAzbEwA8d1kn5wncKMIDHspiZnUypgbIp0LRkoh1LEfRMIjgQ50REafUCnorprX7iq5Gv2Ocx4W3T-LLgx0-RA',
+                                    fit: BoxFit.cover,
+                                  ),
+                                ),
+                                Container(
+                                  width: 120,
+                                  height: 120,
+                                  clipBehavior: Clip.antiAlias,
+                                  decoration: BoxDecoration(
+                                    shape: BoxShape.circle,
+                                  ),
+                                  child: Image.network(
+                                    'https://convida.pt/images/POIs/CafeCasaMusica-Convida-2017-010.jpg',
+                                    fit: BoxFit.cover,
+                                  ),
+                                ),
+                                Container(
+                                  width: 120,
+                                  height: 120,
+                                  clipBehavior: Clip.antiAlias,
+                                  decoration: BoxDecoration(
+                                    shape: BoxShape.circle,
+                                  ),
+                                  child: Image.network(
+                                    'https://assets.savills.com/properties/PTOPO1LIS002166L/1_2166_114371_l_gal.jpg',
+                                    fit: BoxFit.cover,
+                                  ),
+                                ),
                               ],
+                            ),
+                          ),
+                        ],
                       ),
                     ),
                     Container(
@@ -362,7 +349,7 @@ void retrievePlacesIds() {
                                     shape: BoxShape.circle,
                                   ),
                                   child: Image.network(
-                                    'https://picsum.photos/seed/67/600',
+                                    'https://noticias.up.pt/wp-content/uploads/2023/06/estudantes-jardins-ciencias.jpg',
                                     fit: BoxFit.cover,
                                   ),
                                 ),
@@ -374,7 +361,7 @@ void retrievePlacesIds() {
                                     shape: BoxShape.circle,
                                   ),
                                   child: Image.network(
-                                    'https://picsum.photos/seed/629/600',
+                                    'https://oliviahouses.com/wp-content/uploads/2023/06/jardim-botanico-porto-olivia.webp',
                                     fit: BoxFit.cover,
                                   ),
                                 ),
@@ -386,7 +373,7 @@ void retrievePlacesIds() {
                                     shape: BoxShape.circle,
                                   ),
                                   child: Image.network(
-                                    'https://picsum.photos/seed/268/600',
+                                    'https://noticias.up.pt/wp-content/uploads/2023/06/jardins-faup_02.jpg',
                                     fit: BoxFit.cover,
                                   ),
                                 ),
@@ -398,7 +385,7 @@ void retrievePlacesIds() {
                                     shape: BoxShape.circle,
                                   ),
                                   child: Image.network(
-                                    'https://picsum.photos/seed/452/600',
+                                    'https://laptopfriendly.co/images/places/porto/e-learning-cafe-u-porto/e-learning-cafe-u-porto%20porto%20e-learning-cafe-u-porto-porto%20.jpg',
                                     fit: BoxFit.cover,
                                   ),
                                 ),
@@ -410,7 +397,7 @@ void retrievePlacesIds() {
                                     shape: BoxShape.circle,
                                   ),
                                   child: Image.network(
-                                    'https://picsum.photos/seed/874/600',
+                                    'https://sigarra.up.pt/up/pt/imagens/album/n329',
                                     fit: BoxFit.cover,
                                   ),
                                 ),
@@ -422,7 +409,7 @@ void retrievePlacesIds() {
                                     shape: BoxShape.circle,
                                   ),
                                   child: Image.network(
-                                    'https://picsum.photos/seed/530/600',
+                                    'https://mapio.net/images-p/37718994.jpg',
                                     fit: BoxFit.cover,
                                   ),
                                 ),
@@ -434,31 +421,7 @@ void retrievePlacesIds() {
                                     shape: BoxShape.circle,
                                   ),
                                   child: Image.network(
-                                    'https://picsum.photos/seed/36/600',
-                                    fit: BoxFit.cover,
-                                  ),
-                                ),
-                                Container(
-                                  width: 120,
-                                  height: 120,
-                                  clipBehavior: Clip.antiAlias,
-                                  decoration: BoxDecoration(
-                                    shape: BoxShape.circle,
-                                  ),
-                                  child: Image.network(
-                                    'https://picsum.photos/seed/811/600',
-                                    fit: BoxFit.cover,
-                                  ),
-                                ),
-                                Container(
-                                  width: 120,
-                                  height: 120,
-                                  clipBehavior: Clip.antiAlias,
-                                  decoration: BoxDecoration(
-                                    shape: BoxShape.circle,
-                                  ),
-                                  child: Image.network(
-                                    'https://picsum.photos/seed/522/600',
+                                    'https://ler.letras.up.pt/uploads/ficheiros/18955.JPG',
                                     fit: BoxFit.cover,
                                   ),
                                 ),
@@ -514,7 +477,7 @@ void retrievePlacesIds() {
                                     shape: BoxShape.circle,
                                   ),
                                   child: Image.network(
-                                    'https://picsum.photos/seed/67/600',
+                                    'http://h5p.org/sites/default/files/h5p/content/292659/images/image-5b6c21bd54857.jpg',
                                     fit: BoxFit.cover,
                                   ),
                                 ),
@@ -526,7 +489,7 @@ void retrievePlacesIds() {
                                     shape: BoxShape.circle,
                                   ),
                                   child: Image.network(
-                                    'https://picsum.photos/seed/629/600',
+                                    'https://noticias.up.pt/wp-content/uploads/2022/03/parque-central-da-asprela-pre.inauguracao_04.jpg',
                                     fit: BoxFit.cover,
                                   ),
                                 ),
@@ -538,7 +501,7 @@ void retrievePlacesIds() {
                                     shape: BoxShape.circle,
                                   ),
                                   child: Image.network(
-                                    'https://picsum.photos/seed/268/600',
+                                    'https://laptopfriendly.co/images/places/porto/e-learning-cafe-u-porto/e-learning-cafe-u-porto%20porto%20e-learning-cafe-u-porto-porto%20.jpg',
                                     fit: BoxFit.cover,
                                   ),
                                 ),
@@ -550,7 +513,7 @@ void retrievePlacesIds() {
                                     shape: BoxShape.circle,
                                   ),
                                   child: Image.network(
-                                    'https://picsum.photos/seed/452/600',
+                                    'https://biblioteca.med.up.pt/wp-content/uploads/2017/04/1-1024x397.jpg',
                                     fit: BoxFit.cover,
                                   ),
                                 ),
@@ -562,207 +525,7 @@ void retrievePlacesIds() {
                                     shape: BoxShape.circle,
                                   ),
                                   child: Image.network(
-                                    'https://picsum.photos/seed/874/600',
-                                    fit: BoxFit.cover,
-                                  ),
-                                ),
-                                Container(
-                                  width: 120,
-                                  height: 120,
-                                  clipBehavior: Clip.antiAlias,
-                                  decoration: BoxDecoration(
-                                    shape: BoxShape.circle,
-                                  ),
-                                  child: Image.network(
-                                    'https://picsum.photos/seed/530/600',
-                                    fit: BoxFit.cover,
-                                  ),
-                                ),
-                                Container(
-                                  width: 120,
-                                  height: 120,
-                                  clipBehavior: Clip.antiAlias,
-                                  decoration: BoxDecoration(
-                                    shape: BoxShape.circle,
-                                  ),
-                                  child: Image.network(
-                                    'https://picsum.photos/seed/36/600',
-                                    fit: BoxFit.cover,
-                                  ),
-                                ),
-                                Container(
-                                  width: 120,
-                                  height: 120,
-                                  clipBehavior: Clip.antiAlias,
-                                  decoration: BoxDecoration(
-                                    shape: BoxShape.circle,
-                                  ),
-                                  child: Image.network(
-                                    'https://picsum.photos/seed/811/600',
-                                    fit: BoxFit.cover,
-                                  ),
-                                ),
-                                Container(
-                                  width: 120,
-                                  height: 120,
-                                  clipBehavior: Clip.antiAlias,
-                                  decoration: BoxDecoration(
-                                    shape: BoxShape.circle,
-                                  ),
-                                  child: Image.network(
-                                    'https://picsum.photos/seed/522/600',
-                                    fit: BoxFit.cover,
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                    Container(
-                      width: 100,
-                      height: 190,
-                      decoration: BoxDecoration(
-                        color: Colors.white,
-                      ),
-                      child: Column(
-                        mainAxisSize: MainAxisSize.max,
-                        children: [
-                          Align(
-                            alignment: AlignmentDirectional(-1, 0),
-                            child: Padding(
-                              padding:
-                                  EdgeInsetsDirectional.fromSTEB(0, 15, 0, 15),
-                              child: Text(
-                                'Vila do Conde',
-                                style: TextStyle(
-                                  fontSize: 23,
-                                  fontWeight: FontWeight.w900,
-                                  color: userColor,
-                                  letterSpacing: 0,
-                                ),
-                              ),
-                            ),
-                          ),
-                          Flexible(
-                            child: GridView(
-                              padding: EdgeInsets.zero,
-                              gridDelegate:
-                                  SliverGridDelegateWithFixedCrossAxisCount(
-                                crossAxisCount: 1,
-                                crossAxisSpacing: 10,
-                                mainAxisSpacing: 10,
-                                childAspectRatio: 1,
-                              ),
-                              shrinkWrap: true,
-                              scrollDirection: Axis.horizontal,
-                              children: [
-                                Container(
-                                  width: 120,
-                                  height: 120,
-                                  clipBehavior: Clip.antiAlias,
-                                  decoration: BoxDecoration(
-                                    shape: BoxShape.circle,
-                                  ),
-                                  child: Image.network(
-                                    'https://picsum.photos/seed/67/600',
-                                    fit: BoxFit.cover,
-                                  ),
-                                ),
-                                Container(
-                                  width: 120,
-                                  height: 120,
-                                  clipBehavior: Clip.antiAlias,
-                                  decoration: BoxDecoration(
-                                    shape: BoxShape.circle,
-                                  ),
-                                  child: Image.network(
-                                    'https://picsum.photos/seed/629/600',
-                                    fit: BoxFit.cover,
-                                  ),
-                                ),
-                                Container(
-                                  width: 120,
-                                  height: 120,
-                                  clipBehavior: Clip.antiAlias,
-                                  decoration: BoxDecoration(
-                                    shape: BoxShape.circle,
-                                  ),
-                                  child: Image.network(
-                                    'https://picsum.photos/seed/268/600',
-                                    fit: BoxFit.cover,
-                                  ),
-                                ),
-                                Container(
-                                  width: 120,
-                                  height: 120,
-                                  clipBehavior: Clip.antiAlias,
-                                  decoration: BoxDecoration(
-                                    shape: BoxShape.circle,
-                                  ),
-                                  child: Image.network(
-                                    'https://picsum.photos/seed/452/600',
-                                    fit: BoxFit.cover,
-                                  ),
-                                ),
-                                Container(
-                                  width: 120,
-                                  height: 120,
-                                  clipBehavior: Clip.antiAlias,
-                                  decoration: BoxDecoration(
-                                    shape: BoxShape.circle,
-                                  ),
-                                  child: Image.network(
-                                    'https://picsum.photos/seed/874/600',
-                                    fit: BoxFit.cover,
-                                  ),
-                                ),
-                                Container(
-                                  width: 120,
-                                  height: 120,
-                                  clipBehavior: Clip.antiAlias,
-                                  decoration: BoxDecoration(
-                                    shape: BoxShape.circle,
-                                  ),
-                                  child: Image.network(
-                                    'https://picsum.photos/seed/530/600',
-                                    fit: BoxFit.cover,
-                                  ),
-                                ),
-                                Container(
-                                  width: 120,
-                                  height: 120,
-                                  clipBehavior: Clip.antiAlias,
-                                  decoration: BoxDecoration(
-                                    shape: BoxShape.circle,
-                                  ),
-                                  child: Image.network(
-                                    'https://picsum.photos/seed/36/600',
-                                    fit: BoxFit.cover,
-                                  ),
-                                ),
-                                Container(
-                                  width: 120,
-                                  height: 120,
-                                  clipBehavior: Clip.antiAlias,
-                                  decoration: BoxDecoration(
-                                    shape: BoxShape.circle,
-                                  ),
-                                  child: Image.network(
-                                    'https://picsum.photos/seed/811/600',
-                                    fit: BoxFit.cover,
-                                  ),
-                                ),
-                                Container(
-                                  width: 120,
-                                  height: 120,
-                                  clipBehavior: Clip.antiAlias,
-                                  decoration: BoxDecoration(
-                                    shape: BoxShape.circle,
-                                  ),
-                                  child: Image.network(
-                                    'https://picsum.photos/seed/522/600',
+                                    'https://omega.com.pt/wp-content/uploads/2016/11/%C2%A9Telmo-Miller-8181-copy.jpg',
                                     fit: BoxFit.cover,
                                   ),
                                 ),
@@ -818,7 +581,7 @@ void retrievePlacesIds() {
                                     shape: BoxShape.circle,
                                   ),
                                   child: Image.network(
-                                    'https://picsum.photos/seed/67/600',
+                                    'https://noticias.up.pt/wp-content/uploads/2023/06/estudantes-jardins-fbaup.jpg',
                                     fit: BoxFit.cover,
                                   ),
                                 ),
@@ -830,7 +593,7 @@ void retrievePlacesIds() {
                                     shape: BoxShape.circle,
                                   ),
                                   child: Image.network(
-                                    'https://picsum.photos/seed/629/600',
+                                    'https://upload.wikimedia.org/wikipedia/commons/4/4a/Biblioteca_Municipal_Porto-01.jpg',
                                     fit: BoxFit.cover,
                                   ),
                                 ),
@@ -842,7 +605,7 @@ void retrievePlacesIds() {
                                     shape: BoxShape.circle,
                                   ),
                                   child: Image.network(
-                                    'https://picsum.photos/seed/268/600',
+                                    'https://live.staticflickr.com/65535/52178323882_d8c5a83f00_b.jpg',
                                     fit: BoxFit.cover,
                                   ),
                                 ),
@@ -927,13 +690,12 @@ void retrievePlacesIds() {
                   ],
                 ),
               ),
-                  ],
+            ),
           ),
         ),
-            )
-          )
-        )
       );
+
+        
     } else {
       return Scaffold(
         backgroundColor: Colors.white60,
