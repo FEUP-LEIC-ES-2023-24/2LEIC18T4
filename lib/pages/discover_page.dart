@@ -45,6 +45,7 @@ class _DiscoverPageState extends State<DiscoverPage> {
   List<String> PlacesBatalha = [];
   List<String> PlacesFoz = [];
   List<String> PlacesCristal = [];
+  List<String> visitedPlacesIds = [];
 
   Color colorConvert(int argbVal) {
     int red = (argbVal >> 16) & 0xFF;
@@ -110,6 +111,29 @@ class _DiscoverPageState extends State<DiscoverPage> {
       }
     }
   }
+  void retrieveVisitedPlacesIds() {
+    DatabaseReference userRef = FirebaseDatabase.instance.ref().child(
+        "user-place/${currentUser?.email!.replaceAll('.', '_').replaceAll('@', '_').replaceAll('#', '_')}");
+
+    userRef.onValue.listen((event) {
+      DataSnapshot snapshot = event.snapshot;
+      List<String> ids = [];
+      Map<dynamic, dynamic>? userPlaceData =
+          snapshot.value as Map<dynamic, dynamic>?;
+
+      if (userPlaceData != null) {
+        userPlaceData.forEach((placeId, placeData) {
+          if (placeData['visited'] == true) {
+            ids.add(placeId.toString());
+          }
+        });
+      }
+
+      setState(() {
+        visitedPlacesIds = ids;
+      });
+    });
+  }
 
   void retrievePlacesIds() {
     DatabaseReference userRef = FirebaseDatabase.instance.ref().child("places");
@@ -169,6 +193,7 @@ class _DiscoverPageState extends State<DiscoverPage> {
   void initState() {
     super.initState();
     retrievePlacesIds();
+    retrieveVisitedPlacesIds();
     retrieveUserColor();
     geolocationListener();
   }
@@ -255,7 +280,7 @@ class _DiscoverPageState extends State<DiscoverPage> {
                                         Map<dynamic, dynamic> data = snapshot.data!.snapshot.value as Map<dynamic, dynamic>;
                                         List<Widget> items = [];
                                         data.forEach((key, value) {
-                                          // Check if the place is in PlacesBoavista
+                                          // Check if the place is in PlacesAsprela
                                           if (PlacesAsprela.contains(key)) {
                                             items.add(
                                               GestureDetector(
@@ -272,16 +297,51 @@ class _DiscoverPageState extends State<DiscoverPage> {
                                                   );
                                                 },
                                                 child: Container(
-                                                  width: 120,
-                                                  height: 120,
                                                   margin: EdgeInsets.all(5), // Add some spacing between items
-                                                  clipBehavior: Clip.antiAlias,
-                                                  decoration: BoxDecoration(
-                                                    shape: BoxShape.circle,
-                                                    image: DecorationImage(
-                                                      fit: BoxFit.cover,
-                                                      image: NetworkImage(value['imageLink']),
-                                                    ),
+                                                  child: Stack(
+                                                    children: [
+                                                      Container(
+                                                        width: 120,
+                                                        height: 120,
+                                                        clipBehavior: Clip.antiAlias,
+                                                        decoration: BoxDecoration(
+                                                          shape: BoxShape.circle,
+                                                          image: DecorationImage(
+                                                            fit: BoxFit.cover,
+                                                            image: NetworkImage(value['imageLink']),
+                                                          ),
+                                                        ),
+                                                      ),
+                                                      if (!visitedPlacesIds.contains(key))
+                                                        Container(
+                                                          width: 120,
+                                                          height: 120,
+                                                          decoration: BoxDecoration(
+                                                            color: Colors.black.withOpacity(0.75), // Semi-transparent overlay
+                                                            shape: BoxShape.circle,
+                                                          ),
+                                                          child: Center(
+                                                            child: Icon(
+                                                              Icons.lock,
+                                                              color: Colors.white,
+                                                              size: 32,
+                                                            ),
+                                                          ),
+                                                        ),
+                                                      if (visitedPlacesIds.contains(key))
+                                                        Positioned.fill(
+                                                          child: Container(
+                                                            decoration: BoxDecoration(
+                                                              border: Border.all(
+                                                                color: userColor,
+                                                                width: 2,
+                                                              ),
+                                                              shape: BoxShape.circle,
+                                                              color: Colors.transparent, // Ensure the container itself is transparent
+                                                            ),
+                                                          ),
+                                                        ),
+                                                    ],
                                                   ),
                                                 ),
                                               ),
@@ -306,10 +366,10 @@ class _DiscoverPageState extends State<DiscoverPage> {
                                     },
                                   ),
                           )
-
                         ],
                       ),
                     ),
+
                     Container(
                       width: 100,
                       height: 190,
@@ -347,7 +407,7 @@ class _DiscoverPageState extends State<DiscoverPage> {
                                         Map<dynamic, dynamic> data = snapshot.data!.snapshot.value as Map<dynamic, dynamic>;
                                         List<Widget> items = [];
                                         data.forEach((key, value) {
-                                          // Check if the place is in PlacesBoavista
+                                          // Check if the place is in PlacesAsprela
                                           if (PlacesBatalha.contains(key)) {
                                             items.add(
                                               GestureDetector(
@@ -364,16 +424,51 @@ class _DiscoverPageState extends State<DiscoverPage> {
                                                   );
                                                 },
                                                 child: Container(
-                                                  width: 120,
-                                                  height: 120,
                                                   margin: EdgeInsets.all(5), // Add some spacing between items
-                                                  clipBehavior: Clip.antiAlias,
-                                                  decoration: BoxDecoration(
-                                                    shape: BoxShape.circle,
-                                                    image: DecorationImage(
-                                                      fit: BoxFit.cover,
-                                                      image: NetworkImage(value['imageLink']),
-                                                    ),
+                                                  child: Stack(
+                                                    children: [
+                                                      Container(
+                                                        width: 120,
+                                                        height: 120,
+                                                        clipBehavior: Clip.antiAlias,
+                                                        decoration: BoxDecoration(
+                                                          shape: BoxShape.circle,
+                                                          image: DecorationImage(
+                                                            fit: BoxFit.cover,
+                                                            image: NetworkImage(value['imageLink']),
+                                                          ),
+                                                        ),
+                                                      ),
+                                                      if (!visitedPlacesIds.contains(key))
+                                                        Container(
+                                                          width: 120,
+                                                          height: 120,
+                                                          decoration: BoxDecoration(
+                                                            color: Colors.black.withOpacity(0.75), // Semi-transparent overlay
+                                                            shape: BoxShape.circle,
+                                                          ),
+                                                          child: Center(
+                                                            child: Icon(
+                                                              Icons.lock,
+                                                              color: Colors.white,
+                                                              size: 32,
+                                                            ),
+                                                          ),
+                                                        ),
+                                                      if (visitedPlacesIds.contains(key))
+                                                        Positioned.fill(
+                                                          child: Container(
+                                                            decoration: BoxDecoration(
+                                                              border: Border.all(
+                                                                color: userColor,
+                                                                width: 2,
+                                                              ),
+                                                              shape: BoxShape.circle,
+                                                              color: Colors.transparent, // Ensure the container itself is transparent
+                                                            ),
+                                                          ),
+                                                        ),
+                                                    ],
                                                   ),
                                                 ),
                                               ),
@@ -401,6 +496,7 @@ class _DiscoverPageState extends State<DiscoverPage> {
                         ],
                       ),
                     ),
+
                     Container(
                       width: 100,
                       height: 190,
@@ -438,7 +534,7 @@ class _DiscoverPageState extends State<DiscoverPage> {
                                         Map<dynamic, dynamic> data = snapshot.data!.snapshot.value as Map<dynamic, dynamic>;
                                         List<Widget> items = [];
                                         data.forEach((key, value) {
-                                          // Check if the place is in PlacesBoavista
+                                          // Check if the place is in PlacesAsprela
                                           if (PlacesBoavista.contains(key)) {
                                             items.add(
                                               GestureDetector(
@@ -455,16 +551,51 @@ class _DiscoverPageState extends State<DiscoverPage> {
                                                   );
                                                 },
                                                 child: Container(
-                                                  width: 120,
-                                                  height: 120,
                                                   margin: EdgeInsets.all(5), // Add some spacing between items
-                                                  clipBehavior: Clip.antiAlias,
-                                                  decoration: BoxDecoration(
-                                                    shape: BoxShape.circle,
-                                                    image: DecorationImage(
-                                                      fit: BoxFit.cover,
-                                                      image: NetworkImage(value['imageLink']),
-                                                    ),
+                                                  child: Stack(
+                                                    children: [
+                                                      Container(
+                                                        width: 120,
+                                                        height: 120,
+                                                        clipBehavior: Clip.antiAlias,
+                                                        decoration: BoxDecoration(
+                                                          shape: BoxShape.circle,
+                                                          image: DecorationImage(
+                                                            fit: BoxFit.cover,
+                                                            image: NetworkImage(value['imageLink']),
+                                                          ),
+                                                        ),
+                                                      ),
+                                                      if (!visitedPlacesIds.contains(key))
+                                                        Container(
+                                                          width: 120,
+                                                          height: 120,
+                                                          decoration: BoxDecoration(
+                                                            color: Colors.black.withOpacity(0.75), // Semi-transparent overlay
+                                                            shape: BoxShape.circle,
+                                                          ),
+                                                          child: Center(
+                                                            child: Icon(
+                                                              Icons.lock,
+                                                              color: Colors.white,
+                                                              size: 32,
+                                                            ),
+                                                          ),
+                                                        ),
+                                                      if (visitedPlacesIds.contains(key))
+                                                        Positioned.fill(
+                                                          child: Container(
+                                                            decoration: BoxDecoration(
+                                                              border: Border.all(
+                                                                color: userColor,
+                                                                width: 2,
+                                                              ),
+                                                              shape: BoxShape.circle,
+                                                              color: Colors.transparent, // Ensure the container itself is transparent
+                                                            ),
+                                                          ),
+                                                        ),
+                                                    ],
                                                   ),
                                                 ),
                                               ),
@@ -492,6 +623,7 @@ class _DiscoverPageState extends State<DiscoverPage> {
                         ],
                       ),
                     ),
+
                     Container(
                       width: 100,
                       height: 190,
@@ -529,7 +661,7 @@ class _DiscoverPageState extends State<DiscoverPage> {
                                         Map<dynamic, dynamic> data = snapshot.data!.snapshot.value as Map<dynamic, dynamic>;
                                         List<Widget> items = [];
                                         data.forEach((key, value) {
-                                          // Check if the place is in PlacesBoavista
+                                          // Check if the place is in PlacesAsprela
                                           if (PlacesCampoAlegre.contains(key)) {
                                             items.add(
                                               GestureDetector(
@@ -546,16 +678,51 @@ class _DiscoverPageState extends State<DiscoverPage> {
                                                   );
                                                 },
                                                 child: Container(
-                                                  width: 120,
-                                                  height: 120,
                                                   margin: EdgeInsets.all(5), // Add some spacing between items
-                                                  clipBehavior: Clip.antiAlias,
-                                                  decoration: BoxDecoration(
-                                                    shape: BoxShape.circle,
-                                                    image: DecorationImage(
-                                                      fit: BoxFit.cover,
-                                                      image: NetworkImage(value['imageLink']),
-                                                    ),
+                                                  child: Stack(
+                                                    children: [
+                                                      Container(
+                                                        width: 120,
+                                                        height: 120,
+                                                        clipBehavior: Clip.antiAlias,
+                                                        decoration: BoxDecoration(
+                                                          shape: BoxShape.circle,
+                                                          image: DecorationImage(
+                                                            fit: BoxFit.cover,
+                                                            image: NetworkImage(value['imageLink']),
+                                                          ),
+                                                        ),
+                                                      ),
+                                                      if (!visitedPlacesIds.contains(key))
+                                                        Container(
+                                                          width: 120,
+                                                          height: 120,
+                                                          decoration: BoxDecoration(
+                                                            color: Colors.black.withOpacity(0.75), // Semi-transparent overlay
+                                                            shape: BoxShape.circle,
+                                                          ),
+                                                          child: Center(
+                                                            child: Icon(
+                                                              Icons.lock,
+                                                              color: Colors.white,
+                                                              size: 32,
+                                                            ),
+                                                          ),
+                                                        ),
+                                                      if (visitedPlacesIds.contains(key))
+                                                        Positioned.fill(
+                                                          child: Container(
+                                                            decoration: BoxDecoration(
+                                                              border: Border.all(
+                                                                color: userColor,
+                                                                width: 2,
+                                                              ),
+                                                              shape: BoxShape.circle,
+                                                              color: Colors.transparent, // Ensure the container itself is transparent
+                                                            ),
+                                                          ),
+                                                        ),
+                                                    ],
                                                   ),
                                                 ),
                                               ),
@@ -580,10 +747,10 @@ class _DiscoverPageState extends State<DiscoverPage> {
                                     },
                                   ),
                           )
-
                         ],
                       ),
                     ),
+                    
                     Container(
                       width: 100,
                       height: 190,
@@ -621,7 +788,7 @@ class _DiscoverPageState extends State<DiscoverPage> {
                                         Map<dynamic, dynamic> data = snapshot.data!.snapshot.value as Map<dynamic, dynamic>;
                                         List<Widget> items = [];
                                         data.forEach((key, value) {
-                                          // Check if the place is in PlacesBoavista
+                                          // Check if the place is in PlacesAsprela
                                           if (PlacesCristal.contains(key)) {
                                             items.add(
                                               GestureDetector(
@@ -638,16 +805,51 @@ class _DiscoverPageState extends State<DiscoverPage> {
                                                   );
                                                 },
                                                 child: Container(
-                                                  width: 120,
-                                                  height: 120,
                                                   margin: EdgeInsets.all(5), // Add some spacing between items
-                                                  clipBehavior: Clip.antiAlias,
-                                                  decoration: BoxDecoration(
-                                                    shape: BoxShape.circle,
-                                                    image: DecorationImage(
-                                                      fit: BoxFit.cover,
-                                                      image: NetworkImage(value['imageLink']),
-                                                    ),
+                                                  child: Stack(
+                                                    children: [
+                                                      Container(
+                                                        width: 120,
+                                                        height: 120,
+                                                        clipBehavior: Clip.antiAlias,
+                                                        decoration: BoxDecoration(
+                                                          shape: BoxShape.circle,
+                                                          image: DecorationImage(
+                                                            fit: BoxFit.cover,
+                                                            image: NetworkImage(value['imageLink']),
+                                                          ),
+                                                        ),
+                                                      ),
+                                                      if (!visitedPlacesIds.contains(key))
+                                                        Container(
+                                                          width: 120,
+                                                          height: 120,
+                                                          decoration: BoxDecoration(
+                                                            color: Colors.black.withOpacity(0.75), // Semi-transparent overlay
+                                                            shape: BoxShape.circle,
+                                                          ),
+                                                          child: Center(
+                                                            child: Icon(
+                                                              Icons.lock,
+                                                              color: Colors.white,
+                                                              size: 32,
+                                                            ),
+                                                          ),
+                                                        ),
+                                                      if (visitedPlacesIds.contains(key))
+                                                        Positioned.fill(
+                                                          child: Container(
+                                                            decoration: BoxDecoration(
+                                                              border: Border.all(
+                                                                color: userColor,
+                                                                width: 2,
+                                                              ),
+                                                              shape: BoxShape.circle,
+                                                              color: Colors.transparent, // Ensure the container itself is transparent
+                                                            ),
+                                                          ),
+                                                        ),
+                                                    ],
                                                   ),
                                                 ),
                                               ),
@@ -672,10 +874,10 @@ class _DiscoverPageState extends State<DiscoverPage> {
                                     },
                                   ),
                           )
-
                         ],
                       ),
                     ),
+                    
                     Container(
                       width: 100,
                       height: 190,
@@ -713,7 +915,7 @@ class _DiscoverPageState extends State<DiscoverPage> {
                                         Map<dynamic, dynamic> data = snapshot.data!.snapshot.value as Map<dynamic, dynamic>;
                                         List<Widget> items = [];
                                         data.forEach((key, value) {
-                                          // Check if the place is in PlacesBoavista
+                                          // Check if the place is in PlacesAsprela
                                           if (PlacesFoz.contains(key)) {
                                             items.add(
                                               GestureDetector(
@@ -730,16 +932,51 @@ class _DiscoverPageState extends State<DiscoverPage> {
                                                   );
                                                 },
                                                 child: Container(
-                                                  width: 120,
-                                                  height: 120,
                                                   margin: EdgeInsets.all(5), // Add some spacing between items
-                                                  clipBehavior: Clip.antiAlias,
-                                                  decoration: BoxDecoration(
-                                                    shape: BoxShape.circle,
-                                                    image: DecorationImage(
-                                                      fit: BoxFit.cover,
-                                                      image: NetworkImage(value['imageLink']),
-                                                    ),
+                                                  child: Stack(
+                                                    children: [
+                                                      Container(
+                                                        width: 120,
+                                                        height: 120,
+                                                        clipBehavior: Clip.antiAlias,
+                                                        decoration: BoxDecoration(
+                                                          shape: BoxShape.circle,
+                                                          image: DecorationImage(
+                                                            fit: BoxFit.cover,
+                                                            image: NetworkImage(value['imageLink']),
+                                                          ),
+                                                        ),
+                                                      ),
+                                                      if (!visitedPlacesIds.contains(key))
+                                                        Container(
+                                                          width: 120,
+                                                          height: 120,
+                                                          decoration: BoxDecoration(
+                                                            color: Colors.black.withOpacity(0.75), // Semi-transparent overlay
+                                                            shape: BoxShape.circle,
+                                                          ),
+                                                          child: Center(
+                                                            child: Icon(
+                                                              Icons.lock,
+                                                              color: Colors.white,
+                                                              size: 32,
+                                                            ),
+                                                          ),
+                                                        ),
+                                                      if (visitedPlacesIds.contains(key))
+                                                        Positioned.fill(
+                                                          child: Container(
+                                                            decoration: BoxDecoration(
+                                                              border: Border.all(
+                                                                color: userColor,
+                                                                width: 2,
+                                                              ),
+                                                              shape: BoxShape.circle,
+                                                              color: Colors.transparent, // Ensure the container itself is transparent
+                                                            ),
+                                                          ),
+                                                        ),
+                                                    ],
                                                   ),
                                                 ),
                                               ),
@@ -767,6 +1004,7 @@ class _DiscoverPageState extends State<DiscoverPage> {
                         ],
                       ),
                     ),
+                    
                     Container(
                       width: 100,
                       height: 190,
@@ -804,7 +1042,7 @@ class _DiscoverPageState extends State<DiscoverPage> {
                                         Map<dynamic, dynamic> data = snapshot.data!.snapshot.value as Map<dynamic, dynamic>;
                                         List<Widget> items = [];
                                         data.forEach((key, value) {
-                                          // Check if the place is in PlacesBoavista
+                                          // Check if the place is in PlacesAsprela
                                           if (PlacesVilaDoConde.contains(key)) {
                                             items.add(
                                               GestureDetector(
@@ -821,16 +1059,51 @@ class _DiscoverPageState extends State<DiscoverPage> {
                                                   );
                                                 },
                                                 child: Container(
-                                                  width: 120,
-                                                  height: 120,
                                                   margin: EdgeInsets.all(5), // Add some spacing between items
-                                                  clipBehavior: Clip.antiAlias,
-                                                  decoration: BoxDecoration(
-                                                    shape: BoxShape.circle,
-                                                    image: DecorationImage(
-                                                      fit: BoxFit.cover,
-                                                      image: NetworkImage(value['imageLink']),
-                                                    ),
+                                                  child: Stack(
+                                                    children: [
+                                                      Container(
+                                                        width: 120,
+                                                        height: 120,
+                                                        clipBehavior: Clip.antiAlias,
+                                                        decoration: BoxDecoration(
+                                                          shape: BoxShape.circle,
+                                                          image: DecorationImage(
+                                                            fit: BoxFit.cover,
+                                                            image: NetworkImage(value['imageLink']),
+                                                          ),
+                                                        ),
+                                                      ),
+                                                      if (!visitedPlacesIds.contains(key))
+                                                        Container(
+                                                          width: 120,
+                                                          height: 120,
+                                                          decoration: BoxDecoration(
+                                                            color: Colors.black.withOpacity(0.75), // Semi-transparent overlay
+                                                            shape: BoxShape.circle,
+                                                          ),
+                                                          child: Center(
+                                                            child: Icon(
+                                                              Icons.lock,
+                                                              color: Colors.white,
+                                                              size: 32,
+                                                            ),
+                                                          ),
+                                                        ),
+                                                      if (visitedPlacesIds.contains(key))
+                                                        Positioned.fill(
+                                                          child: Container(
+                                                            decoration: BoxDecoration(
+                                                              border: Border.all(
+                                                                color: userColor,
+                                                                width: 2,
+                                                              ),
+                                                              shape: BoxShape.circle,
+                                                              color: Colors.transparent, // Ensure the container itself is transparent
+                                                            ),
+                                                          ),
+                                                        ),
+                                                    ],
                                                   ),
                                                 ),
                                               ),
