@@ -153,6 +153,9 @@ For last but not least, we have a Tag class (with a name atribute) connected to 
 <img src="docs/screenshots/faculty.jpg" width="360" height="740">
 <img src="docs/screenshots/guest.jpg" width="360" height="740">
 
+#### Sprint 3
+<img src=
+
 ## Project Management
 In order to facilitate team communication and organization, [GitHub Projects](https://github.com/orgs/FEUP-LEIC-ES-2023-24/projects/74) was used to do the Project Management of this project.
 
@@ -174,6 +177,11 @@ For this First Official Sprint, we looked into the backlog and what we hadn´t m
 
 On this very important Sprint 2, we made lots of improvements. We created a fully functioning Starred Page, Place Page for each place and Reviews with some placeholders, Added a Share Location button and the most important, we can register and login into our own individual accounts, as well as edit them. Also, we have implemented accent colors corresponding to the user's faculty.
 
+### Sprint 3 Board
+![sprint3_board](docs/pictures/sprint-boards/Sprint3.png)
+
+On this Final Sprint, we focused on improving the functionalities we already had and made sure to finish any that we thought were essential and doable. Achievements are now locked by default, unlocking when the user visits said place. Upon clicking the medal, the user is redirected to the respective place's page. Reviews are also publishable on the place, and other users' reviews and rating are also accessible. Admin's can also access a menu to add and edit places. We feel that these changes have improved greatly the user experience on our App, and we can proundly claim to have done a fantastic job on it, concluding the project.
+
 ## Sprint Retrospective
 ### Sprint 1
 This Sprint worked very well, we all worked on the project, doing our parts and helping each other on any problems that may have arised. The tasks were well defined and divided.
@@ -193,3 +201,8 @@ For the third sprint:
 
 One aspect that went very well was the amount of work that we got done, we are really proud of how the app is starting to look like, from the starred, to the sharing, everything is shaping up. 
 The only thing that went wrong is that we are still stuck on the search page.
+
+### Sprint 3
+This third and final sprint was a polishing job. Ideas were already well defined, we just had to make them work properly. All our desired functionalities work the way we wanted them to, respecting the limitations of our knowledge in Flutter/Dart.
+
+It was an incredible experience to work like a team developing this App!
