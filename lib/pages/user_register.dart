@@ -39,23 +39,56 @@ class _UserRegisterState extends State<UserRegister> {
         // Crie um nó de usuário no banco de dados Firebase Realtime Database
         final DatabaseReference userRef =
             FirebaseDatabase.instance.ref("users");
+
+        final DatabaseReference placeRef =
+            FirebaseDatabase.instance.ref("places");
+
+        List<String> places = [];
+
+        final DatabaseReference userPlaceRef =
+            FirebaseDatabase.instance.ref("user-place");
+
         final String userEmail = userCredential.user!.email!
             .replaceAll('.', '_')
             .replaceAll('@', '_')
             .replaceAll('#', '_');
         final DatabaseReference userNodeRef = userRef.child(userEmail);
+        final DatabaseReference userPlaceNodeRef =
+            userPlaceRef.child(userEmail);
 
         userNodeRef.set({
           'name': usernamecontroller.text.split('@')[0],
           'username': usernamecontroller.text.split('@')[0],
-          'bio': 'Um novo usuário do Study@!',
+          'bio': 'A new Study@ user!',
           'faculty': {'name': 'Other', 'color': Colors.black.value},
           'profileImage': "https://picsum.photos/seed/283/600",
-          'stars': ['174'],
+          'admin': false,
         }).then((_) {
           print('Nó do usuário criado com sucesso');
         }).catchError((error) {
           print('Falha ao criar nó do usuário: $error');
+        });
+
+        placeRef.once().then((event) {
+          DataSnapshot snapshot = event.snapshot;
+          Map<dynamic, dynamic>? placeData =
+              snapshot.value as Map<dynamic, dynamic>?;
+          if (placeData != null) {
+            placeData.forEach((key, value) {
+              places.add(key);
+            });
+          }
+        });
+
+        places.forEach((place) {
+          DatabaseReference placeRef = userPlaceNodeRef.child(place);
+          placeRef.set({
+            'comment': "",
+            'favorite': false,
+            'rating': 0,
+            'reviewed': false,
+            'visited': false
+          });
         });
 
         Navigator.of(context).pop();

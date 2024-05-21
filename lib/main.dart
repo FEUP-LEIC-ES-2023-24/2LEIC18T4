@@ -21,25 +21,52 @@ Future<void> main() async {
   FirebaseAuth.instance.authStateChanges().listen((user) async {
     // Crie um nó de usuário no banco de dados Firebase Realtime Database
     final DatabaseReference userRef = FirebaseDatabase.instance.ref("users");
+    final DatabaseReference placeRef = FirebaseDatabase.instance.ref("places");
+    final DatabaseReference userPlaceRef =
+        FirebaseDatabase.instance.ref("user-place");
+    List<String> places = [];
     final String userEmail = user!.email!
         .replaceAll('.', '_')
         .replaceAll('@', '_')
         .replaceAll('#', '_');
 
     final DatabaseReference userNodeRef = userRef.child(userEmail);
+    final DatabaseReference userPlaceNodeRef = userPlaceRef.child(userEmail);
 
     final DataSnapshot prazer = await userNodeRef.get();
 
     if (prazer.exists) return;
 
+    placeRef.once().then((event) {
+          DataSnapshot snapshot = event.snapshot;
+          Map<dynamic, dynamic>? placeData =
+              snapshot.value as Map<dynamic, dynamic>?;
+          if (placeData != null) {
+            placeData.forEach((key, value) {
+              places.add(key);
+            });
+          }
+    });
     print("adding user info");
+    places.forEach(print);
     await userNodeRef.set({
       'name': user!.email!.split('@')[0],
       'username': user!.email!.split('@')[0],
-      'bio': 'Um novo usuário do Study@!',
+      'bio': 'A new Study@ user!',
       'faculty': {'name': 'Other', 'color': Colors.black.value},
       'profileImage': "https://picsum.photos/seed/283/600",
-      'stars': ['174'],
+      'admin': false,
+    });
+
+    places.forEach((place) async {
+          DatabaseReference placeRef = userPlaceNodeRef.child(place);
+          await placeRef.set({
+            'comment': "",
+            'favorite': false,
+            'rating': 0,
+            'reviewed': false,
+            'visited': false
+          });
     });
   });
 
