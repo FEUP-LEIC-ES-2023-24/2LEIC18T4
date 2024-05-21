@@ -640,7 +640,7 @@ class _ReviewsPageState extends State<ReviewsPage> {
                         content: Column(
                           mainAxisSize: MainAxisSize.min,
                           children: [
-                            RatingBar.builder(
+                            /*RatingBar.builder(
                                 itemBuilder: (context, _) =>
                                     Icon(Icons.star, color: Colors.amber),
                                 allowHalfRating: true,
@@ -651,7 +651,7 @@ class _ReviewsPageState extends State<ReviewsPage> {
                                 }),
                             SizedBox(
                               height: 18,
-                            ),
+                            ),*/
                             TextButton(
                               style: ButtonStyle(
                                   backgroundColor:

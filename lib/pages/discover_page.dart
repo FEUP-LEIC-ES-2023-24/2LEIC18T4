@@ -284,7 +284,7 @@ class _DiscoverPageState extends State<DiscoverPage> {
                                           if (PlacesAsprela.contains(key)) {
                                             items.add(
                                               GestureDetector(
-                                                onTap: () {
+                                                onTap: visitedPlacesIds.contains(key) ? () {
                                                   Navigator.push(
                                                     context,
                                                     MaterialPageRoute(
@@ -295,7 +295,8 @@ class _DiscoverPageState extends State<DiscoverPage> {
                                                       ),
                                                     ),
                                                   );
-                                                },
+                                                }
+                                                : null,
                                                 child: Container(
                                                   margin: EdgeInsets.all(5), // Add some spacing between items
                                                   child: Stack(
@@ -411,7 +412,7 @@ class _DiscoverPageState extends State<DiscoverPage> {
                                           if (PlacesBatalha.contains(key)) {
                                             items.add(
                                               GestureDetector(
-                                                onTap: () {
+                                                onTap: visitedPlacesIds.contains(key) ? () {
                                                   Navigator.push(
                                                     context,
                                                     MaterialPageRoute(
@@ -422,7 +423,8 @@ class _DiscoverPageState extends State<DiscoverPage> {
                                                       ),
                                                     ),
                                                   );
-                                                },
+                                                }
+                                                : null,
                                                 child: Container(
                                                   margin: EdgeInsets.all(5), // Add some spacing between items
                                                   child: Stack(
@@ -538,7 +540,7 @@ class _DiscoverPageState extends State<DiscoverPage> {
                                           if (PlacesBoavista.contains(key)) {
                                             items.add(
                                               GestureDetector(
-                                                onTap: () {
+                                                onTap: visitedPlacesIds.contains(key) ? () {
                                                   Navigator.push(
                                                     context,
                                                     MaterialPageRoute(
@@ -549,7 +551,8 @@ class _DiscoverPageState extends State<DiscoverPage> {
                                                       ),
                                                     ),
                                                   );
-                                                },
+                                                }
+                                                : null,
                                                 child: Container(
                                                   margin: EdgeInsets.all(5), // Add some spacing between items
                                                   child: Stack(
@@ -665,7 +668,7 @@ class _DiscoverPageState extends State<DiscoverPage> {
                                           if (PlacesCampoAlegre.contains(key)) {
                                             items.add(
                                               GestureDetector(
-                                                onTap: () {
+                                                onTap: visitedPlacesIds.contains(key) ? () {
                                                   Navigator.push(
                                                     context,
                                                     MaterialPageRoute(
@@ -676,7 +679,8 @@ class _DiscoverPageState extends State<DiscoverPage> {
                                                       ),
                                                     ),
                                                   );
-                                                },
+                                                }
+                                                : null,
                                                 child: Container(
                                                   margin: EdgeInsets.all(5), // Add some spacing between items
                                                   child: Stack(
@@ -792,7 +796,7 @@ class _DiscoverPageState extends State<DiscoverPage> {
                                           if (PlacesCristal.contains(key)) {
                                             items.add(
                                               GestureDetector(
-                                                onTap: () {
+                                                onTap: visitedPlacesIds.contains(key) ? () {
                                                   Navigator.push(
                                                     context,
                                                     MaterialPageRoute(
@@ -803,7 +807,8 @@ class _DiscoverPageState extends State<DiscoverPage> {
                                                       ),
                                                     ),
                                                   );
-                                                },
+                                                }
+                                                : null,
                                                 child: Container(
                                                   margin: EdgeInsets.all(5), // Add some spacing between items
                                                   child: Stack(
@@ -919,7 +924,7 @@ class _DiscoverPageState extends State<DiscoverPage> {
                                           if (PlacesFoz.contains(key)) {
                                             items.add(
                                               GestureDetector(
-                                                onTap: () {
+                                                onTap: visitedPlacesIds.contains(key) ? () {
                                                   Navigator.push(
                                                     context,
                                                     MaterialPageRoute(
@@ -930,7 +935,8 @@ class _DiscoverPageState extends State<DiscoverPage> {
                                                       ),
                                                     ),
                                                   );
-                                                },
+                                                }
+                                                : null,
                                                 child: Container(
                                                   margin: EdgeInsets.all(5), // Add some spacing between items
                                                   child: Stack(
@@ -1046,7 +1052,7 @@ class _DiscoverPageState extends State<DiscoverPage> {
                                           if (PlacesVilaDoConde.contains(key)) {
                                             items.add(
                                               GestureDetector(
-                                                onTap: () {
+                                                onTap: visitedPlacesIds.contains(key) ? () {
                                                   Navigator.push(
                                                     context,
                                                     MaterialPageRoute(
@@ -1057,7 +1063,8 @@ class _DiscoverPageState extends State<DiscoverPage> {
                                                       ),
                                                     ),
                                                   );
-                                                },
+                                                }
+                                                : null,
                                                 child: Container(
                                                   margin: EdgeInsets.all(5), // Add some spacing between items
                                                   child: Stack(
