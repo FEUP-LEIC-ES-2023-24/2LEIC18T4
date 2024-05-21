@@ -49,7 +49,7 @@ class _ReviewsPageState extends State<ReviewsPage> {
   late DatabaseReference userPlaceAllUsers;
 
   List<String> reviewedUsers = [];
-  List<Map<String, dynamic>> reviews = [];
+  List<Map<dynamic, dynamic>> reviews = [];
 
   @override
   void initState() {
@@ -61,7 +61,14 @@ class _ReviewsPageState extends State<ReviewsPage> {
             .replaceAll('#', '_'))
         .child(widget.id);
     retrieveUserReviews();
-    retrieveReviews(reviewedUsers);
+  }
+
+  Color colorConvert(int argbVal) {
+    int red = (argbVal >> 16) & 0xFF;
+    int green = (argbVal >> 8) & 0xFF;
+    int blue = argbVal & 0xFF;
+
+    return Color.fromRGBO(red, green, blue, 1.0);
   }
 
   void retrieveUserReviews() {
@@ -84,13 +91,145 @@ class _ReviewsPageState extends State<ReviewsPage> {
       setState(() {
         reviewedUsers = userreviews;
       });
+
+      retrieveReviews(reviewedUsers);
     });
   }
 
-  void retrieveReviews(List<String> users) {
+  void retrieveReviews(List<String> users) async {
+    userPlaceCollection.onValue.listen((event) async {
+      DataSnapshot snapshot = event.snapshot;
+      List<Map<dynamic, dynamic>> rev = [];
+      Map<dynamic, dynamic>? userPlaceData =
+          snapshot.value as Map<dynamic, dynamic>?;
 
+      if (userPlaceData != null) {
+        for (String user in users) {
+          if (userPlaceData.containsKey(user)) {
+            Map<dynamic, dynamic>? userReviews =
+                userPlaceData[user] as Map<dynamic, dynamic>?;
+            if (userReviews != null) {
+              for (var entry in userReviews.entries) {
+                if (entry.key == widget.id) {
+                  await userCollection.child(user).get().then((snapshot2) {
+                    Map<dynamic, dynamic>? userData =
+                        snapshot2.value as Map<dynamic, dynamic>?;
+
+                    if (userData != null) {
+                      entry.value['username'] = userData['username'];
+                      entry.value['image'] = userData['profileImage'];
+                      entry.value['color'] = userData['faculty']['color'];
+                    }
+                  });
+                  // debugging
+                  // print(entry.value);
+                  rev.add(entry.value as Map<dynamic, dynamic>);
+                }
+              }
+            }
+          }
+        }
+      } else {
+        print("nulled");
+      }
+
+      setState(() {
+        reviews = rev;
+      });
+    });
   }
-  
+
+  Widget buildReview(Map<dynamic, dynamic> review) {
+    return Padding(
+      padding: EdgeInsetsDirectional.fromSTEB(35, 10, 25, 10),
+      child: Row(
+        mainAxisSize: MainAxisSize.max,
+        mainAxisAlignment: MainAxisAlignment.start,
+        children: [
+          Align(
+            alignment: AlignmentDirectional(0, -1),
+            child: Padding(
+              padding: EdgeInsetsDirectional.fromSTEB(0, 0, 5, 0),
+              child: CircleAvatar(
+                foregroundImage: NetworkImage(review['image']),
+                radius: 18,
+              ),
+            ),
+          ),
+          Flexible(
+            child: Column(
+              mainAxisSize: MainAxisSize.max,
+              children: [
+                Row(
+                  mainAxisSize: MainAxisSize.max,
+                  children: [
+                    Container(
+                      width: 206,
+                      height: 34,
+                      decoration: BoxDecoration(
+                        color: colorConvert(review['color']),
+                        borderRadius: BorderRadius.only(
+                          bottomLeft: Radius.circular(0),
+                          bottomRight: Radius.circular(0),
+                          topLeft: Radius.circular(25),
+                          topRight: Radius.circular(0),
+                        ),
+                      ),
+                      child: Padding(
+                        padding: EdgeInsetsDirectional.fromSTEB(15, 5, 5, 0),
+                        child: Text(
+                          '${review['username']} said:',
+                          style: TextStyle(
+                            color: Colors.white,
+                            letterSpacing: 0,
+                          ),
+                        ),
+                      ),
+                    ),
+                    Align(
+                      alignment: AlignmentDirectional(0, 0),
+                      child: Padding(
+                        padding: EdgeInsetsDirectional.fromSTEB(10, 0, 0, 0),
+                        child: Icon(
+                          Icons.star_rate,
+                          color: Colors.black,
+                          size: 24,
+                        ),
+                      ),
+                    ),
+                    Align(
+                      alignment: AlignmentDirectional(0, 0),
+                      child: Text(
+                        '${review['rating']}/5',
+                        style: TextStyle(
+                          color: Colors.black,
+                          fontSize: 16,
+                          letterSpacing: 0,
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+                Align(
+                  alignment: AlignmentDirectional(-1, 0),
+                  child: AutoSizeText(
+                    review['comment'],
+                    textAlign: TextAlign.start,
+                    style: TextStyle(
+                      fontSize: 14,
+                      letterSpacing: 0,
+                    ),
+                    minFontSize: 10,
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -167,104 +306,10 @@ class _ReviewsPageState extends State<ReviewsPage> {
                 flex: 5,
                 child: SingleChildScrollView(
                   child: Column(
-                    mainAxisSize: MainAxisSize.max,
-                    children: [
-                      Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(35, 10, 25, 10),
-                        child: Row(
-                          mainAxisSize: MainAxisSize.max,
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          children: [
-                            Align(
-                              alignment: AlignmentDirectional(0, -1),
-                              child: Padding(
-                                padding:
-                                    EdgeInsetsDirectional.fromSTEB(0, 0, 5, 0),
-                                child: Icon(
-                                  Icons.supervised_user_circle_rounded,
-                                  color: Colors.black,
-                                  size: 38,
-                                ),
-                              ),
-                            ),
-                            Flexible(
-                              child: Column(
-                                mainAxisSize: MainAxisSize.max,
-                                children: [
-                                  Row(
-                                    mainAxisSize: MainAxisSize.max,
-                                    children: [
-                                      Container(
-                                        width: 206,
-                                        height: 34,
-                                        decoration: BoxDecoration(
-                                          color: Color(0xFFB0AA63),
-                                          borderRadius: BorderRadius.only(
-                                            bottomLeft: Radius.circular(0),
-                                            bottomRight: Radius.circular(0),
-                                            topLeft: Radius.circular(25),
-                                            topRight: Radius.circular(0),
-                                          ),
-                                        ),
-                                        child: Padding(
-                                          padding:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  15, 5, 5, 0),
-                                          child: Text(
-                                            'TheEconomist said:',
-                                            style: TextStyle(
-                                              color: Colors.white,
-                                              letterSpacing: 0,
-                                            ),
-                                          ),
-                                        ),
-                                      ),
-                                      Align(
-                                        alignment: AlignmentDirectional(0, 0),
-                                        child: Padding(
-                                          padding:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  10, 0, 0, 0),
-                                          child: Icon(
-                                            Icons.star_rate,
-                                            color: Colors.black,
-                                            size: 24,
-                                          ),
-                                        ),
-                                      ),
-                                      Align(
-                                        alignment: AlignmentDirectional(0, 0),
-                                        child: Text(
-                                          '2/5',
-                                          style: TextStyle(
-                                            color: Colors.black,
-                                            fontSize: 16,
-                                            letterSpacing: 0,
-                                          ),
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                  Align(
-                                    alignment: AlignmentDirectional(-1, 0),
-                                    child: AutoSizeText(
-                                      'Its rough out there! Stay safe yall. FEP still on top!a',
-                                      textAlign: TextAlign.start,
-                                      style: TextStyle(
-                                        fontSize: 14,
-                                        letterSpacing: 0,
-                                      ),
-                                      minFontSize: 10,
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ],
-                  ),
+                      mainAxisSize: MainAxisSize.max,
+                      children: reviews
+                          .map((review) => buildReview(review))
+                          .toList()),
                 ),
               ),
               GestureDetector(
