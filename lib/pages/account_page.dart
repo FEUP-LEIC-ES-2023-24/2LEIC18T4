@@ -14,6 +14,7 @@ class AccountPage extends StatefulWidget {
 
 class _AccountPageState extends State<AccountPage> {
   final currentUser = FirebaseAuth.instance.currentUser;
+  int medalCount = 0;
 
   Color colorConvert(int argbVal) {
     int red = (argbVal >> 16) & 0xFF;
@@ -22,11 +23,34 @@ class _AccountPageState extends State<AccountPage> {
 
     return Color.fromRGBO(red, green, blue, 1.0);
   }
+  void retrieveMedalCount() {
+    DatabaseReference userRef = FirebaseDatabase.instance
+        .ref()
+        .child("user-place").child(currentUser!.email!.replaceAll('.', '_').replaceAll('@', '_').replaceAll('#', '_'));
+
+    userRef.onValue.listen((event) {
+      DataSnapshot snapshot = event.snapshot;
+      Map<dynamic, dynamic>? placeData =
+          snapshot.value as Map<dynamic, dynamic>?;
+          if (placeData != null) {
+            placeData.forEach((key, value) {
+              if (value['visited'] == true) {
+                medalCount++;
+              }
+            });
+          }
+    });
+  }
 
   void signUserOut() {
     FirebaseAuth.instance.signOut();
   }
-
+   @override
+  void initState() {
+    super.initState();
+    retrieveMedalCount();
+  }
+  
   @override
   Widget build(BuildContext context) {
     if (currentUser != null) {
@@ -431,7 +455,7 @@ class _AccountPageState extends State<AccountPage> {
                                         child: Align(
                                           alignment: AlignmentDirectional(0, 0),
                                           child: Text(
-                                            '16',
+                                            medalCount.toString(),
                                             style: TextStyle(
                                               color: colorConvert(
                                                   userData['faculty']['color']),
