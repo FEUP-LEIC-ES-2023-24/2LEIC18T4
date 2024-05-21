@@ -710,6 +710,7 @@ class _PlacePageState extends State<PlacePage> {
                                     builder: (context) => ReviewsPage(
                                           imagelink:
                                               widget.imagelink.toString(),
+                                          name: widget.name.toString(),
                                         )),
                               );
                             },

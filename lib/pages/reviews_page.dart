@@ -4,10 +4,8 @@ import 'package:provider/provider.dart';
 
 class ReviewsPage extends StatefulWidget {
   final dynamic imagelink;
-  const ReviewsPage({
-    super.key,
-    required this.imagelink,
-  });
+  final String name;
+  const ReviewsPage({super.key, required this.imagelink, required this.name});
   @override
   State<ReviewsPage> createState() => _ReviewsPageState();
 }
@@ -579,57 +577,100 @@ class _ReviewsPageState extends State<ReviewsPage> {
                   ),
                 ),
               ),
-              Expanded(
-                flex: 1,
-                child: Row(
-                  mainAxisSize: MainAxisSize.max,
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Container(
-                      width: 209,
-                      height: 50,
-                      decoration: BoxDecoration(
-                        color: Colors.black,
-                        borderRadius: BorderRadius.only(
-                          bottomLeft: Radius.circular(30),
-                          bottomRight: Radius.circular(30),
-                          topLeft: Radius.circular(30),
-                          topRight: Radius.circular(30),
-                        ),
-                      ),
-                      child: Row(
-                        mainAxisSize: MainAxisSize.max,
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Flexible(
-                            child: Align(
-                              alignment: AlignmentDirectional(0, 0),
-                              child: Icon(
-                                Icons.rate_review_sharp,
-                                color: Colors.white,
-                                size: 24,
-                              ),
-                            ),
+              GestureDetector(
+                child: Expanded(
+                  flex: 1,
+                  child: Row(
+                    mainAxisSize: MainAxisSize.max,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Container(
+                        width: 209,
+                        height: 50,
+                        decoration: BoxDecoration(
+                          color: Colors.black,
+                          borderRadius: BorderRadius.only(
+                            bottomLeft: Radius.circular(30),
+                            bottomRight: Radius.circular(30),
+                            topLeft: Radius.circular(30),
+                            topRight: Radius.circular(30),
                           ),
-                          Align(
-                            alignment: AlignmentDirectional(0, 0),
-                            child: Padding(
-                              padding:
-                                  EdgeInsetsDirectional.fromSTEB(0, 0, 10, 0),
-                              child: Text(
-                                'Post your own review',
-                                style: TextStyle(
+                        ),
+                        child: Row(
+                          mainAxisSize: MainAxisSize.max,
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Flexible(
+                              child: Align(
+                                alignment: AlignmentDirectional(0, 0),
+                                child: Icon(
+                                  Icons.rate_review_sharp,
                                   color: Colors.white,
-                                  letterSpacing: 0,
+                                  size: 24,
                                 ),
                               ),
                             ),
-                          ),
-                        ],
+                            Align(
+                              alignment: AlignmentDirectional(0, 0),
+                              child: Padding(
+                                padding:
+                                    EdgeInsetsDirectional.fromSTEB(0, 0, 10, 0),
+                                child: Text(
+                                  'Post your own review',
+                                  style: TextStyle(
+                                    color: Colors.white,
+                                    letterSpacing: 0,
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
                       ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
+                onTap: () {
+                  showDialog(
+                    context: context,
+                    builder: (BuildContext context) {
+                      return AlertDialog(
+                        title: Center(
+                            child: Text("Rate ${widget.name.toString()}")),
+                        content: Column(
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
+                            RatingBar.builder(
+                                itemBuilder: (context, _) =>
+                                    Icon(Icons.star, color: Colors.amber),
+                                allowHalfRating: true,
+                                onRatingUpdate: (rating) {
+                                  setState(() {
+                                    _rating = rating;
+                                  });
+                                }),
+                            SizedBox(
+                              height: 18,
+                            ),
+                            TextButton(
+                              style: ButtonStyle(
+                                  backgroundColor:
+                                      MaterialStateProperty.all<Color>(
+                                          Colors.black),
+                                  foregroundColor:
+                                      MaterialStateProperty.all<Color>(
+                                          Colors.white)),
+                              onPressed: () {
+                                Navigator.of(context).pop();
+                              },
+                              child: Text("Submit rating"),
+                            )
+                          ],
+                        ),
+                      );
+                    },
+                  );
+                },
               ),
             ],
           ),
