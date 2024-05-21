@@ -36,7 +36,7 @@ class _PlacePageState extends State<PlacePage> {
   Color userColor = Colors.black;
   late String lat = "";
   late String lon = "";
-  double _rating = 0;
+
   late String local = "";
   late String horarioOpen = "";
   late String horarioClose = "";
@@ -327,65 +327,10 @@ class _PlacePageState extends State<PlacePage> {
                                   children: [
                                     Align(
                                       alignment: AlignmentDirectional(0, 0),
-                                      child: GestureDetector(
-                                        onTap: () {
-                                          showDialog(
-                                            context: context,
-                                            builder: (BuildContext context) {
-                                              return AlertDialog(
-                                                title: Center(
-                                                    child: Text(
-                                                        "Rate ${widget.name.toString()}")),
-                                                content: Column(
-                                                  mainAxisSize:
-                                                      MainAxisSize.min,
-                                                  children: [
-                                                    RatingBar.builder(
-                                                        itemBuilder: (context,
-                                                                _) =>
-                                                            Icon(Icons.star,
-                                                                color: Colors
-                                                                    .amber),
-                                                        allowHalfRating: true,
-                                                        onRatingUpdate:
-                                                            (rating) {
-                                                          setState(() {
-                                                            _rating = rating;
-                                                          });
-                                                        }),
-                                                    SizedBox(
-                                                      height: 18,
-                                                    ),
-                                                    TextButton(
-                                                      style: ButtonStyle(
-                                                          backgroundColor:
-                                                              MaterialStateProperty
-                                                                  .all<Color>(
-                                                                      Colors
-                                                                          .black),
-                                                          foregroundColor:
-                                                              MaterialStateProperty
-                                                                  .all<Color>(
-                                                                      Colors
-                                                                          .white)),
-                                                      onPressed: () {
-                                                        Navigator.of(context)
-                                                            .pop();
-                                                      },
-                                                      child:
-                                                          Text("Submit rating"),
-                                                    )
-                                                  ],
-                                                ),
-                                              );
-                                            },
-                                          );
-                                        },
-                                        child: Icon(
+                                      child: Icon(
                                           Icons.star,
                                           color: userColor,
                                           size: 21,
-                                        ),
                                       ),
                                     ),
                                     Align(
@@ -710,7 +655,10 @@ class _PlacePageState extends State<PlacePage> {
                                     builder: (context) => ReviewsPage(
                                           imagelink:
                                               widget.imagelink.toString(),
-                                          name: widget.name.toString(),
+                                          name: 
+                                              widget.name.toString(),
+                                          id: 
+                                              placeId,
                                         )),
                               );
                             },

@@ -1,11 +1,22 @@
 import 'package:auto_size_text/auto_size_text.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:flutter_rating_bar/flutter_rating_bar.dart';
+import 'package:study_at/components/store_imgdata.dart';
+import 'package:study_at/debug_pages/create_bottom.dart';
 
 class ReviewsPage extends StatefulWidget {
   final dynamic imagelink;
   final String name;
-  const ReviewsPage({super.key, required this.imagelink, required this.name});
+  final String id;
+
+  const ReviewsPage(
+      {super.key,
+      required this.imagelink,
+      required this.name,
+      required this.id});
   @override
   State<ReviewsPage> createState() => _ReviewsPageState();
 }
@@ -28,6 +39,58 @@ class _ReviewsPageState extends State<ReviewsPage> {
     super.dispose();
   }*/
 
+  double _rating = 0;
+  final TextEditingController reviewController = TextEditingController();
+  final currentUser = FirebaseAuth.instance.currentUser!;
+  final userCollection = FirebaseDatabase.instance.ref('users');
+  final DatabaseReference userPlaceCollection =
+      FirebaseDatabase.instance.ref('user-place');
+  late DatabaseReference userPlaceCurUser;
+  late DatabaseReference userPlaceAllUsers;
+
+  List<String> reviewedUsers = [];
+  List<Map<String, dynamic>> reviews = [];
+
+  @override
+  void initState() {
+    super.initState();
+    userPlaceCurUser = userPlaceCollection
+        .child(currentUser.email!
+            .replaceAll('.', '_')
+            .replaceAll('@', '_')
+            .replaceAll('#', '_'))
+        .child(widget.id);
+    retrieveUserReviews();
+    retrieveReviews(reviewedUsers);
+  }
+
+  void retrieveUserReviews() {
+    userPlaceCollection.onValue.listen((event) {
+      DataSnapshot snapshot = event.snapshot;
+      List<String> userreviews = [];
+      Map<dynamic, dynamic>? userPlaceData =
+          snapshot.value as Map<dynamic, dynamic>?;
+
+      if (userPlaceData != null) {
+        userPlaceData.forEach((userId, userData) {
+          userData.forEach((placeId, placeData) {
+            if (placeId == widget.id && placeData['reviewed'] == true) {
+              userreviews.add(userId);
+            }
+          });
+        });
+      }
+
+      setState(() {
+        reviewedUsers = userreviews;
+      });
+    });
+  }
+
+  void retrieveReviews(List<String> users) {
+
+  }
+  
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -87,7 +150,7 @@ class _ReviewsPageState extends State<ReviewsPage> {
                         Align(
                           alignment: AlignmentDirectional(0, 0),
                           child: Text(
-                            'Reviews',
+                            '${reviewedUsers.length} Reviews',
                             style: TextStyle(
                               fontSize: 20,
                               letterSpacing: 0,
@@ -200,379 +263,6 @@ class _ReviewsPageState extends State<ReviewsPage> {
                           ],
                         ),
                       ),
-                      Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(35, 10, 25, 10),
-                        child: Row(
-                          mainAxisSize: MainAxisSize.max,
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          children: [
-                            Align(
-                              alignment: AlignmentDirectional(0, -1),
-                              child: Padding(
-                                padding:
-                                    EdgeInsetsDirectional.fromSTEB(0, 0, 5, 0),
-                                child: Icon(
-                                  Icons.supervised_user_circle_rounded,
-                                  color: Colors.black,
-                                  size: 38,
-                                ),
-                              ),
-                            ),
-                            Flexible(
-                              child: Column(
-                                mainAxisSize: MainAxisSize.max,
-                                children: [
-                                  Row(
-                                    mainAxisSize: MainAxisSize.max,
-                                    children: [
-                                      Container(
-                                        width: 206,
-                                        height: 34,
-                                        decoration: BoxDecoration(
-                                          color: Color(0xFFB063AA),
-                                          borderRadius: BorderRadius.only(
-                                            bottomLeft: Radius.circular(0),
-                                            bottomRight: Radius.circular(0),
-                                            topLeft: Radius.circular(25),
-                                            topRight: Radius.circular(0),
-                                          ),
-                                        ),
-                                        child: Padding(
-                                          padding:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  15, 5, 5, 0),
-                                          child: Text(
-                                            'psicologiaRULES said:',
-                                            style: TextStyle(
-                                              color: Colors.white,
-                                              letterSpacing: 0,
-                                            ),
-                                          ),
-                                        ),
-                                      ),
-                                      Align(
-                                        alignment: AlignmentDirectional(0, 0),
-                                        child: Padding(
-                                          padding:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  10, 0, 0, 0),
-                                          child: Icon(
-                                            Icons.star_rate,
-                                            color: Colors.black,
-                                            size: 24,
-                                          ),
-                                        ),
-                                      ),
-                                      Align(
-                                        alignment: AlignmentDirectional(0, 0),
-                                        child: Text(
-                                          '4/5',
-                                          style: TextStyle(
-                                            color: Colors.black,
-                                            fontSize: 16,
-                                            letterSpacing: 0,
-                                          ),
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                  Align(
-                                    alignment: AlignmentDirectional(-1, 0),
-                                    child: AutoSizeText(
-                                      'This place is full of mentally challenged people, a great place to do my researches and papers! Can be to much at times though...',
-                                      textAlign: TextAlign.start,
-                                      style: TextStyle(
-                                        fontSize: 14,
-                                        letterSpacing: 0,
-                                      ),
-                                      minFontSize: 10,
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                      Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(35, 10, 25, 10),
-                        child: Row(
-                          mainAxisSize: MainAxisSize.max,
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          children: [
-                            Align(
-                              alignment: AlignmentDirectional(0, -1),
-                              child: Padding(
-                                padding:
-                                    EdgeInsetsDirectional.fromSTEB(0, 0, 5, 0),
-                                child: Icon(
-                                  Icons.supervised_user_circle_rounded,
-                                  color: Colors.black,
-                                  size: 38,
-                                ),
-                              ),
-                            ),
-                            Flexible(
-                              child: Column(
-                                mainAxisSize: MainAxisSize.max,
-                                children: [
-                                  Row(
-                                    mainAxisSize: MainAxisSize.max,
-                                    children: [
-                                      Container(
-                                        width: 206,
-                                        height: 34,
-                                        decoration: BoxDecoration(
-                                          color: Color(0xFF6387B0),
-                                          borderRadius: BorderRadius.only(
-                                            bottomLeft: Radius.circular(0),
-                                            bottomRight: Radius.circular(0),
-                                            topLeft: Radius.circular(25),
-                                            topRight: Radius.circular(0),
-                                          ),
-                                        ),
-                                        child: Padding(
-                                          padding:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  15, 5, 5, 0),
-                                          child: Text(
-                                            'OEngenheiro said:',
-                                            style: TextStyle(
-                                              color: Colors.white,
-                                              letterSpacing: 0,
-                                            ),
-                                          ),
-                                        ),
-                                      ),
-                                      Align(
-                                        alignment: AlignmentDirectional(0, 0),
-                                        child: Padding(
-                                          padding:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  10, 0, 0, 0),
-                                          child: Icon(
-                                            Icons.star_rate,
-                                            color: Colors.black,
-                                            size: 24,
-                                          ),
-                                        ),
-                                      ),
-                                      Align(
-                                        alignment: AlignmentDirectional(0, 0),
-                                        child: Text(
-                                          '3/5',
-                                          style: TextStyle(
-                                            color: Colors.black,
-                                            fontSize: 16,
-                                            letterSpacing: 0,
-                                          ),
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                  Align(
-                                    alignment: AlignmentDirectional(-1, 0),
-                                    child: AutoSizeText(
-                                      'Good place to study with a cafe in the building, although no exterior area to study in.',
-                                      textAlign: TextAlign.start,
-                                      style: TextStyle(
-                                        fontSize: 14,
-                                        letterSpacing: 0,
-                                      ),
-                                      minFontSize: 10,
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                      Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(35, 10, 25, 10),
-                        child: Row(
-                          mainAxisSize: MainAxisSize.max,
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          children: [
-                            Align(
-                              alignment: AlignmentDirectional(0, -1),
-                              child: Padding(
-                                padding:
-                                    EdgeInsetsDirectional.fromSTEB(0, 0, 5, 0),
-                                child: Icon(
-                                  Icons.supervised_user_circle_rounded,
-                                  color: Colors.black,
-                                  size: 38,
-                                ),
-                              ),
-                            ),
-                            Flexible(
-                              child: Column(
-                                mainAxisSize: MainAxisSize.max,
-                                children: [
-                                  Row(
-                                    mainAxisSize: MainAxisSize.max,
-                                    children: [
-                                      Container(
-                                        width: 206,
-                                        height: 34,
-                                        decoration: BoxDecoration(
-                                          color: Color(0xFF589C6F),
-                                          borderRadius: BorderRadius.only(
-                                            bottomLeft: Radius.circular(0),
-                                            bottomRight: Radius.circular(0),
-                                            topLeft: Radius.circular(25),
-                                            topRight: Radius.circular(0),
-                                          ),
-                                        ),
-                                        child: Padding(
-                                          padding:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  15, 5, 5, 0),
-                                          child: Text(
-                                            'SUPERDOUTOR said:',
-                                            style: TextStyle(
-                                              color: Colors.white,
-                                              letterSpacing: 0,
-                                            ),
-                                          ),
-                                        ),
-                                      ),
-                                      Align(
-                                        alignment: AlignmentDirectional(0, 0),
-                                        child: Padding(
-                                          padding:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  10, 0, 0, 0),
-                                          child: Icon(
-                                            Icons.star_rate,
-                                            color: Colors.black,
-                                            size: 24,
-                                          ),
-                                        ),
-                                      ),
-                                      Align(
-                                        alignment: AlignmentDirectional(0, 0),
-                                        child: Text(
-                                          '1/5',
-                                          style: TextStyle(
-                                            color: Colors.black,
-                                            fontSize: 16,
-                                            letterSpacing: 0,
-                                          ),
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                  Align(
-                                    alignment: AlignmentDirectional(-1, 0),
-                                    child: AutoSizeText(
-                                      'Lots of engineers...',
-                                      textAlign: TextAlign.start,
-                                      style: TextStyle(
-                                        fontSize: 14,
-                                        letterSpacing: 0,
-                                      ),
-                                      minFontSize: 10,
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                      Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(35, 10, 25, 10),
-                        child: Row(
-                          mainAxisSize: MainAxisSize.max,
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          children: [
-                            Padding(
-                              padding:
-                                  EdgeInsetsDirectional.fromSTEB(0, 0, 5, 0),
-                              child: Icon(
-                                Icons.supervised_user_circle_rounded,
-                                color: Colors.black,
-                                size: 38,
-                              ),
-                            ),
-                            Flexible(
-                              child: Column(
-                                mainAxisSize: MainAxisSize.max,
-                                children: [
-                                  Row(
-                                    mainAxisSize: MainAxisSize.max,
-                                    children: [
-                                      Container(
-                                        width: 206,
-                                        height: 34,
-                                        decoration: BoxDecoration(
-                                          color: Color(0xFFCB6B6B),
-                                          borderRadius: BorderRadius.only(
-                                            bottomLeft: Radius.circular(0),
-                                            bottomRight: Radius.circular(0),
-                                            topLeft: Radius.circular(25),
-                                            topRight: Radius.circular(0),
-                                          ),
-                                        ),
-                                        child: Padding(
-                                          padding:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  15, 5, 5, 5),
-                                          child: Text(
-                                            'JoãozinhoGameplays said:',
-                                            style: TextStyle(
-                                              color: Colors.white,
-                                              letterSpacing: 0,
-                                            ),
-                                          ),
-                                        ),
-                                      ),
-                                      Align(
-                                        alignment: AlignmentDirectional(0, 0),
-                                        child: Padding(
-                                          padding:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  10, 0, 0, 0),
-                                          child: Icon(
-                                            Icons.star_rate,
-                                            color: Colors.black,
-                                            size: 24,
-                                          ),
-                                        ),
-                                      ),
-                                      Align(
-                                        alignment: AlignmentDirectional(0, 0),
-                                        child: Text(
-                                          '5/5',
-                                          style: TextStyle(
-                                            color: Colors.black,
-                                            fontSize: 16,
-                                            letterSpacing: 0,
-                                          ),
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                  Align(
-                                    alignment: AlignmentDirectional(-1, 0),
-                                    child: AutoSizeText(
-                                      'Perfect place to play pokemon go while studying. Has 4 (!) pokestops in range!',
-                                      maxLines: 5,
-                                      style: TextStyle(
-                                        fontSize: 14,
-                                        letterSpacing: 0,
-                                      ),
-                                      minFontSize: 10,
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
                     ],
                   ),
                 ),
@@ -636,7 +326,7 @@ class _ReviewsPageState extends State<ReviewsPage> {
                     builder: (BuildContext context) {
                       return AlertDialog(
                         title: Center(
-                            child: Text("Rate ${widget.name.toString()}")),
+                            child: Text("Review ${widget.name.toString()}")),
                         content: Column(
                           mainAxisSize: MainAxisSize.min,
                           children: [
@@ -648,7 +338,18 @@ class _ReviewsPageState extends State<ReviewsPage> {
                                   setState(() {
                                     _rating = rating;
                                   });
+
+                                  // test
                                 }),
+                            SizedBox(
+                              height: 18,
+                            ),
+                            TextField(
+                              controller: reviewController,
+                              decoration: InputDecoration(
+                                  labelText: "Write your review",
+                                  hintText: "Your review goes here"),
+                            ),
                             SizedBox(
                               height: 18,
                             ),
@@ -661,9 +362,17 @@ class _ReviewsPageState extends State<ReviewsPage> {
                                       MaterialStateProperty.all<Color>(
                                           Colors.white)),
                               onPressed: () {
+                                userPlaceCurUser.update({
+                                  'rating': _rating,
+                                  'comment': reviewController.text,
+                                  'reviewed': true
+                                });
+                                reviewController.clear();
+                                // Debug
+                                reviewedUsers.forEach(print);
                                 Navigator.of(context).pop();
                               },
-                              child: Text("Submit rating"),
+                              child: Text("Submit review"),
                             )
                           ],
                         ),
