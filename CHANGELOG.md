@@ -1,3 +1,29 @@
+# v1.0-sprint3 (2024-05-22)
+## Sprint 3 - finished!
+We've come to an end.
+
+## Vertical prototype:
+### Place page:
+- More info about the places
+- Reviews: you can now see and post reviews about a place (including 0-5 stars rating)
+
+### Discover@ page:
+A very important update! Our "game" is now working!
+- List of places separated by area
+- Studying places will appear locked unless you've been to them
+- Medals unlock within a 250m radius of the spot
+- By clicking on an unlocked medal, you can visit the place's page
+
+### Account page:
+- Unlocked medals tracker
+- Last reviews placeholder changed, as they're still not working
+
+Other visual bugs and code fixes were applied.
+
+
+
+---
+
 # v0.3-sprint2 (2024-04-16)
 ## Sprint 2 of Study@ - finished!
 Second sprint finished: an important update!
