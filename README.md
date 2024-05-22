@@ -56,8 +56,11 @@ As such, we have arrived at a central theme:
 
 ### Elevator Pitch
 
-
-Todos nós, nestas épocas de exames já nos deparamos com a situação de tentar ir para a biblioteca, para reunir para estudar ou fazer projetos e nos depararmos com a biblioteca a abarrotar. É uma situação que nos leva ao desespero por não saber para onde ir, e com melancolia de ter de ir para o ISEP. Nunca mais, com a nossa aplicação têm todos os locais de estudo na palma da vossa mão
+Qualquer aluno da Feup sabe que na época de exames é impossível arranjar um sitio onde estudar, mas esse problema acaba aqui! 
+Se és estudante, especialmente estudante da Universidade do Porto, com o Study@, encontrar o espaço de estudo ideal nunca foi tão fácil. 
+A nossa aplicação permite-te pesquisar locais de estudo que atendam às tuas necessidades específicas, seja silêncio absoluto, Wi-Fi rápido horário flexível, ou mesmo um ambiente confortável para os mil e um trabalhos de grupo que deixaste para fazer a última da hora. 
+Personaliza as tuas buscas com base em preferências como proximidade, tipo de ambiente e recursos disponíveis, le e deixa as reviews  e ganha medalhas a cada novo local que experimentes. Diz adeus ao stress de não encontrar um bom lugar para estudar e, como bónus, descobre a cidade do Porto. 
+E não te esqueças: study smart, study@ porto!
 
 ## Requirements
 
