@@ -139,7 +139,13 @@ class _MapPageState extends State<MapPage> {
                 decoration: InputDecoration(
                   hintText: 'Where do you want to study at?',
                   border: InputBorder.none,
-                  prefixIcon: Icon(Icons.search),
+                  prefixIcon: Padding(
+                    padding: EdgeInsets.symmetric(
+                        horizontal: 10),
+                    child: Icon(Icons.search),
+                  ),
+                  contentPadding:
+                      EdgeInsets.symmetric(vertical: 15),
                 ),
                 onSubmitted: (value) {
                   _search(context);

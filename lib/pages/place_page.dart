@@ -94,6 +94,7 @@ class _PlacePageState extends State<PlacePage> {
     });
   }
 
+
   void addStar() {
     final DatabaseReference userRef = FirebaseDatabase.instance
         .ref("user-place")
@@ -328,9 +329,9 @@ class _PlacePageState extends State<PlacePage> {
                                     Align(
                                       alignment: AlignmentDirectional(0, 0),
                                       child: Icon(
-                                          Icons.star,
-                                          color: userColor,
-                                          size: 21,
+                                        Icons.star,
+                                        color: userColor,
+                                        size: 21,
                                       ),
                                     ),
                                     Align(
@@ -627,9 +628,9 @@ class _PlacePageState extends State<PlacePage> {
                                           ),
                                         ),
                                         TextSpan(
-                                          text: 'Locked',
+                                          text: "Available",
                                           style: TextStyle(
-                                            color: Colors.red,
+                                            color: Colors.green,
                                             fontWeight: FontWeight.w500,
                                             fontSize: 20,
                                           ),
@@ -655,10 +656,8 @@ class _PlacePageState extends State<PlacePage> {
                                     builder: (context) => ReviewsPage(
                                           imagelink:
                                               widget.imagelink.toString(),
-                                          name: 
-                                              widget.name.toString(),
-                                          id: 
-                                              placeId,
+                                          name: widget.name.toString(),
+                                          id: placeId,
                                         )),
                               );
                             },

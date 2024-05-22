@@ -373,10 +373,7 @@ class _AccountPageState extends State<AccountPage> {
                                                 child: Padding(
                                                   padding: EdgeInsetsDirectional
                                                       .fromSTEB(13, 13, 13, 13),
-                                                   child: AutoSizeText(
-                                                      placesReviewed[0]['comment'].isEmpty
-                                                        ? "A review will come soon..."
-                                                        : "'${placesReviewed[0]['comment']}'",
+                                                   child: AutoSizeText("A review will come soon...",
                                                     textAlign: TextAlign.center,
                                                     style: TextStyle(
                                                       color: Colors.white,
@@ -438,9 +435,7 @@ class _AccountPageState extends State<AccountPage> {
                                                   padding: EdgeInsetsDirectional
                                                       .fromSTEB(13, 13, 13, 13),
                                                   child: AutoSizeText(
-                                                      placesReviewed[1]['comment'].isEmpty
-                                                        ? "A review will come soon..."
-                                                        : "'${placesReviewed[1]['comment']}'",
+                                                      "A review will come soon...",
 
                                                     textAlign: TextAlign.center,
                                                     style: TextStyle(
