@@ -77,13 +77,16 @@ class _MapPageState extends State<MapPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      // DEBUG MENU - DO NOT SHIP IN FINAL VER.
       appBar: AppBar(
         actions: [
+          /*
           IconButton(
               onPressed: () {
                 Scaffold.of(context).openDrawer();
               },
               icon: Icon(Icons.list)),
+              */
         ],
       ),
       body: FlutterMap(

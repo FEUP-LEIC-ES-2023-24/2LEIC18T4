@@ -39,6 +39,7 @@ class _LandingPageState extends State<LandingPage> {
           BottomNavBar(onTabChange: (index) => navigateBottomBar(index)),
 
       // Debug menu - do not ship in final version
+      /*
       drawer: Drawer(
         backgroundColor: Colors.black87,
         child: ListView(
@@ -77,6 +78,7 @@ class _LandingPageState extends State<LandingPage> {
           ],
         ),
       ),
+      */
       body: _pages[_navBarIndex],
     );
   }
