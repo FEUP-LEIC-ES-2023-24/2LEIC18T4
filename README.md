@@ -178,7 +178,7 @@ For this First Official Sprint, we looked into the backlog and what we hadn´t m
 On this very important Sprint 2, we made lots of improvements. We created a fully functioning Starred Page, Place Page for each place and Reviews with some placeholders, Added a Share Location button and the most important, we can register and login into our own individual accounts, as well as edit them. Also, we have implemented accent colors corresponding to the user's faculty.
 
 ### Sprint 3 Board
-![sprint3_board](docs/pictures/sprint-boards/Sprint3.png)
+![sprint3_board](docs/pictures/sprint-boards/sprint3.png)
 
 On this Final Sprint, we focused on improving the functionalities we already had and made sure to finish any that we thought were essential and doable. Achievements are now locked by default, unlocking when the user visits said place. Upon clicking the medal, the user is redirected to the respective place's page. Reviews are also publishable on the place, and other users' reviews and rating are also accessible. Admin's can also access a menu to add and edit places. We feel that these changes have improved greatly the user experience on our App, and we can proundly claim to have done a fantastic job on it, concluding the project.
 
