@@ -96,9 +96,9 @@ class _DiscoverPageState extends State<DiscoverPage> {
       if (snapshot.value != null) {
         Map<dynamic, dynamic> values = snapshot.value as Map<dynamic, dynamic>;
         values.forEach((key, value) async {
-          double placelat = value['latitude'];
-          double placelon = value['longitude'];
-          if (Geolocator.distanceBetween(lat, lon, placelat, placelon) < 500) {
+          double placelat = double.parse(value['latitude']);
+          double placelon = double.parse(value['longitude']);
+          if (Geolocator.distanceBetween(lat, lon, placelat, placelon) < 250) {
             await userPlaceCollection
                 .child(FirebaseAuth.instance.currentUser!.email!
                     .replaceAll('.', '_')

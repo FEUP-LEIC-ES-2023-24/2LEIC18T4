@@ -14,7 +14,11 @@ class AccountPage extends StatefulWidget {
 
 class _AccountPageState extends State<AccountPage> {
   final currentUser = FirebaseAuth.instance.currentUser;
+  final userCollection = FirebaseDatabase.instance.ref('users');
+  final DatabaseReference userPlaceCollection =
+      FirebaseDatabase.instance.ref('user-place');
   int medalCount = 0;
+  List<Map<dynamic, dynamic>> placesReviewed = [];
 
   Color colorConvert(int argbVal) {
     int red = (argbVal >> 16) & 0xFF;
@@ -23,34 +27,88 @@ class _AccountPageState extends State<AccountPage> {
 
     return Color.fromRGBO(red, green, blue, 1.0);
   }
+
   void retrieveMedalCount() {
     DatabaseReference userRef = FirebaseDatabase.instance
         .ref()
-        .child("user-place").child(currentUser!.email!.replaceAll('.', '_').replaceAll('@', '_').replaceAll('#', '_'));
+        .child("user-place")
+        .child(currentUser!.email!
+            .replaceAll('.', '_')
+            .replaceAll('@', '_')
+            .replaceAll('#', '_'));
 
     userRef.onValue.listen((event) {
       DataSnapshot snapshot = event.snapshot;
       Map<dynamic, dynamic>? placeData =
           snapshot.value as Map<dynamic, dynamic>?;
-          if (placeData != null) {
-            placeData.forEach((key, value) {
-              if (value['visited'] == true) {
-                medalCount++;
-              }
-            });
+      if (placeData != null) {
+        placeData.forEach((key, value) {
+          if (value['visited'] == true) {
+            medalCount++;
           }
+        });
+      }
+    });
+  }
+
+  void retrieveReviews() async {
+    userPlaceCollection.onValue.listen((event) async {
+      DataSnapshot snapshot = event.snapshot;
+      List<Map<dynamic, dynamic>> rev = [];
+      Map<dynamic, dynamic>? userPlaceData =
+          snapshot.value as Map<dynamic, dynamic>?;
+
+      if (userPlaceData != null) {
+        String user = currentUser!.email!
+            .replaceAll('.', '_')
+            .replaceAll('@', '_')
+            .replaceAll('#', '_');
+
+        if (userPlaceData.containsKey(user)) {
+          Map<dynamic, dynamic>? userReviews =
+              userPlaceData[user] as Map<dynamic, dynamic>?;
+          if (userReviews != null) {
+            for (var entry in userReviews.entries) {
+              await userCollection.child(user).get().then((snapshot2) {
+                Map<dynamic, dynamic>? userData =
+                    snapshot2.value as Map<dynamic, dynamic>?;
+
+                if (userData != null) {
+                  entry.value['username'] = userData['username'];
+                  entry.value['image'] = userData['profileImage'];
+                  entry.value['color'] = userData['faculty']['color'];
+                }
+              });
+              // debugging
+              // print(entry.value);
+              rev.add(entry.value as Map<dynamic, dynamic>);
+            }
+          }
+        }
+      } else {
+        print("nulled");
+      }
+
+      setState(() {
+        placesReviewed = rev;
+      });
     });
   }
 
   void signUserOut() {
     FirebaseAuth.instance.signOut();
   }
-   @override
+
+  @override
   void initState() {
     super.initState();
+    if (currentUser != null) {
     retrieveMedalCount();
+    retrieveReviews();
+    }
+
   }
-  
+
   @override
   Widget build(BuildContext context) {
     if (currentUser != null) {
@@ -266,23 +324,6 @@ class _AccountPageState extends State<AccountPage> {
                                           ),
                                         ),
                                       ),
-                                      Expanded(
-                                        child: Align(
-                                          alignment: AlignmentDirectional(1, 0),
-                                          child: Text(
-                                            'See All',
-                                            style: TextStyle(
-                                              color: colorConvert(
-                                                  userData['faculty']['color']),
-                                              fontSize: 20,
-                                              letterSpacing: 0,
-                                              fontWeight: FontWeight.w900,
-                                              decoration:
-                                                  TextDecoration.underline,
-                                            ),
-                                          ),
-                                        ),
-                                      ),
                                     ],
                                   ),
                                 ),
@@ -332,8 +373,10 @@ class _AccountPageState extends State<AccountPage> {
                                                 child: Padding(
                                                   padding: EdgeInsetsDirectional
                                                       .fromSTEB(13, 13, 13, 13),
-                                                  child: AutoSizeText(
-                                                    'It was great! I loved the place! The enviroment was excellent for studying and the nature was really inspiring!',
+                                                   child: AutoSizeText(
+                                                      placesReviewed[0]['comment'].isEmpty
+                                                        ? "A review will come soon..."
+                                                        : "'${placesReviewed[0]['comment']}'",
                                                     textAlign: TextAlign.center,
                                                     style: TextStyle(
                                                       color: Colors.white,
@@ -395,7 +438,10 @@ class _AccountPageState extends State<AccountPage> {
                                                   padding: EdgeInsetsDirectional
                                                       .fromSTEB(13, 13, 13, 13),
                                                   child: AutoSizeText(
-                                                    'I hated this place :(',
+                                                      placesReviewed[1]['comment'].isEmpty
+                                                        ? "A review will come soon..."
+                                                        : "'${placesReviewed[1]['comment']}'",
+
                                                     textAlign: TextAlign.center,
                                                     style: TextStyle(
                                                       color: Colors.white,
