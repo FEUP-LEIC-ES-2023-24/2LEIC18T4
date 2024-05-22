@@ -16,9 +16,11 @@ Documentation for the Study@ App from a high-level vision to low-level implement
     - [Sprint 0 Board](#sprint-0-board)
     - [Sprint 1 Board](#sprint-1-board)
     - [Sprint 2 Board](#sprint-2-board)
+    - [Sprint 3 Board](#sprint-3-board)
   - [Sprint Retrospective](#sprint-retrospective)
     - [Sprint 1](#sprint-1-1)
     - [Sprint 2](#sprint-2-1)
+    - [Sprint 3](#sprint-3-1)
 
 ```
 This Project was Developed for ESOF 2023/2024 by:
@@ -154,7 +156,9 @@ For last but not least, we have a Tag class (with a name atribute) connected to 
 <img src="docs/screenshots/guest.jpg" width="360" height="740">
 
 #### Sprint 3
-<img src=
+<img src="docs/screenshots/review.jpg" width="360" height="740">
+<img src="docs/screenshots/achievements.jpg" width="360" height="740">
+<img src="docs/screenshots/profile3.jpg" width="360" height="740">
 
 ## Project Management
 In order to facilitate team communication and organization, [GitHub Projects](https://github.com/orgs/FEUP-LEIC-ES-2023-24/projects/74) was used to do the Project Management of this project.
@@ -178,7 +182,7 @@ For this First Official Sprint, we looked into the backlog and what we hadn´t m
 On this very important Sprint 2, we made lots of improvements. We created a fully functioning Starred Page, Place Page for each place and Reviews with some placeholders, Added a Share Location button and the most important, we can register and login into our own individual accounts, as well as edit them. Also, we have implemented accent colors corresponding to the user's faculty.
 
 ### Sprint 3 Board
-![sprint3_board](docs/pictures/sprint-boards/sprint3.png)
+![sprint3_board](docs/pictures/sprint-boards/Sprint3.png)
 
 On this Final Sprint, we focused on improving the functionalities we already had and made sure to finish any that we thought were essential and doable. Achievements are now locked by default, unlocking when the user visits said place. Upon clicking the medal, the user is redirected to the respective place's page. Reviews are also publishable on the place, and other users' reviews and rating are also accessible. Admin's can also access a menu to add and edit places. We feel that these changes have improved greatly the user experience on our App, and we can proundly claim to have done a fantastic job on it, concluding the project.
 
