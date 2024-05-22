@@ -41,6 +41,7 @@ class _PlacePageState extends State<PlacePage> {
   late String horarioOpen = "";
   late String horarioClose = "";
   List<String> visitedPlacesIds = [];
+  double ratingF = 0.0;
 
   void retrievePlaceId() {
     String name = widget.name.toString();
@@ -159,6 +160,43 @@ class _PlacePageState extends State<PlacePage> {
       return Colors.red;
     }
   }
+  void retrieveRating() {
+  DatabaseReference usrplcRef = FirebaseDatabase.instance.ref().child("user-place");
+  double totalRating = 0;
+  int ratingCount = 0;
+
+  usrplcRef.onValue.listen((event) {
+    DataSnapshot snapshot = event.snapshot;
+    Map<dynamic, dynamic>? userPlaceData = snapshot.value as Map<dynamic, dynamic>?;
+
+    if (userPlaceData != null) {
+      userPlaceData.forEach((user, places) {
+        Map<dynamic, dynamic> userPlaces = places as Map<dynamic, dynamic>;
+        userPlaces.forEach((id, placeDetails) {
+          if (id.toString() == placeId.toString() && placeDetails["rating"] != null) {
+            if (placeDetails["rating"].toDouble() > 0.0) {
+            double rating = placeDetails["rating"].toDouble();
+            totalRating += rating;
+            ratingCount++;
+            print(rating);
+            }
+          }
+        });
+      });
+    }
+
+    double averageRating = ratingCount > 0 ? totalRating / ratingCount : 0;
+      double roundedAverageRating = (averageRating * 100).round() / 100;
+      
+      // Update the state with the new rating
+      setState(() {
+        ratingF = roundedAverageRating;
+      });
+
+  });
+}
+
+
   /*@override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -243,6 +281,8 @@ class _PlacePageState extends State<PlacePage> {
       retrieveUserColor();
     }
     retrieveVisitedPlacesIds();
+    retrieveRating();
+    print("final rating = $ratingF");
   }
 
   @override
@@ -376,7 +416,7 @@ class _PlacePageState extends State<PlacePage> {
                                     Align(
                                       alignment: AlignmentDirectional(0, 0),
                                       child: Text(
-                                        '4.95',
+                                        ratingF.toString(),
                                         style: TextStyle(
                                           fontSize: 21,
                                           letterSpacing: 0,
