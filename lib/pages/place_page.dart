@@ -40,6 +40,7 @@ class _PlacePageState extends State<PlacePage> {
   late String local = "";
   late String horarioOpen = "";
   late String horarioClose = "";
+  List<String> visitedPlacesIds = [];
 
   void retrievePlaceId() {
     String name = widget.name.toString();
@@ -62,6 +63,29 @@ class _PlacePageState extends State<PlacePage> {
           });
           return; // Stop iterating once the place is found
         }
+      });
+    });
+  }
+  void retrieveVisitedPlacesIds() {
+    DatabaseReference userRef = FirebaseDatabase.instance.ref().child(
+        "user-place/${currentUser?.email!.replaceAll('.', '_').replaceAll('@', '_').replaceAll('#', '_')}");
+
+    userRef.onValue.listen((event) {
+      DataSnapshot snapshot = event.snapshot;
+      List<String> ids = [];
+      Map<dynamic, dynamic>? userPlaceData =
+          snapshot.value as Map<dynamic, dynamic>?;
+
+      if (userPlaceData != null) {
+        userPlaceData.forEach((placeId, placeData) {
+          if (placeData['visited'] == true) {
+            ids.add(placeId.toString());
+          }
+        });
+      }
+
+      setState(() {
+        visitedPlacesIds = ids;
       });
     });
   }
@@ -121,6 +145,20 @@ class _PlacePageState extends State<PlacePage> {
     userRef.set(false);
   }
 
+  String checkVisited() {
+    if (visitedPlacesIds.contains(placeId)) {
+      return "Unlocked";
+    } else {
+      return "Locked";
+    }
+  }
+  Color checkVisitedColor() {
+    if (visitedPlacesIds.contains(placeId)) {
+      return Colors.green;
+    } else {
+      return Colors.red;
+    }
+  }
   /*@override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -204,6 +242,7 @@ class _PlacePageState extends State<PlacePage> {
     if (currentUser != null) {
       retrieveUserColor();
     }
+    retrieveVisitedPlacesIds();
   }
 
   @override
@@ -628,9 +667,9 @@ class _PlacePageState extends State<PlacePage> {
                                           ),
                                         ),
                                         TextSpan(
-                                          text: "Available",
+                                          text: checkVisited(),
                                           style: TextStyle(
-                                            color: Colors.green,
+                                            color: checkVisitedColor(),
                                             fontWeight: FontWeight.w500,
                                             fontSize: 20,
                                           ),
