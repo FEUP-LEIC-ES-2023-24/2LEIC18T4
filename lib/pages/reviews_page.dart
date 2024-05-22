@@ -238,11 +238,7 @@ class _ReviewsPageState extends State<ReviewsPage> {
   Widget build(BuildContext context) {
     if (currentUser != null) {
       return GestureDetector(
-        /*onTap: () => _model.unfocusNode.canRequestFocus
-          ? FocusScope.of(context).requestFocus(_model.unfocusNode)
-          : FocusScope.of(context).unfocus(),*/
         child: Scaffold(
-          //key: scaffoldKey,
           backgroundColor: Colors.white,
           body: SafeArea(
             top: true,
@@ -319,8 +315,6 @@ class _ReviewsPageState extends State<ReviewsPage> {
                   ),
                 ),
                 GestureDetector(
-                  child: Expanded(
-                    flex: 1,
                     child: Row(
                       mainAxisSize: MainAxisSize.max,
                       mainAxisAlignment: MainAxisAlignment.center,
@@ -369,7 +363,6 @@ class _ReviewsPageState extends State<ReviewsPage> {
                           ),
                         ),
                       ],
-                    ),
                   ),
                   onTap: () {
                     showDialog(
